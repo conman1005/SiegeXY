@@ -1,8 +1,4 @@
-function setup() {
-  createCanvas(1366, 657);
-  
+function setup() {  
 }
 function draw() {
-  background(120);
-  // image(ImageMainMenu, 0, 0);
 }
