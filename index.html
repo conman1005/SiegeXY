@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Siege XY</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/SiegeXY.png">
+  <img  style="position: absolute; top: CENTER; left: CENTER;" vsrc="MenuTextures/SiegeXY.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:350px; left:130px;" width="150" height="150" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:400px; left:65px;" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:100px; left:65px;" vsrc="bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:420px; left:810px;" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:200px; left:890px;" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:300px; left:1000px;" width="150" height="150" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+<picture>
+  <source media="(min-width: 650px)" srcset="MenuTextures/bulletHole1.png">
+  <img  style="position: absolute; top:0px; left:1120px;" vsrc="MenuTextures/bulletHole1.png">
+</picture>
+
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+
+.dropdown {
+  position: absolute; top:428px; left:538px;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #606060;
+  z-index: 1;
+  text-align: CENTER;
+  width: 20%;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #404040;;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+    button {
+  background-color: #404040;
+  color: white;
+  padding: 14px 20px;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  position: absolute;
+}
+    button:hover {
+    opacity: 0.8;
+    }
+
+    picture:hover{
+    }
+
+    modal:hover{
+    }
+
+    .cancelbtn {
+  background-color: #404040;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+
+  .show {display: block;}
+}
+    </style>
+
+
+   <div class="dropdown">
+  <button class="button">Play Game</button>
+  <div class="dropdown-content">
+    <a href="Casual.html">Casual</a>
+    <a href="#">Ranked</a>
+    <a href="#">Terrorist Hunt</a>
+  </div>
+</div>
+
+
+
+     <form class="container" action="/game.html">
+
+    <!--<div class="container">-->
+    <!--  <button style="position: absolute; top:428px; left:538px;" onclick="myFunction()" class="dropbtn">Play Game</button>-->
+    <!--</div>-->
+    </form>
+
+
+    <button style="position: absolute; top:528px; left:538px;" class="button">Credits</button>
+
+   <button onclick="document.getElementById('id01').style.display='block'" style="position: absolute; top:478px; left:538px;">Settings</button>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/index.html">
+
+
+    <div class="container">
+    <audio autoplay loop controls>
+  <source src="Songs/Music2.mp3" type="audio/mpeg">
+</audio>
+    </div>
+
+
+
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
+
+  </body>
+</html>
