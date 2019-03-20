@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Siege XY</title>
     <script src="libraries/p5.js" type="text/javascript"></script>
-
+    <script function preload(){
+    var song;
+    song = loadSound("Songs/CabinetMan.mp3");
+    }></script>
     <script src="libraries/p5.dom.js" type="text/javascript"></script>
     <script src="libraries/p5.sound.js" type="text/javascript"></script>
     <script src="CharacterSelect.js" type="text/javascript"></script>
@@ -13,12 +16,12 @@
 
    <canvas id="my-canvas"></canvas>
 
-   <video autoplay muted loop id="myVideo">
+   <!-- <video autoplay muted loop id="myVideo">
      <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
      Your browser does not support HTML5 video.
    </video>
 
-   <script>
+   <script
    var video = document.getElementById("myVideo");
    var btn = document.getElementById("myBtn");
 
@@ -27,22 +30,12 @@
        video.play();
      } else {
        video.pause();
-     }
+     }>
+     </script> -->
 
-   <script
-   var can = document.getElementById("my-canvas");
+  <body background= "MenuTextures/SelectScreenMoving.mp4">
 
-   can.style.width = window.innerWidth + "px";
-   can.style.height = window.innerHeight + "px";>
-   </script>
 
-<script> function musicPlay(){
-source src="Songs/CabinetMan.mp3" type="audio/mpeg"
-Play();
-}
-</script>
-
-  <body background= "MenuTextures/SelectScreen.jpg">
 
      <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -82,14 +75,13 @@ text:hover {
 }
 </style>
 
-<button onclick = "musicPlay()">
-</button>
+<button onclick = song.play()></button>
 
 
 
 
 
-<p style="position: absolute; top: 20%;  left: 30%;margin-top: -30px; height: 60px; color: white; font-size:60px">Choose Your Operator</p>
+<p style="position: absolute; top: 20%;  left: 50%; margin-top: -30px; height: 60px; color: white; font-size:60px">Choose Your Operator</p>
 
 <a href="game.html">
   <img srcset="OperatorImages/Tortue.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
