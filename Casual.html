@@ -16,26 +16,24 @@
 
    <canvas id="my-canvas"></canvas>
 
-   <!-- <video autoplay muted loop id="myVideo">
-     <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
-     Your browser does not support HTML5 video.
-   </video>
-
-   <script
-   var video = document.getElementById("myVideo");
-   var btn = document.getElementById("myBtn");
-
-   function myFunction() {
-     if (video.paused) {
-       video.play();
-     } else {
-       video.pause();
-     }>
-     </script> -->
-
   <body background= "MenuTextures/SelectScreenMoving.mp4">
 
+    <video autoplay muted loop id="myVideo">
+      <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
 
+    <script
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }>
+      </script>
 
      <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -72,7 +70,15 @@ progress:hover {
 text:hover {
 }
 
+p {
+text-align: center;
+top: 20%;
+margin-top: -30px;
+height: 60px;
+color: white;
+font-size: 60px;
 }
+
 </style>
 
 <button onclick = song.play()></button>
@@ -81,7 +87,26 @@ text:hover {
 
 
 
-<p style="position: absolute; top: 20%;  left: 50%; margin-top: -30px; height: 60px; color: white; font-size:60px">Choose Your Operator</p>
+<p style="
+">Choose Your Operator</p>
+
+<!-- <video background autoplay muted loop id="myVideo">
+  <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<script
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }>
+  </script> -->
+
 
 <a href="game.html">
   <img srcset="OperatorImages/Tortue.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">

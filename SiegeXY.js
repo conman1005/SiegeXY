@@ -40,7 +40,7 @@ function perload() {}
 
 function setup() {
   menu = select('#id01');
-  createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(1366, 657);
   PlayerImage1[0] = loadImage('GameTextures/Op1.png');
   PlayerImage1[1] = loadImage('GameTextures/Op2.png');
   PlayerImage1[2] = loadImage('GameTextures/Op3.png');
