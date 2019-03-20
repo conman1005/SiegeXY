@@ -13,6 +13,21 @@
 
    <canvas id="my-canvas"></canvas>
 
+   <video autoplay muted loop id="myVideo">
+     <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
+     Your browser does not support HTML5 video.
+   </video>
+
+   <script>
+   var video = document.getElementById("myVideo");
+   var btn = document.getElementById("myBtn");
+
+   function myFunction() {
+     if (video.paused) {
+       video.play();
+     } else {
+       video.pause();
+     }
 
    <script
    var can = document.getElementById("my-canvas");
@@ -20,6 +35,12 @@
    can.style.width = window.innerWidth + "px";
    can.style.height = window.innerHeight + "px";>
    </script>
+
+<script> function musicPlay(){
+source src="Songs/CabinetMan.mp3" type="audio/mpeg"
+Play();
+}
+</script>
 
   <body background= "MenuTextures/SelectScreen.jpg">
 
@@ -39,6 +60,14 @@ button {
   position: absolute;
 }
 
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 button:hover {
   opacity: 0.8;
 }
@@ -53,37 +82,44 @@ text:hover {
 }
 </style>
 
-<p style="position: absolute; top:0px; left:400px; color: white; font-size:60px ">Choose Your Operator</p>
+<button onclick = "musicPlay()">
+</button>
+
+
+
+
+
+<p style="position: absolute; top: 20%;  left: 30%;margin-top: -30px; height: 60px; color: white; font-size:60px">Choose Your Operator</p>
 
 <a href="game.html">
-  <img srcset="OperatorImages/Tortue.png"  style="position: absolute; top: 200px; left:640px;" width="75" height="75" vsrc="Tortue.png">
+  <img srcset="OperatorImages/Tortue.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
 </a>
 
 <a href="game.html"  onclick="displayResult()">
-  <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 200px; left:750px;" width="75" height="75" vsrc="Pewdiepie.png">
+  <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 38%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
 </a>
 <a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 310px; left:530px;" width="75" height="75" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 52%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
 </a>
 <a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 310px; left:640px;" width="75" height="75" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 52%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
 </a>
 <a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 310px; left:750px;" width="75" height="75" vsrc="OperatorNotDone.png">
-</a>
-
-<a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 420px; left:530px;" width="75" height="75" vsrc="OperatorNotDone.png">
-</a>
-<a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 420px; left:640px;" width="75" height="75" vsrc="OperatorNotDone.png">
-</a>
-<a href="game.html">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 420px; left:750px;" width="75" height="75" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
 </a>
 
 <a href="game.html">
-<img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 200px; left:530px;" width="75" height="75" vsrc="Blackout.png"/>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 52%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+</a>
+<a href="game.html">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+</a>
+<a href="game.html">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+</a>
+
+<a href="game.html">
+<img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 38%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png"/>
 </a>
 
  </body>
