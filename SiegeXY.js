@@ -45,7 +45,7 @@ function setup() {
   PlayerImage1[1] = loadImage('GameTextures/Op2.png');
   PlayerImage1[2] = loadImage('GameTextures/Op3.png');
   PlayerImage2 = loadImage('GameTextures/Op2.png');
-  PlayerImage1 = loadImage('GameTextures/Op1.png');
+  PlayerImage1 = loadImage('GameTextures/.png');
   floor1 = loadImage('GameTextures/Floor1.jpg');
   wall1 = loadImage('GameTextures/Wall1.jpg');
   bomb1 = loadImage('GameTextures/bomb.png');
