@@ -6,7 +6,7 @@ var imgLayer2 = document.getElementById("layer2");
 
 var imgBlackout = document.getElementById("Blackout");
 var imgTortue = document.getElementById("Tortue");
-var imgPewDiePie = document.getElementById("layer2");
+var imgPewDiePie = document.getElementById("PewDiePie");
 
 
 function preload(){
@@ -20,7 +20,7 @@ function setup(){
 
 
 function draw(){
-  ctx.drawImage(imgLayer1, 6000, 6000);
+  ctx.drawImage(imgLayer1, 4000, 4000);
 
 }
 
