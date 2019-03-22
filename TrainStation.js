@@ -1,16 +1,26 @@
+var cnvGame;
+var ctx;
 
+var imgLayer1 = document.getElementById("layer1");
+var imgLayer2 = document.getElementById("layer2");
+
+var imgBlackout = document.getElementById("Blackout");
+var imgTortue = document.getElementById("Tortue");
+var imgPewDiePie = document.getElementById("layer2");
 
 
 function preload(){
-
+  cnvGame = document.getElementById("cnvGame");
+  ctx = c.getContext("2d");
 }
 
 function setup(){
-createCanvas();
+
 }
 
 
 function draw(){
+  ctx.drawImage(imgLayer1, 6000, 6000);
 
 }
 
