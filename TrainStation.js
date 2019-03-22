@@ -21,7 +21,6 @@ function setup(){
 
 function draw(){
   ctx.drawImage(imgLayer1, 4000, 4000);
-
 }
 
 
