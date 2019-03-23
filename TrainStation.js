@@ -1,27 +1,52 @@
 var cnvGame;
 var ctx;
 
-var imgLayer1 = document.getElementById("layer1");
-var imgLayer2 = document.getElementById("layer2");
+var imgLayer1;
+var imgLayer2;
 
-var imgBlackout = document.getElementById("Blackout");
-var imgTortue = document.getElementById("Tortue");
-var imgPewDiePie = document.getElementById("PewDiePie");
+var imgBlackout;
+var imgTortue;
+var imgPewDiePie;
+
+var gameArea = document.getElementById("divGame");
+var timer = setInterval(movement, 5);
+
+function movement() {
+  if (keyIsDown(80)) {
+
+  }
+  if (keyIsDown(186)) {
+
+  }
+  if (keyIsDown(76)) {
+
+  }
+  if (keyIsDown(222)) {
+
+  }
+}
+
+
+
 
 
 function preload(){
-  cnvGame = document.getElementById("cnvGame");
-  ctx = c.getContext("2d");
+  /*cnvGame = document.getElementById("cnvGame");
+  ctx = c.getContext("2d");*/
+
+
 }
 
-function setup(){
-
+/*function setup(){
+  imgBlackout = loadImage('GameTextures/Op1.png');
+   = loadImage('GameTextures/Op2.png');
+   = loadImage('GameTextures/Op3.png');
 }
 
 
 function draw(){
   ctx.drawImage(imgLayer1, 4000, 4000);
-}
+}*/
 
 
 
