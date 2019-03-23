@@ -9,21 +9,35 @@ var imgTortue;
 var imgPewDiePie;
 
 var gameArea = document.getElementById("divGame");
-var timer = setInterval(movement, 5);
+//var timer = setInterval(movement, 5);
 
-function movement() {
-  if (keyIsDown(80)) {
+var posX = 0;
+var posY = 0;
 
+document.body.onkeydown = function(e){
+  //console.console.log("keydown is detected");
+  e = e || window.event;
+  var keycode = event.charCode || event.keyCode;
+  if (keycode === 87) {
+    posY--;
+    gameArea.style.top = posY + "px";
   }
-  if (keyIsDown(186)) {
-
+  if (keycode === 65) {
+    posY--;
+    gameArea.style.top = posX + "px";
   }
-  if (keyIsDown(76)) {
-
+  if (keycode === 83) {
+    posY++;
+    gameArea.style.top = posY + "px";
   }
-  if (keyIsDown(222)) {
-
+  if (keycode === 68) {
+    posY++;
+    gameArea.style.top = posX + "px";
   }
+}
+
+function movement(e) {
+
 }
 
 
