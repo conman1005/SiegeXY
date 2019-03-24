@@ -5,8 +5,7 @@
 
     <script src="TrainStation.js" type="text/javascript"></script>
 
-    <img id="layer1" src="GameTextures/Train Station18.png" alt="Layer 1">
-    <img id="layer2" src="GameTextures/TrainStation Layer2.png" alt="Layer 2">
+
     <img id="Blackout" src="GameTextures/Op1.png">
     <img id="Tortue" src="GameTextures/Op2.png">
     <img id="PewDiePie" src="GameTextures/Op3.png">
@@ -16,11 +15,18 @@
         overflow: hidden;
         background-color: #4f4f4f;
       }
+      #layer1, #layer2 {
+        position: absolute;
+      }
+      #Blackout, #Tortue, #PewDiePie {
+        position: relative;
+      }
     </style>
   </head>
   <body>
-    <canvas id="cnvGame" width="4000" height="4000">
-
-    </canvas>
+    <div id="divGame">
+      <img id="layer1" src="GameTextures/Train Station18.png" alt="Layer 1">
+      <img id="layer2" src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
+    </div>
   </body>
 </html>
