@@ -1,47 +1,61 @@
 var cnvGame;
 var ctx;
 
-var imgLayer1;
-var imgLayer2;
+var imgLayer1 = document.getElementById("layer1");
+var imgLayer2 = document.getElementById("layer2");
 
 var imgBlackout;
 var imgTortue;
 var imgPewDiePie;
 
 var gameArea = document.getElementById("divGame");
-//var timer = setInterval(movement, 5);
+
 
 var posX = 0;
 var posY = 0;
 
-document.body.onkeydown = function(e){
-  //console.console.log("keydown is detected");
+var up = false;
+var down = false;
+var left = false;
+var right = false;
+
+
+document.onkeydown = function (e) {
+  console.log("keydown is detected");
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
   if (keycode === 87) {
-    posY--;
-    gameArea.style.top = posY + "px";
+    up = true;
+    posY  = posY + 5;
+    imgLayer1.style.top = posY + "px";
+    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 65) {
-    posY--;
-    gameArea.style.top = posX + "px";
+    left = true;
+    posX =  posX + 5;
+    imgLayer1.style.left = posX + "px";
+    imgLayer2.style.left = posX + "px";
   }
   if (keycode === 83) {
-    posY++;
-    gameArea.style.top = posY + "px";
+    down = true;
+    posY =  posY - 5;
+    imgLayer1.style.top = posY + "px";
+    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 68) {
-    posY++;
-    gameArea.style.top = posX + "px";
+    right = true
+    posX = posX - 5;
+    imgLayer1.style.left = posX + "px";
+    imgLayer2.style.left = posX + "px";
   }
 }
 
-function movement(e) {
+function movement() {
 
 }
 
 
-
+var timer = setInterval(movement, 5);
 
 
 function preload(){
