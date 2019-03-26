@@ -10,7 +10,8 @@ var imgPewDiePie;
 
 var gameArea = document.getElementById("divGame");
 
-var playerSpeed = 3;
+var playerSpeed = 4.5;
+var run = false;
 
 var posX = 0;
 var posY = 0;
@@ -22,63 +23,90 @@ var right = false;
 
 
 document.onkeydown = function (e) {
-  console.log("keydown is detected");
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
   if(keycode === 16){
-  playerSpeed = playerSpeed + 1;
+    run = true;
   }
-  if (keycode === 68) {
-    right = true
-    
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
+  if (keycode === 87) {
+    up = true
   }
   if (keycode === 65) {
     left = true;
-    posX =  posX + playerSpeed;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
   }
   if (keycode === 83) {
     down = true;
-    posY =  posY - playerSpeed;
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 68) {
-    right = true
-    posX = posX - playerSpeed;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
+    right = true;
+  }
+}
+
+document.onkeyup = function (e) {
+  e = e || window.event;
+  var keycode = event.charCode || event.keyCode;
+  if(keycode === 16){
+    run = false;
+  }
+  if (keycode === 87) {
+    up = false
+  }
+  if (keycode === 65) {
+    left = false;
+  }
+  if (keycode === 83) {
+    down = false;
+  }
+  if (keycode === 68) {
+    right = false
   }
 }
 
 function movement() {
     if (up === true) {
-        posY  = posY + playerSpeed;
+        if (run === true) {
+            posY = posY + playerSpeed;
+        }
+        else {
+            posY = posY + 3;
+        }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
     }
     if (left === true) {
-        posX  = posX + playerSpeed;
+        if (run === true) {
+            posX = posX + playerSpeed;
+        }
+        else {
+            posX = posX + 3;
+        }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
     }
     if (down === true ) {
-        posY  = posY - playerSpeed;
+        if (run === true) {
+            posY = posY - playerSpeed;
+        }
+        else {
+            posY = posY - 3;
+        }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
     }
     if (right === true) {
-        posX  = posX - playerSpeed;
+        if (run === true) {
+            posX = posX - playerSpeed;
+        }
+        else {
+            posX = posX - 3;
+        }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
     }
 }
 
 
-var timer = setInterval(movement, 5);
+var timer = setInterval(movement, 8);
 
 
 function preload(){
