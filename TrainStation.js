@@ -10,6 +10,7 @@ var imgPewDiePie;
 
 var gameArea = document.getElementById("divGame");
 
+var playerSpeed = 3;
 
 var posX = 0;
 var posY = 0;
@@ -24,27 +25,31 @@ document.onkeydown = function (e) {
   console.log("keydown is detected");
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
+  if(keycode === 16){
+  var playerSpeed = 4;
+  }
+
   if (keycode === 87) {
     up = true;
-    posY  = posY + 5;
+    posY  = posY + playerSpeed;
     imgLayer1.style.top = posY + "px";
     imgLayer2.style.top = posY + "px";
   }
   if (keycode === 65) {
     left = true;
-    posX =  posX + 5;
+    posX =  posX + playerSpeed;
     imgLayer1.style.left = posX + "px";
     imgLayer2.style.left = posX + "px";
   }
   if (keycode === 83) {
     down = true;
-    posY =  posY - 5;
+    posY =  posY - playerSpeed;
     imgLayer1.style.top = posY + "px";
     imgLayer2.style.top = posY + "px";
   }
   if (keycode === 68) {
     right = true
-    posX = posX - 5;
+    posX = posX - playerSpeed;
     imgLayer1.style.left = posX + "px";
     imgLayer2.style.left = posX + "px";
   }
@@ -75,29 +80,3 @@ function preload(){
 function draw(){
   ctx.drawImage(imgLayer1, 4000, 4000);
 }*/
-
-
-
-
-
-
-
-//////////////////////////////////////////////////
-
-//Player 1 function
-
-function player(x, y) {
-  this.x = x;
-  this.y = y;
-  this.r = 25;
-
-  this.display = function() {
-    image(PlayerImage1, Player1MoveX, Player1MoveY);
-  }
-
-  this.move = function() {
-
-  }
-}
-
-//////////////////////////////////////////////////
