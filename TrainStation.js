@@ -26,32 +26,39 @@ document.onkeydown = function (e) {
   var keycode = event.charCode || event.keyCode;
   if (keycode === 87) {
     up = true;
-    posY  = posY + 5;
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 65) {
     left = true;
-    posX =  posX + 5;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
   }
   if (keycode === 83) {
     down = true;
-    posY =  posY - 5;
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 68) {
     right = true
-    posX = posX - 5;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
   }
 }
 
 function movement() {
-
+    if (up === true) {
+        posY  = posY + 5;
+        imgLayer1.style.top = posY + "px";
+        imgLayer2.style.top = posY + "px";
+    }
+    if (left === true) {
+        posX =  posX + 5;
+        imgLayer1.style.left = posX + "px";
+        imgLayer2.style.left = posX + "px";
+    }
+    if (down === true ) {
+        posY =  posY - 5;
+        imgLayer1.style.top = posY + "px";
+        imgLayer2.style.top = posY + "px";
+    }
+    if (right === true) {
+        posX = posX - 5;
+        imgLayer1.style.left = posX + "px";
+        imgLayer2.style.left = posX + "px";
+    }
 }
 
 
