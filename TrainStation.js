@@ -2,7 +2,7 @@ var cnvGame;
 var ctx;
 
 var imgLayer1 = document.getElementById("layer1");
-var imgLayer2 = document.getElementById("layer2");
+// var imgLayer2 = document.getElementById("layer2");
 
 var imgBlackout;
 var imgTortue;
@@ -154,7 +154,7 @@ function movement() {
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
     }
-    
+
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     var deg = rot * (180 / Math.PI)
@@ -162,7 +162,7 @@ function movement() {
 }
 
 document.onclick = function (e) {
-    
+
 }
 
 
