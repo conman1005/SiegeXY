@@ -66,6 +66,14 @@ document.onkeyup = function (e) {
   if (keycode === 68) {
     right = false
   }
+  if (keycode === 50){
+  var operator = document.getElementById("PewDiePie");
+  operator.src = "GameTextures/Op4.png";
+  }
+  if (keycode === 49){
+  var operator = document.getElementById("PewDiePie");
+  operator.src = "GameTextures/Op4Primary.png";
+  }
 }
 
 document.addEventListener('mousemove', function(ev) {
