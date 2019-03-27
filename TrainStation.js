@@ -16,6 +16,9 @@ var run = false;
 var posX = 0;
 var posY = 0;
 
+var bullets = [];
+var BulletSpeed = 13;
+
 var up = false;
 var down = false;
 var left = false;
@@ -141,29 +144,27 @@ function movement() {
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
     }
+
 }
 
 
 var timer = setInterval(movement, 5);
 
 
-function preload(){
-  /*cnvGame = document.getElementById("cnvGame");
-  ctx = c.getContext("2d");*/
 
-
+    
+    var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
+    var rot = Math.atan2(dy, dx);
+    var deg = rot * (180 / Math.PI)
+    imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
 }
 
-/*function setup(){
-  imgBlackout = loadImage('GameTextures/Op1.png');
-   = loadImage('GameTextures/Op2.png');
-   = loadImage('GameTextures/Op3.png');
+document.onclick = function (e) {
+    bullets.push(new Bullet(point.top, point.left, 0, -1));
 }
 
 
-function draw(){
-  ctx.drawImage(imgLayer1, 4000, 4000);
-}*/
+var timer = setInterval(movement, 5);
 
 ///////////////////////////////////////////////////
 
