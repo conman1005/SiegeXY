@@ -16,6 +16,9 @@ var run = false;
 var posX = 0;
 var posY = 0;
 
+var bullets = [];
+var BulletSpeed = 13;
+
 var up = false;
 var down = false;
 var left = false;
@@ -156,30 +159,14 @@ function movement() {
     var rot = Math.atan2(dy, dx);
     var deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
-    console.log(mouse, point, dx, dy, rot, deg);
+}
+
+document.onclick = function (e) {
+    bullets.push(new Bullet(point.top, point.left, 0, -1));
 }
 
 
 var timer = setInterval(movement, 5);
-
-
-function preload(){
-  /*cnvGame = document.getElementById("cnvGame");
-  ctx = c.getContext("2d");*/
-
-
-}
-
-/*function setup(){
-  imgBlackout = loadImage('GameTextures/Op1.png');
-   = loadImage('GameTextures/Op2.png');
-   = loadImage('GameTextures/Op3.png');
-}
-
-
-function draw(){
-  ctx.drawImage(imgLayer1, 4000, 4000);
-}*/
 
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
