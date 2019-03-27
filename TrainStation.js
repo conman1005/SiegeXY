@@ -10,7 +10,8 @@ var imgPewDiePie;
 
 var gameArea = document.getElementById("divGame");
 
-var playerSpeed = 3;
+var playerSpeed = 4;
+var run = false;
 
 var posX = 0;
 var posY = 0;
@@ -22,41 +23,124 @@ var right = false;
 
 
 document.onkeydown = function (e) {
-  console.log("keydown is detected");
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
   if(keycode === 16){
-  var playerSpeed = 4;
+    run = true;
   }
-
   if (keycode === 87) {
-    up = true;
-    posY  = posY + playerSpeed;
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
+    up = true
   }
   if (keycode === 65) {
     left = true;
-    posX =  posX + playerSpeed;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
   }
   if (keycode === 83) {
     down = true;
-    posY =  posY - playerSpeed;
-    imgLayer1.style.top = posY + "px";
-    imgLayer2.style.top = posY + "px";
   }
   if (keycode === 68) {
-    right = true
-    posX = posX - playerSpeed;
-    imgLayer1.style.left = posX + "px";
-    imgLayer2.style.left = posX + "px";
+    right = true;
+  }
+}
+
+document.onkeyup = function (e) {
+  e = e || window.event;
+  var keycode = event.charCode || event.keyCode;
+  if(keycode === 16){
+    run = false;
+  }
+  if (keycode === 87) {
+    up = false
+  }
+  if (keycode === 65) {
+    left = false;
+  }
+  if (keycode === 83) {
+    down = false;
+  }
+  if (keycode === 68) {
+    right = false
   }
 }
 
 function movement() {
-
+    if (up === true) {
+        if (run === true) {
+            if ((left === true) || (right === true)) {
+                posY = posY + (playerSpeed / 2);
+            }
+            else {
+                posY = posY + playerSpeed;
+            }
+        }
+        else {
+            if ((left === true) || (right === true)) {
+                posY = posY + 0.5;
+            }
+            posY = posY + 1;
+        }
+        imgLayer1.style.top = posY + "px";
+        imgLayer2.style.top = posY + "px";
+    }
+    if (left === true) {
+        if (run === true) {
+            if ((up === true) || (down === true)) {
+                posX = posX + (playerSpeed / 2);
+            }
+            else {
+                posX = posX + playerSpeed;
+            }
+        }
+        else {
+            if ((up === true) || (down === true)) {
+                posX = posX + 0.5;
+            }
+            else {
+                posX = posX + 1;
+            }
+        }
+        imgLayer1.style.left = posX + "px";
+        imgLayer2.style.left = posX + "px";
+    }
+    if (down === true ) {
+        if (run === true) {
+            if ((left === true) || (right === true)) {
+                posY = posY - (playerSpeed / 2);
+            }
+            else {
+                posY = posY - playerSpeed;
+            }
+        }
+        else {
+            if ((left === true) || (right === true)) {
+                posY = posY - 0.5;
+            }
+            else {
+                posY = posY - 1;
+            }
+        }
+        imgLayer1.style.top = posY + "px";
+        imgLayer2.style.top = posY + "px";
+    }
+    if (right === true) {
+        if (run === true) {
+            if ((up === true) || (down === true)) {
+                posX = posX - (playerSpeed * 2);
+            }
+            else {
+                posX = posX - playerSpeed;
+            }
+        }
+        else {
+            if ((up === true) || (down === true)) {
+                posX = posX - 0.5;
+            }
+            else {
+                posX = posX - 1;
+            }
+        }
+        imgLayer1.style.left = posX + "px";
+        imgLayer2.style.left = posX + "px";
+    }
 }
 
 
