@@ -162,7 +162,7 @@ function movement() {
 }
 
 document.onclick = function (e) {
-    bullets.push(new Bullet(point.top, point.left, 0, -1));
+    
 }
 
 
