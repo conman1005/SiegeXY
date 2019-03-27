@@ -2,7 +2,7 @@ var cnvGame;
 var ctx;
 
 var imgLayer1 = document.getElementById("layer1");
-// var imgLayer2 = document.getElementById("layer2");
+var imgLayer2 = document.getElementById("layer2");
 
 var imgBlackout;
 var imgTortue;
