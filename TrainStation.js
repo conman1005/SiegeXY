@@ -160,7 +160,7 @@ var timer = setInterval(movement, 5);
 }
 
 document.onclick = function (e) {
-    bullets.push(new Bullet(point.top, point.left, 0, -1));
+    
 }
 
 
