@@ -67,12 +67,10 @@ document.onkeyup = function (e) {
     right = false
   }
   if (keycode === 50){
-  var operator = document.getElementById("PewDiePie");
-  operator.src = "GameTextures/Op4.png";
+    imgPewDiePie.src = "GameTextures/Op4.png";
   }
   if (keycode === 49){
-  var operator = document.getElementById("PewDiePie");
-  operator.src = "GameTextures/Op4Primary.png";
+    imgPewDiePie.src = "GameTextures/Op4Primary.png";
   }
 }
 
@@ -170,8 +168,18 @@ function movement() {
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
 }
 
-document.onclick = function (e) {
+document.onclick = function(e) {
 
+}
+
+document.onscroll = function (e) {
+  console.log("scroll");
+  if (imgPewDiePie.src === "GameTextures/Op4Primary.png"){
+    operator.src = "GameTextures/Op4.png";
+  }
+  else {
+    operator.src = "GameTextures/Op4Primary.png";
+  }
 }
 
 
