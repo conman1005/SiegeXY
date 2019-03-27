@@ -159,6 +159,7 @@ function movement() {
     var rot = Math.atan2(dy, dx);
     var deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
+    document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
 }
 
 document.onclick = function (e) {
