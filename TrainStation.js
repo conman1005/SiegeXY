@@ -19,6 +19,8 @@ var posY = 0;
 var bullets = [];
 var BulletSpeed = 13;
 
+var primary = true;
+
 var up = false;
 var down = false;
 var left = false;
@@ -168,19 +170,19 @@ function movement() {
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
 }
 
-document.onclick = function(e) {
-
+document.onclick = function (e) {
+  
 }
 
-document.onscroll = function (e) {
+/*window.onscroll = function (e) {
   console.log("scroll");
-  if (imgPewDiePie.src === "GameTextures/Op4Primary.png"){
+  if (primary === false){
     operator.src = "GameTextures/Op4.png";
   }
   else {
     operator.src = "GameTextures/Op4Primary.png";
   }
-}
+}*/
 
 
 var timer = setInterval(movement, 5);
