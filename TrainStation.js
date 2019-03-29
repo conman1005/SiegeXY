@@ -20,6 +20,8 @@ var posY = 0;
 var bullets = [];
 var BulletSpeed = 13;
 
+var primary = true;
+
 var up = false;
 var down = false;
 var left = false;
@@ -68,12 +70,10 @@ document.onkeyup = function (e) {
     right = false
   }
   if (keycode === 50){
-  var operator = document.getElementById("PewDiePie");
-  operator.src = "GameTextures/Op4.png";
+    imgPewDiePie.src = "GameTextures/Op4.png";
   }
   if (keycode === 49){
-  var operator = document.getElementById("PewDiePie");
-  operator.src = "GameTextures/Op4Primary.png";
+    imgPewDiePie.src = "GameTextures/Op4Primary.png";
   }
 }
 
@@ -175,8 +175,18 @@ function movement() {
 }
 
 document.onclick = function (e) {
-
+  
 }
+
+/*window.onscroll = function (e) {
+  console.log("scroll");
+  if (primary === false){
+    operator.src = "GameTextures/Op4.png";
+  }
+  else {
+    operator.src = "GameTextures/Op4Primary.png";
+  }
+}*/
 
 
 var timer = setInterval(movement, 5);
