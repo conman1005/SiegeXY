@@ -98,7 +98,7 @@ document.onkeyup = function (e) {
   if (keycode === 68) {
     right = false
   }
-  
+
   if (keycode === 50){
     imgPewDiePie.src = "GameTextures/Op4.png";
   }
@@ -255,6 +255,7 @@ function Bullet(x, y, xdir, ydir) {
   }
 }*/
 
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 var timer = setInterval(movement, 5);
 
