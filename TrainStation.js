@@ -32,6 +32,8 @@ var right = false;
 var mouse = [0, 0];
 var point = getOffset(imgPewDiePie);
 
+var bullet = new Image;
+
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -76,6 +78,13 @@ document.onkeyup = function (e) {
   }
   if (keycode === 68) {
     right = false
+  }
+  
+  if (keycode === 50){
+    imgPewDiePie.src = "GameTextures/Op4.png";
+  }
+  if (keycode === 49){
+    imgPewDiePie.src = "GameTextures/Op4Primary.png";
   }
 }
 
@@ -184,6 +193,9 @@ function movement() {
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
         imgTerrorist1.style.left = terro1Y + "px";
+        for (var i = 0; i > bullets.length; i++) {
+          document.body.appendChild(bullets[i]);
+        }
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
@@ -194,7 +206,11 @@ function movement() {
 }
 
 document.onclick = function (e) {
-
+  var newBullet = document.createElement("IMG");
+  newBullet.setAttribute("src", "GameTextures/Bullet.png");
+  newBullet.setAttribute("width", "100");
+  newBullet.setAttribute("height", "100");
+  bullets.push(newBullet);
 }
 
 /*window.onscroll = function (e) {
@@ -215,5 +231,5 @@ function getOffset(el) {
   return {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY
-  };
+  }
 }
