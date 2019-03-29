@@ -32,14 +32,33 @@
        opacity:0.7;
       }
       #Healthbar{
-      position: absolute;
-      margin-top: -10px;
-      margin-left: -75px;
-      width: 150px;
-      height: 20px;
-      top:5%;
-      left:10%;
       background-color: #90EE90;
+      position: absolute;
+      margin-top: -70.5px;
+      margin-left: -15.5px;
+      width: 141px;
+      height: 31px;
+      top:14%;
+      left:7%;
+      }
+      #AmmoCounter{
+      position: absolute;
+      margin-top: -70.5px;
+      margin-left: -15.5px;
+      width: 141px;
+      height: 31px;
+      top:14%;
+      left:18%;
+      }
+      #AmmoAmmount{
+      position: absolute;
+      margin-top: -70.5px;
+      margin-left: -15.5px;
+      width: 141px;
+      height: 31px;
+      top:15%;
+      left:23%;
+       font-family: arial;
       }
     </style>
   </head>
@@ -49,9 +68,11 @@
       <img id="layer2"src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
       <img id="terrorist1" src="GameTextures/Terrorist1.png" alt="Terrorist1">
     </p>
+    <img id="AmmoCounter" src="GameTextures/AmmoCounterLong.png">
+    <p id="AmmoAmmount">11/99</p>
     <img id="minimap" src="GameTextures/Train Station32.png" alt="Minimap">
     <img id="PewDiePie" src="GameTextures/Op4Primary.png">
-    <progress id="Healthbar" value="100" max="100">Health</progress>
+    <progress id="Healthbar" value="100" max="100"></progress>
   </body>
 
   <script src="TrainStation.js" type="text/javascript"></script>
