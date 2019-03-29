@@ -39,10 +39,10 @@ function preload() {
 }
 
 function draw() {
-    for (var i = 0; i < bulletsPlayer1.length; i++) {
-        console.log(i, bulletsPlayer1);
-        bulletsPlayer1[i].move();
-        bulletsPlayer1[i].display();
+    for (var i = 0; i < bullets.length; i++) {
+        console.log(i, bullets);
+        bullets[i].move();
+        bullets[i].display();
 
         var bulletDistance = dist(p2.x, p2.y, bulletsPlayer1[i].x, bulletsPlayer1[i].y);
         console.log(bulletDistance);
