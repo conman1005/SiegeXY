@@ -34,6 +34,25 @@ var point = getOffset(imgPewDiePie);
 
 var bullet = new Image;
 
+function preload() {
+    bullet = loadImage('GameTextures/bullet.png');
+}
+
+function draw() {
+    for (var i = 0; i < bulletsPlayer1.length; i++) {
+        console.log(i, bulletsPlayer1);
+        bulletsPlayer1[i].move();
+        bulletsPlayer1[i].display();
+
+        var bulletDistance = dist(p2.x, p2.y, bulletsPlayer1[i].x, bulletsPlayer1[i].y);
+        console.log(bulletDistance);
+        if (bulletDistance < p2.r + bulletsPlayer1[i].r) {
+          let healthbar1 = document.getElementById("healthbar1")
+          healthbar1.value -= 10;
+          bulletsPlayer1.splice(i, 1);
+        }
+    }
+}
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -206,11 +225,24 @@ function movement() {
 }
 
 document.onclick = function (e) {
-  var newBullet = document.createElement("IMG");
-  newBullet.setAttribute("src", "GameTextures/Bullet.png");
-  newBullet.setAttribute("width", "100");
-  newBullet.setAttribute("height", "100");
-  bullets.push(newBullet);
+  bullets.push(new Bullet(posX, posY, 0, -1));
+}
+
+function Bullet(x, y, xdir, ydir) {
+  this.x = x;
+  this.y = y;
+  this.r = 1;
+  this.xdir = xdir;
+  this.ydir = ydir;
+
+  this.display = function() {
+    ellipse(this.x, this.y, 5, 5);
+  }
+
+  this.move = function() {
+    this.y = this.y + (this.ydir * BulletSpeed);
+    this.x = this.x + (this.xdir * BulletSpeed);
+  }
 }
 
 /*window.onscroll = function (e) {
