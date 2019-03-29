@@ -3,7 +3,7 @@ var ctx;
 
 var imgLayer1 = document.getElementById("layer1");
 var imgLayer2 = document.getElementById("layer2");
-var imgTerrorist1 = document.getElementById("Terrorist1")
+var imgTerrorist1 = document.getElementById("terrorist1")
 
 var imgBlackout;
 var imgTortue;
@@ -14,6 +14,8 @@ var gameArea = document.getElementById("divGame");
 var playerSpeed = 2.2;
 var run = false;
 
+var terro1X = 900;
+var terro1Y = 300;
 var posX = 0;
 var posY = 0;
 
@@ -51,6 +53,12 @@ document.onkeydown = function (e) {
   if (keycode === 68) {
     right = true;
   }
+  if (keycode === 50){
+    imgPewDiePie.src = "GameTextures/Op4.png";
+  }
+  if (keycode === 49){
+    imgPewDiePie.src = "GameTextures/Op4Primary.png";
+  }
 }
 
 document.onkeyup = function (e) {
@@ -71,6 +79,7 @@ document.onkeyup = function (e) {
   if (keycode === 68) {
     right = false
   }
+  
   if (keycode === 50){
     imgPewDiePie.src = "GameTextures/Op4.png";
   }
@@ -89,88 +98,104 @@ function movement() {
         if (run === true) {
             if ((left === true) || (right === true)) {
                 posY = posY + (playerSpeed / 2);
+                terro1Y = terro1Y + (playerSpeed / 2);
             }
             else {
                 posY = posY + playerSpeed;
+                terro1Y = terro1Y + playerSpeed;
             }
         }
         else {
             if ((left === true) || (right === true)) {
                 posY = posY + 0.5;
+                terro1Y = terro1Y + 0.5;
             }
             else {
                 posY = posY + 1;
+                terro1Y = terro1Y + 1;
             }
         }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
+        imgTerrorist1.style.top = terro1Y + "px";
     }
     if (left === true) {
         if (run === true) {
             if ((up === true) || (down === true)) {
                 posX = posX + (playerSpeed / 2);
+                terro1X = terro1X + (playerSpeed / 2);
             }
             else {
                 posX = posX + playerSpeed;
+                terro1X = terro1X + playerSpeed;
             }
         }
         else {
             if ((up === true) || (down === true)) {
                 posX = posX + 0.5;
+                terro1X = terro1X + 0.5;
             }
             else {
                 posX = posX + 1;
+                terro1X = terro1X + 1;
             }
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
-        imgTerrorist1.style.left = posX + "px";
+        imgTerrorist1.style.left = terro1X + "px";
     }
     if (down === true ) {
         if (run === true) {
             if ((left === true) || (right === true)) {
                 posY = posY - (playerSpeed / 2);
+                terro1Y = terro1Y - (playerSpeed / 2);
             }
             else {
                 posY = posY - playerSpeed;
+                terro1Y = terro1Y - playerSpeed;
             }
         }
         else {
             if ((left === true) || (right === true)) {
                 posY = posY - 0.5;
+                terro1Y = terro1Y - 0.5;
             }
             else {
                 posY = posY - 1;
+                terro1Y = terro1Y - 1;
             }
         }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
-        imgTerrorist1.style.top = posY + "px";
+        imgTerrorist1.style.top = terro1Y + "px";
     }
     if (right === true) {
         if (run === true) {
             if ((up === true) || (down === true)) {
                 posX = posX - (playerSpeed / 2);
+                terro1X = terro1X - (playerSpeed / 2);
             }
             else {
                 posX = posX - playerSpeed;
+                terro1X = terro1X - playerSpeed;
             }
         }
         else {
             if ((up === true) || (down === true)) {
                 posX = posX - 0.5;
+                terro1X = terro1X - 0.5;
             }
             else {
                 posX = posX - 1;
+                terro1X = terro1X - 1;
             }
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
-	imgTerrorist1.style.left = posX + "px";
+        imgTerrorist1.style.left = terro1Y + "px";
         for (var i = 0; i > bullets.length; i++) {
           document.body.appendChild(bullets[i]);
         }
-        
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
