@@ -38,22 +38,6 @@ function preload() {
     bullet = loadImage('GameTextures/bullet.png');
 }
 
-function draw() {
-    for (var i = 0; i < bullets.length; i++) {
-        console.log(i, bullets);
-        bullets[i].move();
-        bullets[i].display();
-
-        var bulletDistance = dist(p2.x, p2.y, bulletsPlayer1[i].x, bulletsPlayer1[i].y);
-        console.log(bulletDistance);
-        if (bulletDistance < p2.r + bulletsPlayer1[i].r) {
-          let healthbar1 = document.getElementById("healthbar1")
-          healthbar1.value -= 10;
-          bulletsPlayer1.splice(i, 1);
-        }
-    }
-}
-
 document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
@@ -222,6 +206,20 @@ function movement() {
     var deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
+    for (var i = 0; i < bullets.length; i++) {
+        console.log(i, bullets);
+        bullets[i].move();
+        bullets[i].display();
+
+        var bulletDistance = dist(p2.x, p2.y, bullets[i].x, bullets[i].y);
+        console.log(bulletDistance);
+        if (bullet < p2.r + bullets[i].r) {
+          let healthbar1 = document.getElementById("healthbar1")
+          healthbar1.value -= 10;
+          bullets.splice(i, 1);
+        }
+    }
+    
 }
 
 document.onclick = function (e) {
