@@ -30,6 +30,8 @@ var right = false;
 var mouse = [0, 0];
 var point = getOffset(imgPewDiePie);
 
+var bullet = new Image;
+
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -122,7 +124,7 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
-        imgTerrorist1.style.left = posx + "px";
+        imgTerrorist1.style.left = posX + "px";
     }
     if (down === true ) {
         if (run === true) {
@@ -164,7 +166,11 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
-        imgTerrorist1.style.left = posX + "px";
+	imgTerrorist1.style.left = posX + "px";
+        for (var i = 0; i > bullets.length; i++) {
+          document.body.appendChild(bullets[i]);
+        }
+        
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
@@ -175,7 +181,11 @@ function movement() {
 }
 
 document.onclick = function (e) {
-  
+  var newBullet = document.createElement("IMG");
+  newBullet.setAttribute("src", "GameTextures/Bullet.png");
+  newBullet.setAttribute("width", "100");
+  newBullet.setAttribute("height", "100");
+  bullets.push(newBullet);
 }
 
 /*window.onscroll = function (e) {
@@ -196,5 +206,5 @@ function getOffset(el) {
   return {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY
-  };
+  }
 }
