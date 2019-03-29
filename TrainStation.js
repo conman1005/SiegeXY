@@ -3,6 +3,7 @@ var ctx;
 
 var imgLayer1 = document.getElementById("layer1");
 var imgLayer2 = document.getElementById("layer2");
+var imgTerrorist1 = document.getElementById("Terrorist1")
 
 var imgBlackout;
 var imgTortue;
@@ -121,6 +122,7 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
+        imgTerrorist1.style.left = posx + "px";
     }
     if (down === true ) {
         if (run === true) {
@@ -141,6 +143,7 @@ function movement() {
         }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
+        imgTerrorist1.style.top = posY + "px";
     }
     if (right === true) {
         if (run === true) {
@@ -161,6 +164,7 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
+        imgTerrorist1.style.left = posX + "px";
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
