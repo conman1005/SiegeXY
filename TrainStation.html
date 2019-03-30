@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+div#load_screen{
+	background: #000;
+	opacity: 1;
+	position: fixed;
+    z-index:10;
+	top: 0px;
+	width: 100%;
+	height: 1600px;
+}
+div#load_screen > div#loading{
+	color:#FFF;
+	width:120px;
+	height:24px;
+	margin: 300px auto;
+}
+</style>
+<script>
+window.addEventListener("load", function(){
+	var load_screen = document.getElementById("load_screen");
+	document.body.removeChild(load_screen);
+});
+</script>
     <title>SiegeXY</title>
     <style>
     *{cursor: url(Cursors/CrosshairNormal.cur),default;}
@@ -64,6 +87,7 @@
     </style>
   </head>
   <body>
+    <div id="load_screen"><div id="loading">Game Loading</div></div>
     <p id="divGame">
       <img id="layer1" src="GameTextures/Train Station32.png" alt="Layer 1">
       <img id="layer2"src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
