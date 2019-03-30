@@ -34,10 +34,6 @@ var point = getOffset(imgPewDiePie);
 
 var bullet = new Image;
 
-function preload() {
-    bullet = loadImage('GameTextures/bullet.png');
-}
-
 document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
@@ -196,9 +192,9 @@ function movement() {
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
         imgTerrorist1.style.left = terro1Y + "px";
-        for (var i = 0; i > bullets.length; i++) {
-          document.body.appendChild(bullets[i]);
-        }
+    }
+    for (var i = 0; i > bullets.length; i++) {
+        document.body.appendChild(bullets[i]);
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
@@ -223,7 +219,7 @@ function movement() {
 }
 
 document.onclick = function (e) {
-  bullets.push(new Bullet(posX, posY, 0, -1));
+  bullets.push(new Bullet(0, 0, 0, -1));
 }
 
 function Bullet(x, y, xdir, ydir) {
