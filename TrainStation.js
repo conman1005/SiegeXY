@@ -14,6 +14,9 @@ var gameArea = document.getElementById("divGame");
 var playerSpeed = 2.2;
 var run = false;
 
+var ClipPlayer1 = 11;
+var AmmoPlayer1 = 110;
+
 var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
@@ -193,50 +196,34 @@ function movement() {
         imgLayer2.style.left = posX + "px";
         imgTerrorist1.style.left = terro1Y + "px";
     }
-    for (var i = 0; i > bullets.length; i++) {
-        document.body.appendChild(bullets[i]);
-    }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     var deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
-    for (var i = 0; i < bullets.length; i++) {
-        console.log(i, bullets);
-        bullets[i].move();
-        bullets[i].display();
-
-        var bulletDistance = dist(p2.x, p2.y, bullets[i].x, bullets[i].y);
-        console.log(bulletDistance);
-        if (bullet < p2.r + bullets[i].r) {
-          let healthbar1 = document.getElementById("healthbar1")
-          healthbar1.value -= 10;
-          bullets.splice(i, 1);
-        }
+    for (var i = 0; i > bullets.length; i++) {
+      document.body.appendChild(bullets[i]);
     }
-    
 }
 
 document.onclick = function (e) {
-  bullets.push(new Bullet(0, 0, 0, -1));
-}
 
-function Bullet(x, y, xdir, ydir) {
-  this.x = x;
-  this.y = y;
-  this.r = 1;
-  this.xdir = xdir;
-  this.ydir = ydir;
+  ClipPlayer2 = ClipPlayer2 - 1;
 
-  this.display = function() {
-    ellipse(this.x, this.y, 5, 5);
-  }
+  var newBullet = document.createElement("IMG");
+  newBullet.setAttribute("src", "GameTextures/Bullet.png");
+  newBullet.setAttribute("width", "100");
+  newBullet.setAttribute("height", "100");
+  bullets.push(newBullet);
+  document.body.appendChild(bullets[0]);
+  newBullet.style.left = 0 + "px";
+  newBullet.style.top = 50 + "px";
+  bullets[0].style.left = 0 + "px";
+  bullets[0].style.top = 50 + "px";
+  console.log(bullets.legnth);
+  console.log(bullets);
 
-  this.move = function() {
-    this.y = this.y + (this.ydir * BulletSpeed);
-    this.x = this.x + (this.xdir * BulletSpeed);
-  }
 }
 
 /*window.onscroll = function (e) {
@@ -248,7 +235,9 @@ function Bullet(x, y, xdir, ydir) {
     operator.src = "GameTextures/Op4Primary.png";
   }
 }*/
-
+function draw(){
+AmmoPlayer1Clip = text(ClipPlayer1 + ' / ' + AmmoPlayer1, 0, 0);
+}
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 var timer = setInterval(movement, 5);
