@@ -14,6 +14,9 @@ var gameArea = document.getElementById("divGame");
 var playerSpeed = 2.2;
 var run = false;
 
+var ClipPlayer1 = 11;
+var AmmoPlayer1 = 110;
+
 var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
@@ -206,11 +209,7 @@ function movement() {
 }
 
 document.onclick = function (e) {
-  var newBullet = document.createElement("IMG");
-  newBullet.setAttribute("src", "GameTextures/Bullet.png");
-  newBullet.setAttribute("width", "100");
-  newBullet.setAttribute("height", "100");
-  bullets.push(newBullet);
+  ClipPlayer2 = ClipPlayer2 - 1;
 }
 
 /*window.onscroll = function (e) {
@@ -222,7 +221,9 @@ document.onclick = function (e) {
     operator.src = "GameTextures/Op4Primary.png";
   }
 }*/
-
+function draw(){
+AmmoPlayer1Clip = text(ClipPlayer1 + ' / ' + AmmoPlayer1, 0, 0);
+}
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 var timer = setInterval(movement, 5);
