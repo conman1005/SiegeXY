@@ -33,6 +33,8 @@ var hasShot = false;
 
 var primary = true;
 
+var deg;
+
 var up = false;
 var down = false;
 var left = false;
@@ -205,18 +207,20 @@ function movement() {
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
-    var deg = rot * (180 / Math.PI)
+    deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
     if (hasShot === true) {
-        for (var i = 0; i > shot; i++) {
-          bullets[shot].style.left = (bulletX[i] + bulletDirectionX[i] + posX) + "px";
-          bullets[shot].style.top = (bulletY[i] + bulletDirectionY[i] + posY) + "px";
-          document.body.appendChild(bullets[i]);
+        var i;
+        for (i in bullets) {
+          console.log(i);
+          bulletX[i] = (bulletX[i] + bulletDirectionX[i] + posX);
+          bulletY[i] = (bulletY[i] + bulletDirectionY[i] + posY);
+          bullets[i].style.left = bulletX[i] + "px";
+          bullets[i].style.top = bulletY[i] + "px";
         }
     }
 }
-
 document.onclick = function (e) {
   clip--;
   hasShot = true;
@@ -229,19 +233,25 @@ document.onclick = function (e) {
     
   
   var newBullet = document.createElement("IMG");
+  newBullet.setAttribute("id", "bullet" + shot);
   newBullet.setAttribute("src", "GameTextures/Bullet.png");
+  newBullet.setAttribute("style", "position: absolute");
+  //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
   newBullet.setAttribute("width", "100");
   newBullet.setAttribute("height", "100");
-  newBullet.setAttribute("id", "bullet" + shot);
+    
+  newBullet.style.transform = 'rotate('+deg+'deg)';
     
     //try getElementById
     
-  bullets.push(newBullet);
 
+  console.log(shot, clip);
+  document.body.appendChild(newBullet);
+    
+  bullets.push(document.getElementById("bullet" + shot.toString()));
+    
   bullets[shot].style.left = bulletY[shot] + "px";
   bullets[shot].style.top = bulletX[shot] + "px";
-  console.log(shot, clip);
-  document.body.appendChild(bullets[newBullet]);
   
   shot++;
 }
