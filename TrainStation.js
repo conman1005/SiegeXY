@@ -248,10 +248,10 @@ document.onclick = function (e) {
   bullets[shot].style.left = bulletY[shot] + "px";
   bullets[shot].style.top = bulletX[shot] + "px";
     
-  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180);
-  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180);
+    //credit to Spencer Jones for the Math below
     
-  console.log(bulletDirectionX[shot], bulletDirectionY[shot]);
+  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 4;
+  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 4;
   
   shot++;
 }
