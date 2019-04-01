@@ -213,7 +213,6 @@ function movement() {
     if (hasShot === true) {
         var i;
         for (i in bullets) {
-          console.log(i);
           bulletX[i] = (bulletX[i] + bulletDirectionX[i] + posX);
           bulletY[i] = (bulletY[i] + bulletDirectionY[i] + posY);
           bullets[i].style.left = bulletX[i] + "px";
@@ -241,17 +240,18 @@ document.onclick = function (e) {
   newBullet.setAttribute("height", "100");
     
   newBullet.style.transform = 'rotate('+deg+'deg)';
-    
-    //try getElementById
-    
 
-  console.log(shot, clip);
   document.body.appendChild(newBullet);
     
   bullets.push(document.getElementById("bullet" + shot.toString()));
     
   bullets[shot].style.left = bulletY[shot] + "px";
   bullets[shot].style.top = bulletX[shot] + "px";
+    
+  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180);
+  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180);
+    
+  console.log(bulletDirectionX[shot], bulletDirectionY[shot]);
   
   shot++;
 }
