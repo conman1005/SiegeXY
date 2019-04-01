@@ -14,16 +14,22 @@ var gameArea = document.getElementById("divGame");
 var playerSpeed = 2.2;
 var run = false;
 
-var ClipPlayer1 = 11;
-var AmmoPlayer1 = 110;
-
 var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
 var posY = 0;
 
 var bullets = [];
+var bulletDirectionX = [];
+var bulletDirectionY = [];
+var bulletX = [];
+var bulletY = [];
 var BulletSpeed = 13;
+var clip = 11;
+var ammo = 99;
+var shot = 0;
+
+var hasShot = false;
 
 var primary = true;
 
@@ -202,28 +208,42 @@ function movement() {
     var deg = rot * (180 / Math.PI)
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
-    for (var i = 0; i > bullets.length; i++) {
-      document.body.appendChild(bullets[i]);
+    if (hasShot === true) {
+        for (var i = 0; i > shot; i++) {
+          bullets[shot].style.left = (bulletX[i] + bulletDirectionX[i] + posX) + "px";
+          bullets[shot].style.top = (bulletY[i] + bulletDirectionY[i] + posY) + "px";
+          document.body.appendChild(bullets[i]);
+        }
     }
 }
 
 document.onclick = function (e) {
-
-  ClipPlayer2 = ClipPlayer2 - 1;
-
+  clip--;
+  hasShot = true;
+    
+  bulletX[shot] = window.innerWidth / 2;
+  bulletY[shot] = window.innerHeight / 2;
+    
+  bulletDirectionX[shot] = 5;
+  bulletDirectionY[shot] = 5;
+    
+  
   var newBullet = document.createElement("IMG");
   newBullet.setAttribute("src", "GameTextures/Bullet.png");
   newBullet.setAttribute("width", "100");
   newBullet.setAttribute("height", "100");
+  newBullet.setAttribute("id", "bullet" + shot);
+    
+    //try getElementById
+    
   bullets.push(newBullet);
-  document.body.appendChild(bullets[0]);
-  newBullet.style.left = 0 + "px";
-  newBullet.style.top = 50 + "px";
-  bullets[0].style.left = 0 + "px";
-  bullets[0].style.top = 50 + "px";
-  console.log(bullets.legnth);
-  console.log(bullets);
 
+  bullets[shot].style.left = bulletY[shot] + "px";
+  bullets[shot].style.top = bulletX[shot] + "px";
+  console.log(shot, clip);
+  document.body.appendChild(bullets[newBullet]);
+  
+  shot++;
 }
 
 /*window.onscroll = function (e) {
@@ -235,9 +255,7 @@ document.onclick = function (e) {
     operator.src = "GameTextures/Op4Primary.png";
   }
 }*/
-function draw(){
-AmmoPlayer1Clip = text(ClipPlayer1 + ' / ' + AmmoPlayer1, 0, 0);
-}
+
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 var timer = setInterval(movement, 5);
