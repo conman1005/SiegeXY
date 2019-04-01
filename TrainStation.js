@@ -213,10 +213,10 @@ function movement() {
     if (hasShot === true) {
         var i;
         for (i in bullets) {
-          bulletX[i] = (bulletX[i] + bulletDirectionX[i] + posX);
-          bulletY[i] = (bulletY[i] + bulletDirectionY[i] + posY);
-          bullets[i].style.left = bulletX[i] + "px";
-          bullets[i].style.top = bulletY[i] + "px";
+          bulletX[i] = bulletX[i] + bulletDirectionX[i];
+          bulletY[i] = bulletY[i] + bulletDirectionY[i];
+          bullets[i].style.left = (bulletX[i] + posX) + "px";
+          bullets[i].style.top = (bulletY[i] + posY) + "px";
         }
     }
 }
