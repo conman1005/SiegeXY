@@ -345,7 +345,9 @@ function movement() {
     }
 }
 document.onclick = function (e) {
-  if (clip === 0) {
+  var dx = (mouse[0]-point.left) + posX, dy = (mouse[1]-point.top) + posY;
+  console.log("mouseX: " + e.cleintX + "   mouseY: + " + e.cleintY);
+  if ((clip === 0) || (reloadTimer > 0)) {
       //empty gun sfx
       return;
   }
