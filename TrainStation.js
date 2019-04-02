@@ -9,6 +9,8 @@ var imgBlackout;
 var imgTortue;
 var imgPewDiePie = document.getElementById("PewDiePie");
 
+var ammoCount = document.getElementById("AmmoAmmount");
+
 var gameArea = document.getElementById("divGame");
 
 var playerSpeed = 2.2;
@@ -26,7 +28,7 @@ var bulletX = [];
 var bulletY = [];
 var BulletSpeed = 13;
 var clip = 11;
-var ammo = 99;
+var ammo = 22;
 var shot = 0;
 
 var hasShot = false;
@@ -48,6 +50,23 @@ var bullet = new Image;
 document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
+    
+  if ((keycode === 82) && (clip < 11)) {
+      if (ammo < 11) {
+          if (clip + ammo > 11) {
+              ammo = ammo - (11 - clip);
+              clip = 11;
+          } else {
+              clip = clip + ammo;
+              ammo = 0;
+          }
+      } else {
+          ammo = ammo - (11 - clip);
+          clip = 11;
+      }
+      ammoCount.innerHTML = clip + "/" + ammo;
+  }
+    
   if(keycode === 16){
     run = true;
   }
@@ -317,7 +336,14 @@ function movement() {
     }
 }
 document.onclick = function (e) {
+  if (clip === 0) {
+      //empty gun sfx
+      return;
+  }
+    
   clip--;
+  ammoCount.innerHTML = clip + "/" + ammo;
+    
   hasShot = true;
 
   bulletX[shot] = window.innerWidth / 2;
@@ -332,8 +358,8 @@ document.onclick = function (e) {
   newBullet.setAttribute("src", "GameTextures/Bullet.png");
   newBullet.setAttribute("style", "position: absolute");
   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-  newBullet.setAttribute("width", "100");
-  newBullet.setAttribute("height", "100");
+  newBullet.setAttribute("width", "19");
+  newBullet.setAttribute("height", "8.5");
 
   newBullet.style.transform = 'rotate('+deg+'deg)';
 
