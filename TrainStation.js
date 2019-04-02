@@ -9,6 +9,8 @@ var imgBlackout;
 var imgTortue;
 var imgPewDiePie = document.getElementById("PewDiePie");
 
+var ammoCount = document.getElementById("AmmoAmmount");
+
 var gameArea = document.getElementById("divGame");
 
 var playerSpeed = 2.2;
@@ -31,6 +33,8 @@ var shot = 0;
 
 var hasShot = false;
 
+var reloadTimer = 0;
+
 var primary = true;
 
 var deg;
@@ -48,6 +52,11 @@ var bullet = new Image;
 document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
+    
+  if ((keycode === 82) && (clip < 11) && (reloadTimer === 0)) {
+      reloadTimer = 1;
+  }
+    
   if(keycode === 16){
     run = true;
   }
@@ -315,9 +324,37 @@ function movement() {
           bullets[i].style.top = bulletY[i] + "px";
         }
     }
+    if (reloadTimer >= 1) {
+        reloadTimer++;
+        if (reloadTimer === 200) {
+            reloadTimer = 0;
+            if (ammo < 11) {
+              if (clip + ammo > 11) {
+                  ammo = ammo - (11 - clip);
+                  clip = 11;
+              } else {
+                  clip = clip + ammo;
+                  ammo = 0;
+              }
+              } else {
+                  ammo = ammo - (11 - clip);
+                  clip = 11;
+              }
+            ammoCount.innerHTML = clip + "/" + ammo;
+        }
+    }
 }
 document.onclick = function (e) {
+  var dx = (mouse[0]-point.left) + posX, dy = (mouse[1]-point.top) + posY;
+  console.log("mouseX: " + e.cleintX + "   mouseY: + " + e.cleintY);
+  if ((clip === 0) || (reloadTimer > 0)) {
+      //empty gun sfx
+      return;
+  }
+    
   clip--;
+  ammoCount.innerHTML = clip + "/" + ammo;
+    
   hasShot = true;
 
   bulletX[shot] = window.innerWidth / 2;
@@ -332,8 +369,8 @@ document.onclick = function (e) {
   newBullet.setAttribute("src", "GameTextures/Bullet.png");
   newBullet.setAttribute("style", "position: absolute");
   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-  newBullet.setAttribute("width", "100");
-  newBullet.setAttribute("height", "100");
+  newBullet.setAttribute("width", "19");
+  newBullet.setAttribute("height", "8.5");
 
   newBullet.style.transform = 'rotate('+deg+'deg)';
 
