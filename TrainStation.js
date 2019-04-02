@@ -28,10 +28,12 @@ var bulletX = [];
 var bulletY = [];
 var BulletSpeed = 13;
 var clip = 11;
-var ammo = 22;
+var ammo = 99;
 var shot = 0;
 
 var hasShot = false;
+
+var reloadTimer = 0;
 
 var primary = true;
 
@@ -51,20 +53,8 @@ document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
     
-  if ((keycode === 82) && (clip < 11)) {
-      if (ammo < 11) {
-          if (clip + ammo > 11) {
-              ammo = ammo - (11 - clip);
-              clip = 11;
-          } else {
-              clip = clip + ammo;
-              ammo = 0;
-          }
-      } else {
-          ammo = ammo - (11 - clip);
-          clip = 11;
-      }
-      ammoCount.innerHTML = clip + "/" + ammo;
+  if ((keycode === 82) && (clip < 11) && (reloadTimer === 0)) {
+      reloadTimer = 1;
   }
     
   if(keycode === 16){
@@ -332,6 +322,25 @@ function movement() {
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
+        }
+    }
+    if (reloadTimer >= 1) {
+        reloadTimer++;
+        if (reloadTimer === 200) {
+            reloadTimer = 0;
+            if (ammo < 11) {
+              if (clip + ammo > 11) {
+                  ammo = ammo - (11 - clip);
+                  clip = 11;
+              } else {
+                  clip = clip + ammo;
+                  ammo = 0;
+              }
+              } else {
+                  ammo = ammo - (11 - clip);
+                  clip = 11;
+              }
+            ammoCount.innerHTML = clip + "/" + ammo;
         }
     }
 }
