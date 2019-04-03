@@ -1,6 +1,8 @@
 var cnvGame;
 var ctx;
 
+var mySound;
+
 var imgLayer1 = document.getElementById("layer1");
 var imgLayer2 = document.getElementById("layer2");
 var imgTerrorist1 = document.getElementById("terrorist1")
@@ -51,14 +53,17 @@ var point = getOffset(imgPewDiePie);
 
 var bullet = new Image;
 
+function preload(){
+mySound = loadSound("SoundEffects/Shot1.mp3");
+}
 document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
-    
+
   if ((keycode === 82) && (clip < 11) && (reloadTimer === 0)) {
       reloadTimer = 1;
   }
-    
+
   if(keycode === 16){
     run = true;
   }
@@ -363,10 +368,10 @@ document.onclick = function () {
       //empty gun sfx
       return;
   }
-    
+
   clip--;
   ammoCount.innerHTML = clip + "/" + ammo;
-    
+
   hasShot = true;
 
   bulletX[shot] = window.innerWidth / 2;
@@ -397,7 +402,6 @@ document.onclick = function () {
 
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 4;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 4;
-
   shot++;
 }
 
