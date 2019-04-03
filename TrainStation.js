@@ -21,6 +21,8 @@ var terro1Y = 300;
 var posX = 0;
 var posY = 0;
 
+var walls = document.getElementById("col1");
+
 var bullets = [];
 var bulletDirectionX = [];
 var bulletDirectionY = [];
@@ -160,6 +162,8 @@ function movement() {
         }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
+        walls.style.top = posY + "px";
+        
         imgTerrorist1.style.top = terro1Y + "px";
     }
     if (left === true) {
@@ -209,6 +213,8 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
+        walls.style.left = posX + "px";
+        
         imgTerrorist1.style.left = terro1X + "px";
     }
     if (down === true ) {
@@ -258,6 +264,8 @@ function movement() {
         }
         imgLayer1.style.top = posY + "px";
         imgLayer2.style.top = posY + "px";
+        walls.style.top = posY + "px";
+        
         imgTerrorist1.style.top = terro1Y + "px";
     }
     if (right === true) {
@@ -307,6 +315,8 @@ function movement() {
         }
         imgLayer1.style.left = posX + "px";
         imgLayer2.style.left = posX + "px";
+        walls.style.left = posX + "px";
+        
         imgTerrorist1.style.left = terro1Y + "px";
     }
 
@@ -341,12 +351,14 @@ function movement() {
                   clip = 11;
               }
             ammoCount.innerHTML = clip + "/" + ammo;
+            
+            
         }
     }
 }
-document.onclick = function (e) {
-  var dx = (mouse[0]-point.left) + posX, dy = (mouse[1]-point.top) + posY;
-  console.log("mouseX: " + e.cleintX + "   mouseY: + " + e.cleintY);
+document.onclick = function () {
+  var e = window.event;
+  console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip === 0) || (reloadTimer > 0)) {
       //empty gun sfx
       return;
