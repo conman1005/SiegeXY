@@ -368,6 +368,7 @@ document.onclick = function (e) {
   bulletDirectionX[shot] = 5;
   bulletDirectionY[shot] = 5;
 
+  // mySound.play();
 
   var newBullet = document.createElement("IMG");
   newBullet.setAttribute("id", "bullet" + shot);
