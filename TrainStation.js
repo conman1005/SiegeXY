@@ -169,7 +169,9 @@ function movement() {
         imgLayer2.style.top = posY + "px";
         walls.style.top = posY + "px";
 
+
         // imgTerrorist1.style.top = terro1Y + "px";
+
     }
     if (left === true) {
         if (run === true) {
@@ -220,7 +222,9 @@ function movement() {
         imgLayer2.style.left = posX + "px";
         walls.style.left = posX + "px";
 
+
         // imgTerrorist1.style.left = terro1X + "px";
+
     }
     if (down === true ) {
         if (run === true) {
@@ -272,6 +276,7 @@ function movement() {
         walls.style.top = posY + "px";
 
         // imgTerrorist1.style.top = terro1Y + "px";
+
     }
     if (right === true) {
         if (run === true) {
@@ -323,6 +328,7 @@ function movement() {
         walls.style.left = posX + "px";
 
         // imgTerrorist1.style.left = terro1Y + "px";
+
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
@@ -356,7 +362,6 @@ function movement() {
                   clip = 11;
               }
             ammoCount.innerHTML = clip + "/" + ammo;
-
 
         }
     }
