@@ -32,11 +32,28 @@ div#load_screen > div#loading{
         background-color: #4f4f4f;
       }
 
+        #static{
+            position: absolute;
+            top: 0px;
+            left:0px;
+            width: 100%;
+            height: 100%;
+            z-index:99;
+        }
+
+        #divGame{
+            position: absolute;
+            top:0px;
+            left:0px;
+        }
       #layer1, #layer2 {
         position: absolute;
         pointer-events: none;
         user-select:none;
       }
+
+
+
       #Blackout, #Tortue, #PewDiePie {
         position: absolute;
         pointer-events: none;
@@ -98,23 +115,36 @@ div#load_screen > div#loading{
       left:23%;
       font-family: arial;
       }
+
+        #walls{
+            position: absolute;
+            top:0px;
+            left:0px;
+        }
+
+
     </style>
   </head>
   <body>
     <div id="load_screen"><div id="loading">Game Loading</div></div>
-    <p id="divGame">
-      <img id="layer1" src="GameTextures/Train Station33.png" alt="Layer 1">
-      <img id="layer2"src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
-      <svg height="4000" width="4000">
-        <polygon id="col1" class="collision" points = "38 100, 38 260, 140 270, 220 335, 20 560, 165 712, 100 810, 35 805, 40 1010, 325 1015, 330 1180, 0 1180, 0 1230" style="fill:lime;stroke:purple;stroke-width:1;"/>
-      </svg>
-      <!-- <img id="terrorist1" src="GameTextures/Terrorist1.png" alt="Terrorist1"> -->
-    </p>
-    <img id="AmmoCounter" src="GameTextures/AmmoCounterLong.png">
-    <p id="AmmoAmmount">11/99</p>
-    <img id="minimap" src="GameTextures/Train Station33.png" alt="Minimap">
-    <img id="PewDiePie" src="GameTextures/Op4Primary.png">
-    <progress id="Healthbar" value="100" max="100"></progress>
+
+      <div id="divGame">
+          <img id="layer1" src="GameTextures/Train Station33.png" alt="Layer 1">
+          <img id="layer2"src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
+          <svg id="walls" height="4000" width="4000">
+            <polygon id="col1" class="collision" points = "38 100, 38 260, 140 270, 220 335, 20 560, 165 712, 100 810, 35 805, 40 1010, 325 1015, 330 1180, 0 1180, 0 1290, 600 1290, 600 1485, 850 1525, 575 1530, 485 1515, 485 1315, 360 1315, 360 1485, 255 1485, 250 1310, 120 1310, 120 1510, 0 1510, 0 1900, 70 1975, 170 1970, 170 2075, 245 2145, 170 2215, 170 2310, 70 2315, 0 2390, 0 2665, 360 2665, 360 2690, 25 2690, 0 4000, 45 4000, 4000 4000, 4000 3975, 40 3975" style="fill:lime;stroke:purple;stroke-width:1;"/>
+            <polygon id="col2" class="collision" points = "40 0, 1910 0, 1910 1700, 1155 1700, 1155 1160, 450 1160, 450 1020, 630 1020, 630 790, 680 790, 680 1020, 930 1020, 930 735, 1040 735, 1040 1020, 1410 1020, 1410 790, 1470 790, 1470 1020, 1830 1020, 1830 85, 1480 85, 1480 320, 1410 320, 1410 85, 680 85, 680 320, 630 320, 630 85, 40 100" style="fill:lime;stroke:purple;stroke-width:1;"/>
+          </svg>
+          <!-- <img id="terrorist1" src="GameTextures/Terrorist1.png" alt="Terrorist1"> -->
+        </div>
+
+    <div id='static'>
+        <img id="AmmoCounter" src="GameTextures/AmmoCounterLong.png">
+        <p id="AmmoAmmount">11/99</p>
+        <img id="minimap" src="GameTextures/Train Station33.png" alt="Minimap">
+        <img id="PewDiePie" src="GameTextures/Op4Primary.png">
+        <progress id="Healthbar" value="100" max="100"></progress>
+    </div>
   </body>
 
   <script src="TrainStation.js" type="text/javascript"></script>
