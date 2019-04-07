@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
   <head>
     <style>
@@ -85,6 +85,9 @@ window.addEventListener("load", function(){
     }
     </style>
    </head>
+
+   <body>
+      <!-- <p>Choose Your Operator</p> -->
    <div id="load_screen"><div id="loading">Loading</div></div>
 
 
@@ -93,68 +96,46 @@ window.addEventListener("load", function(){
 
    <canvas id="my-canvas"></canvas>
 
-   <video autoplay muted loop id="myVideo">
+   <video autoplay muted loop id="myVideo" style="">
      <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
      Your browser does not support HTML5 video.
    </video>
 
    <script>
    var video = document.getElementById("myVideo");
-   var btn = document.getElementById("myBtn");
+   var time = 30;
+   var timer = setInterval(menutime,1000);
 
+  function menutime(){
+  if(time < 0){
+  document.getElementById("Switch");
+  }
+  time = time -1;
+  console.log(time);
+  document.getElementById("timer").textContent=time;
+  }
    function myFunction() {
      if (video.paused) {
        video.play();
      } else {
        video.pause();
      }
+   }
      </script>
 
-
-  // <body background= <p>Choose Your Operator</p>>
-
-    <video autoplay muted loop id="myVideo">
-      <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-
-    <script
-    var video = document.getElementById("myVideo");
-    var btn = document.getElementById("myBtn");
-
-    function myFunction() {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }>
-      </script>
+<a id="Switch" href="TrainStation.html"></a>
 
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- <video background autoplay muted loop id="myVideo">
-  <source src="MenuTextures/SelectScreenMoving.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+<p style="position: absolute; top:10%; left:50%; text-align: center; z-index: +5;">Choose Your Operator</p>>
 
-<script
-var video = document.getElementById("myVideo");
-var btn = document.getElementById("myBtn");
-
-function myFunction() {
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }>
-
-  </script> -->
+<p id="timer" style="position: absolute; top:0%; left:50%; text-align: center;"></p>
 
 <a id="Tortue" href="TrainStation.html">
   <img srcset="OperatorImages/Tortue.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
 </a>
 
-<a href="TrainStation.html"  onclick="displayResult()">
+<a href="TrainStation.html">
   <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 38%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
 </a>
 <a href="TrainStation.html">
