@@ -23,7 +23,7 @@ var terro1Y = 300;
 var posX = 0;
 var posY = 0;
 
-var walls = document.getElementById("col1");
+var walls = document.getElementById("walls");
 
 var bullets = [];
 var bulletDirectionX = [];
