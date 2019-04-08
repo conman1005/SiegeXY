@@ -103,12 +103,12 @@ window.addEventListener("load", function(){
 
    <script>
    var video = document.getElementById("myVideo");
-   var time = 30;
+   var time = 5;
    var timer = setInterval(menutime,1000);
 
   function menutime(){
   if(time < 0){
-  document.getElementById("Switch");
+  window.location.href = "TrainStation.html";
   }
   time = time -1;
   console.log(time);
