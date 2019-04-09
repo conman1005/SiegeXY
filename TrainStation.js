@@ -23,6 +23,8 @@ var posY = 0;
 
 var walls = document.getElementById("walls");
 
+var collisions = [document.getElementsByClassName];
+
 var bullets = [];
 var bulletDirectionX = [];
 var bulletDirectionY = [];
@@ -421,6 +423,17 @@ document.onclick = function () {
     operator.src = "GameTextures/Op4Primary.png";
   }
 }*/
+
+function showIntersections(path1, path2) {
+    var intersections = path1.getIntersections(path2);
+    if (intersections == true) {
+        console.log(true);
+        return true;
+    } else {
+        console.log(false);
+        return false;
+    }
+}
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
