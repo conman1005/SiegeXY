@@ -22,8 +22,14 @@ var posX = 0;
 var posY = 0;
 
 var walls = document.getElementById("walls");
+var collisions = document.getElementsByClassName("collision");
+var playerBox = document.getElementById("playerCollision");
 
-var collisions = [document.getElementsByClassName];
+//var walls = project.importSVG(document.getElementById('walls'));
+//var svgP = project.importSVG(document.getElementById('svgP'));
+
+//var collisions = walls.children.wall;
+//var playerBox = svgP.chilren.player;
 
 var bullets = [];
 var bulletDirectionX = [];
@@ -365,11 +371,17 @@ function movement() {
                   clip = 11;
               }
             ammoCount.innerHTML = clip + "/" + ammo;
-
+        }
+    }
+    var i;
+    for (i in collisions) {
+        if (showIntersections(playerBox, collisions[i]) === true) {
+            console.log("collision");
         }
     }
 }
 document.onclick = function () {
+    console.log(collisions);
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip === 0) || (reloadTimer > 0)) {
