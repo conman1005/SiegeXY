@@ -375,13 +375,12 @@ function movement() {
     }
     var i;
     for (i in collisions) {
-        if (showIntersections(playerBox, collisions[i]) === true) {
+        if (checkCol(collisions, playerBox) == true) {
             console.log("collision");
         }
     }
 }
 document.onclick = function () {
-    console.log(collisions);
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip === 0) || (reloadTimer > 0)) {
@@ -436,7 +435,7 @@ document.onclick = function () {
   }
 }*/
 
-function showIntersections(path1, path2) {
+/*function showIntersections(path1, path2) {
     var intersections = path1.getIntersections(path2);
     if (intersections == true) {
         console.log(true);
@@ -445,6 +444,14 @@ function showIntersections(path1, path2) {
         console.log(false);
         return false;
     }
+}*/
+
+function checkCol(poly, pt){
+    for(var c = false, i = -1, l = poly.length, j = l - 1; ++i < l; j = i)
+        ((poly[i].y <= pt.y && pt.y < poly[j].y) || (poly[j].y <= pt.y && pt.y < poly[i].y))
+        && (pt.x < (poly[j].x - poly[i].x) * (pt.y - poly[i].y) / (poly[j].y - poly[i].y) + poly[i].x)
+        && (c = !c);
+    return c;
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
