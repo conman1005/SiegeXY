@@ -22,8 +22,14 @@ var posX = 0;
 var posY = 0;
 
 var walls = document.getElementById("walls");
+var collisions = document.getElementsByClassName("collision");
+var playerBox = document.getElementById("playerCollision");
 
-var collisions = [document.getElementsByClassName];
+//var walls = project.importSVG(document.getElementById('walls'));
+//var svgP = project.importSVG(document.getElementById('svgP'));
+
+//var collisions = walls.children.wall;
+//var playerBox = svgP.chilren.player;
 
 var bullets = [];
 var bulletDirectionX = [];
@@ -367,7 +373,12 @@ function movement() {
                   clip_Ak47 = 30;
               }
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
-
+        }
+    }
+    var i;
+    for (i in collisions) {
+        if (checkCol(collisions, playerBox) == true) {
+            console.log("collision");
         }
     }
 }
@@ -433,7 +444,7 @@ document.onmousedown = function mouseDown () {
   }
 }*/
 
-function showIntersections(path1, path2) {
+/*function showIntersections(path1, path2) {
     var intersections = path1.getIntersections(path2);
     if (intersections == true) {
         console.log(true);
@@ -442,6 +453,14 @@ function showIntersections(path1, path2) {
         console.log(false);
         return false;
     }
+}*/
+
+function checkCol(poly, pt){
+    for(var c = false, i = -1, l = poly.length, j = l - 1; ++i < l; j = i)
+        ((poly[i].y <= pt.y && pt.y < poly[j].y) || (poly[j].y <= pt.y && pt.y < poly[i].y))
+        && (pt.x < (poly[j].x - poly[i].x) * (pt.y - poly[i].y) / (poly[j].y - poly[i].y) + poly[i].x)
+        && (c = !c);
+    return c;
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
