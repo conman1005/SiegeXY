@@ -37,8 +37,10 @@ var bulletDirectionY = [];
 var bulletX = [];
 var bulletY = [];
 var BulletSpeed = 13;
-var clip = 11;
-var ammo = 99;
+var clip_Ak47 = 30;
+var ammo_Ak47 = 120;
+var clip_pistol = 11;
+var ammo_pistol = 51
 var shot = 0;
 
 var hasShot = false;
@@ -69,7 +71,7 @@ document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
 
-  if ((keycode === 82) && (clip < 11) && (reloadTimer === 0)) {
+  if ((keycode === 82) && (clip_Ak47 < 11) && (reloadTimer === 0)) {
       reloadTimer = 1;
   }
 
@@ -358,19 +360,19 @@ function movement() {
         reloadTimer++;
         if (reloadTimer === 200) {
             reloadTimer = 0;
-            if (ammo < 11) {
-              if (clip + ammo > 11) {
-                  ammo = ammo - (11 - clip);
-                  clip = 11;
+            if (ammo_Ak47 < 30) {
+              if (clip_Ak47 + ammo_Ak47 > 30) {
+                  ammo_Ak47 = ammo_Ak47 - (30 - clip_Ak47);
+                  clip_Ak47 = 30;
               } else {
-                  clip = clip + ammo;
-                  ammo = 0;
+                  clip_Ak47 = clip_Ak47 + ammo_Ak47;
+                  ammo_Ak47 = 0;
               }
               } else {
-                  ammo = ammo - (11 - clip);
-                  clip = 11;
+                  ammo_Ak47 = ammo_Ak47 - (30 - clip_Ak47);
+                  clip_Ak47 = 30;
               }
-            ammoCount.innerHTML = clip + "/" + ammo;
+            ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
     var i;
@@ -380,18 +382,23 @@ function movement() {
         }
     }
 }
-document.onclick = function () {
+document.onmousedown = function mouseDown () {
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
-  if ((clip === 0) || (reloadTimer > 0)) {
+  if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
       //empty gun sfx
       return;
   }
 
   // sound.play();
 
-  clip--;
-  ammoCount.innerHTML = clip + "/" + ammo;
+  // if(clip_AK47 >= 0){
+  // var clip_AK47 = 30;
+  // var shottimer = setInterval(shooting,120);
+  // function shooting(){
+  clip_Ak47--;
+  // if(clip_AK47 >= 0){
+  ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
 
   hasShot = true;
 
@@ -423,6 +430,8 @@ document.onclick = function () {
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 4;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 4;
   shot++;
+// }
+// }
 }
 
 /*window.onscroll = function (e) {
