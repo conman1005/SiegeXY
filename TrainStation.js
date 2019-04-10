@@ -377,7 +377,7 @@ function movement() {
     }
     var i;
     for (i in collisions) {
-        if (checkCol(collisions, playerBox) == true) {
+        if (checkCol(collisions[i], playerBox) == true) {
             console.log("collision");
         }
     }
