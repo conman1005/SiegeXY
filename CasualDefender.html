@@ -106,6 +106,27 @@ window.addEventListener("load", function(){
         color: white;
         font-family: "Arial";
     }
+    modal:hover{
+    }
+    .modal{
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      margin-top: -20%;
+      margin-left: -20%;
+      left: 25%;
+      top: 70%;
+      width: 30%; /* Full width */
+      height: 40%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: #696969;
+      background-color: rgba(40,40,40,0.6);
+      padding-top: 60px;
+    }
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s;
+    }
     </style>
    </head>
 
@@ -155,24 +176,24 @@ window.addEventListener("load", function(){
 <p id="timer" style=" pointer-events: none; user-select:none;position: absolute; top:5%; left:50%; margin-top: -25px; margin-left: -25px;width: 50px;height: 50px; text-align: center;"></p>
 
 <a id="Tortue" href="TrainStation.html">
-  <img srcset="OperatorImages/Cloud9Benis.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png">
+  <img onmouseover="document.getElementById('id04').style.display='block'" onmouseout="document.getElementById('id04').style.display='none'" srcset="OperatorImages/Cloud9Benis.png"  style="position: absolute; top: 38%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png">
 </a>
 
 <a href="TrainStation.html">
-  <img srcset="OperatorImages/Outlast.png" style="position: absolute; top: 38%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png">
+  <img onmouseover="document.getElementById('id02').style.display='block'" onmouseout="document.getElementById('id02').style.display='none'" srcset="OperatorImages/Outlast.png" style="position: absolute; top: 38%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png">
 </a>
 <a href="TrainStation.html">
-  <img srcset="OperatorImages/Riot.png" style="position: absolute; top: 52%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Riot.png">
+  <img onmouseover="document.getElementById('id03').style.display='block'" onmouseout="document.getElementById('id03').style.display='none'" srcset="OperatorImages/Riot.png" style="position: absolute; top: 52%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Riot.png">
 </a>
 <a href="TrainStation.html">
-  <img srcset="OperatorImages/Outlook.png" style="position: absolute; top: 52%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png">
+  <img onmouseover="document.getElementById('id05').style.display='block'" onmouseout="document.getElementById('id05').style.display='none'" srcset="OperatorImages/Outlook.png" style="position: absolute; top: 52%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png">
 </a>
 <a href="TrainStation.html">
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 50%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
 </a>
 
 <a href="TrainStation.html">
-  <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 52%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
+  <img onmouseover="document.getElementById('id06').style.display='block'" onmouseout="document.getElementById('id06').style.display='none'" srcset="OperatorImages/Whisper.png" style="position: absolute; top: 52%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
 </a>
 <a href="TrainStation.html">
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
@@ -182,8 +203,74 @@ window.addEventListener("load", function(){
 </a>
 
 <a href="TrainStation.html">
-<img srcset="OperatorImages/Glaze.png" style="position: absolute; top: 38%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png"/>
+<img onmouseover="document.getElementById('id01').style.display='block'" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Glaze.png" style="position: absolute; top: 38%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png"/>
 </a>
+
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+      <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Glaze.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+    <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+    <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Outlast.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<div id="id03" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+      <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Riot.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<div id="id04" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+      <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Cloud9Benis.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<div id="id05" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+      <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Outlook.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<div id="id06" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 15px; top: 15%; left: 31%;">Can clap stunning enemies in a radius</p>
+      <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Whisper.png"></img>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
 
  </body>
 </html>
