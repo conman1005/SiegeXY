@@ -377,7 +377,8 @@ function movement() {
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
-    for (i in collisions) {
+    for (i = 0; i < 5; i++) {
+        //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
             console.log("collision");
         }
@@ -385,16 +386,19 @@ function movement() {
 }
 
 function checkCol(rect1, rect2) {
-    var x1 = rect1.x.animVal.value;
+    var x1 = rect1.x.animVal.value + posX;
     var x2 = rect2.x.animVal.value;
-    var y1 = rect1.y.animVal.value;
+    var y1 = rect1.y.animVal.value + posY;
     var y2 = rect2.y.animVal.value;
-    var width1 = rect1.width;
-    var width2 = rect2.width;
-    var height1= rect1.height;
-    var height2 = rect2.height
+    var width1 = rect1.width.animVal.value;
+    var width2 = rect2.width.animVal.value;
+    var height1= rect1.height.animVal.value;
+    var height2 = rect2.height.animVal.value;
     
-    if ((x1 + width1 > x2 && x1 < x2 + width2) && (y1 + height1 > y2 && x1 < y2 + height2)) {
+    //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
+    
+    if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))){
+        //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
         return true;
     } else {
         return false;
@@ -402,8 +406,6 @@ function checkCol(rect1, rect2) {
 }
 
 document.onmousedown = function mouseDown () {
-    console.log(collisions[4].x.animVal.value, collisions[4].y.animVal.value);
-
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
