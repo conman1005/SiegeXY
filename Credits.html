@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <link rel="apple-touch-icon" sizes="57x57" href="GameIcons/apple-icon-57x57.png">
@@ -18,39 +17,8 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="GameIcons/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-    <meta charset="UTF-8">
-    <title>Siege XY</title>
-
-    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
-<canvas id="my-canvas"></canvas>
-
-
-
-
-<script
-var can = document.getElementById("my-canvas");
-
-can.style.width = window.innerWidth + "px";
-can.style.height = window.innerHeight + "px";>
-</script>
-<picture>
-  <source media="(min-width: 650px)" srcset="MenuTextures/SiegeXY.png">
-  <img  style="
-  position: absolute;
-  pointer-events: none;
-  top: 40%;
-  left: 48%;
-  margin-top: -220px;
-  margin-left: -180px;
-  width: 440px;
-  height: 360px;
-  "vsrc="MenuTextures/SiegeXY.png">
-</picture>
- <body background = "MenuTextures/Background.jpg" >
-    <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-
-
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 .dropdown {
 }
 
@@ -159,96 +127,9 @@ span.psw {
 
   .show {display: block;}
 }
-    </style>
+</style>
 
-
-   <div class="dropdown">
-  <button class="button"
-  style="
-   position: absolute;
-   top: 86%;
-   left: 50%;
-   margin-top: -10%;
-   margin-left: -10%;
-   width: 20%;
-   ">Play Game </button>
-  <div class="dropdown-content">
-    <a href="SideSelect.html">Casual</a>
-    <a href="#">Ranked</a>
-    <a href="#">Terrorist Hunt</a>
-  </div>
-</div>
-
-
-
-     <form class="container" action="/game.html">
-
-    <!--<div class="container">-->
-    <!--  <button style="position: absolute; top:428px; left:538px;" onclick="myFunction()" class="dropbtn">Play Game</button>-->
-    <!--</div>-->
-    </form>
-
-    <a href="Credits.html">
-    <button
-    style="position: absolute;
-    top: 110%;
-    left: 50%;
-    margin-top: -10%;
-    margin-left: -10%;
-    width: 20%;
-    "class="button">Credits</button>
-    </a>
-
-   <button onclick="document.getElementById('id01').style.display='block'"
-   style="position: absolute;
-   top: 102%;  left: 50%;
-   margin-top: -10%;
-   margin-left: -10%;
-   width: 20%;
-   ">Settings</button>
-
-   <a href="Barracks.html">
-   <button
-   style="position: absolute;
-   top: 94%;  left: 50%;
-   margin-top: -10%;
-   margin-left: -10%;
-   width: 20%;
-   ">Barracks</button>
-   </a>
-
-<div id="id01" class="modal">
-
-  <form class="modal-content animate" action="/index.html">
-
-
-    <div class="container">
-      <iframe src="Songs/Music2.mp3" allow="autoplay" loop controls
-      style="position: absolute;"
-      id="iframeAudio">
-</iframe>
-    </div>
-    <a href="HowToPlay.html">
-    <button style="position: absolute; width: 304px; height: 50px;">How To Play<button>
-    </a>
-    <div class="container" style="background-color:#f1f1f1">
-    </div>
-  </form>
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
-</script>
-
-  </body>
+<a href="index.html">
+<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
+</a>
 </html>
