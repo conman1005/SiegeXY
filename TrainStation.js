@@ -25,8 +25,10 @@ var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
 var playerBox = document.getElementById("playerCollision");
 
-//var walls = project.importSVG(document.getElementById('walls'));
-//var svgP = project.importSVG(document.getElementById('svgP'));
+//paper.setup(document.getElementById("paperCanvas"));
+
+//var walls = paper.project.importSVG(document.getElementById('walls'));
+//var svgP = paper.project.importSVG(document.getElementById('svgP'));
 
 //var collisions = walls.children.wall;
 //var playerBox = svgP.chilren.player;
@@ -375,14 +377,15 @@ function movement() {
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
-    var i;
-    for (i in collisions) {
-        if (checkCol(collisions, playerBox) == true) {
-            console.log("collision");
-        }
-    }
 }
+
+function checkCol(rect) {
+   // if (collisions[1].x);
+}
+
 document.onmousedown = function mouseDown () {
+    console.log(collisions[4].x.animVal.value, collisions[4].y.animVal.value);
+    
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
@@ -455,13 +458,13 @@ document.onmousedown = function mouseDown () {
     }
 }*/
 
-function checkCol(poly, pt){
+/*function checkCol(poly, pt){
     for(var c = false, i = -1, l = poly.length, j = l - 1; ++i < l; j = i)
         ((poly[i].y <= pt.y && pt.y < poly[j].y) || (poly[j].y <= pt.y && pt.y < poly[i].y))
         && (pt.x < (poly[j].x - poly[i].x) * (pt.y - poly[i].y) / (poly[j].y - poly[i].y) + poly[i].x)
         && (c = !c);
     return c;
-}
+}*/
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
