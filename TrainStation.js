@@ -379,7 +379,12 @@ function movement() {
     }
 }
 
+function checkCol(rect) {
+   // if (collisions[1].x);
+}
+
 document.onmousedown = function mouseDown () {
+    console.log(collisions[4].x.animVal.value, collisions[4].y.animVal.value);
     
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
