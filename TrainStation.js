@@ -377,10 +377,28 @@ function movement() {
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
+    for (i in collisions) {
+        if (checkCol(collisions[i], playerBox) === true) {
+            console.log("collision");
+        }
+    }
 }
 
-function checkCol(rect) {
-   // if (collisions[1].x);
+function checkCol(rect1, rect2) {
+    var x1 = rect1.x.animVal.value;
+    var x2 = rect2.x.animVal.value;
+    var y1 = rect1.y.animVal.value;
+    var y2 = rect2.y.animVal.value;
+    var width1 = rect1.width;
+    var width2 = rect2.width;
+    var height1= rect1.height;
+    var height2 = rect2.height
+    
+    if ((x1 + width1 > x2 && x1 < x2 + width2) && (y1 + height1 > y2 && x1 < y2 + height2)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 document.onmousedown = function mouseDown () {
