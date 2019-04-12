@@ -38,7 +38,7 @@ var bulletDirectionX = [];
 var bulletDirectionY = [];
 var bulletX = [];
 var bulletY = [];
-var BulletSpeed = 13;
+var BulletSpeed = 15;
 var clip_Ak47 = 30;
 var ammo_Ak47 = 120;
 var clip_pistol = 11;
@@ -73,7 +73,7 @@ document.onkeydown = function (e) {
   e = e || window.event;
   var keycode = event.charCode || event.keyCode;
 
-  if ((keycode === 82) && (clip_Ak47 < 11) && (reloadTimer === 0)) {
+  if ((keycode === 82) && (clip_Ak47 < 30) && (reloadTimer === 0)) {
       reloadTimer = 1;
   }
 
@@ -403,7 +403,7 @@ function checkCol(rect1, rect2) {
 
 document.onmousedown = function mouseDown () {
     console.log(collisions[4].x.animVal.value, collisions[4].y.animVal.value);
-    
+
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip_Ak47 === 0) || (reloadTimer > 0)) {

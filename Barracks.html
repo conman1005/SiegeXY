@@ -1,0 +1,143 @@
+<html>
+  <head>
+      <title>Siege XY</title>
+      <body background = "MenuTextures/Barracks.jpg" >
+      <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+      .dropdown {
+      }
+
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+         top: 84%;
+         left: 50%;
+         margin-top: -10%;
+         margin-left: -10%;
+         width: 20%;
+        background-color: #606060;
+        z-index: 1;
+        text-align: CENTER;
+        width: 20%;
+      }
+
+      .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {background-color: #ddd;}
+
+      .dropdown:hover .dropdown-content {display: block;}
+
+      .dropdown:hover .dropbtn {background-color: #404040;}
+
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+          button {
+        background-color: #404040;
+        color: white;
+        padding: 14px 20px;
+        margin: auto;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+        position: absolute;
+      }
+          button:hover {
+          opacity: 0.8;
+          }
+
+          picture:hover{
+          }
+
+          modal:hover{
+          }
+
+          .cancelbtn {
+        background-color: #404040;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+      }
+
+
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 10%;
+        top: 60%;
+        width: 300px; /* Full width */
+        height: 100px; /* Full height */
+      }
+
+
+      @-webkit-keyframes animatezoom {
+        from {-webkit-transform: scale(0)}
+        to {-webkit-transform: scale(1)}
+      }
+
+      @keyframes animatezoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+      }
+
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 300px) {
+        span.psw {
+           display: block;
+           float: none;
+        }
+
+        .show {display: block;}
+      }
+      </style>
+</head>
+
+  <img srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
+  <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
+  <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png">
+  <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png">
+  <img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png">
+
+  <img  srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png">
+  <img  srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+  <img  srcset="OperatorImages/Glaze.png" style="position: absolute; top: 42%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png">
+  <img  srcset="OperatorImages/Outlook.png" style="position: absolute; top: 42%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png">
+  <img srcset="OperatorImages/Cloud9Benis.png" style="position: absolute; top: 56%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png">
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+  <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
+
+<p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
+<p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
+<a href="index.html">
+<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
+</a>
+<html>
