@@ -17,6 +17,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="GameIcons/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<body background = "MenuTextures/Credits.mp4">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 .dropdown {
@@ -128,6 +129,22 @@ span.psw {
   .show {display: block;}
 }
 </style>
+
+<video autoplay muted loop id="myVideo" style="width:120%;
+  height:100%;
+  object-fit:cover;">
+  <source src="MenuTextures/Credits.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>function myFunction() {
+  var video = document.getElementById("myVideo");
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
 
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
