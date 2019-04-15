@@ -79,9 +79,6 @@
           picture:hover{
           }
 
-          modal:hover{
-          }
-
           .cancelbtn {
         background-color: #404040;
         color: white;
@@ -98,15 +95,31 @@
         padding-top: 16px;
       }
 
+      .square {
+        position: absolute;
+        top: 35%;
+        left: 4%;
+        height: 195px;
+        width: 370px;
+        background-color: rgba(70,70,70,0.6);
+      }
       /* The Modal (background) */
-      .modal {
+      modal:hover{
+      }
+      .modal{
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 10%;
-        top: 60%;
-        width: 300px; /* Full width */
-        height: 100px; /* Full height */
+        z-index: 2; /* Sit on top */
+        margin-top: -20%;
+        margin-left: -20%;
+        left: 50%;
+        top: 50%;
+        width: 30%; /* Full width */
+        height: 40%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #696969;
+        background-color: rgba(40,40,40,0.6);
+        padding-top: 60px;
       }
 
 
@@ -131,8 +144,9 @@
       }
       </style>
 </head>
+<body>
 
-  <img srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
+  <img onmouseover="document.getElementById('id01').style.display='block" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
   <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
   <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png">
   <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png">
@@ -152,9 +166,20 @@
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
   <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
 
+
+  <div id="id01" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+    </div>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
 <p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
 <p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
-</a>
+</a>d
+</body>
 <html>

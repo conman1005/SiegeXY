@@ -17,6 +17,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="GameIcons/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<body background = "MenuTextures/Credits.mp4">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 .dropdown {
@@ -129,6 +130,23 @@ span.psw {
 }
 </style>
 
+<video autoplay muted loop id="myVideo" style=" top: 0%; left: 0%; width:120%;
+  height:100%;
+  object-fit:cover;">
+  <source src="MenuTextures/Credits.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>function myFunction() {
+  var video = document.getElementById("myVideo");
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+</script>
+<p style="position: absolute; top: 10%; left: 45%; color: #ffffff; text-align: center;">GAME DEVELOPERS<br/><br/>Nathan Sturgeon<br/>Conner Cullity</p>
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
 </a>

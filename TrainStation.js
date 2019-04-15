@@ -394,9 +394,15 @@ function checkCol(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
     var height2 = rect2.height.animVal.value;
+// <<<<<<< Nathan-Branch2
+
+//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
+
+// =======
     
-    //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
+//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
     
+// >>>>>>> master
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))){
         //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
         return true;
@@ -436,8 +442,8 @@ document.onmousedown = function mouseDown () {
   newBullet.setAttribute("src", "GameTextures/Bullet.png");
   newBullet.setAttribute("style", "position: absolute");
   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-  newBullet.setAttribute("width", "19");
-  newBullet.setAttribute("height", "8.5");
+  newBullet.setAttribute("width", "13");
+  newBullet.setAttribute("height", "6");
 
   newBullet.style.transform = 'rotate('+deg+'deg)';
 
