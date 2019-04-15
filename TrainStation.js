@@ -383,6 +383,18 @@ function movement() {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
             console.log("collision");
+            if (up === true) {
+                posY = posY - playerSpeed;
+            }
+            if (down === true) {
+                posY = posY + playerSpeed;
+            }
+            if (left === true) {
+                posX = posX - playerSpeed;
+            }
+            if (right === true) {
+                posX = posX + playerSpeed;
+            }
         }
     }
 }
@@ -432,9 +444,6 @@ document.onmousedown = function mouseDown () {
   ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
 
   hasShot = true;
-
-  bulletX[shot] = window.innerWidth / 2;
-  bulletY[shot] = window.innerHeight / 2;
 
   bulletDirectionX[shot] = 5;
   bulletDirectionY[shot] = 5;
