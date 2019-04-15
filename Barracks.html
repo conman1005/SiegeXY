@@ -79,10 +79,10 @@
       }
       .square {
         position: absolute;
-        top: 35%;
-        left: 4%;
-        height: 195px;
-        width: 370px;
+        top: 15%;
+        left: 1%;
+        width: 25%;
+        height: 70%;
         background-color: rgba(70,70,70,0.6);
       }
       modal:hover{
@@ -91,15 +91,13 @@
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
-        margin-top: -20%;
-        margin-left: -20%;
-        left: 25%;
-        top: 70%;
-        width: 30%; /* Full width */
-        height: 40%; /* Full height */
+        left: 0%;
+        top: 0%;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
-        background-color: #696969;
-        background-color: rgba(40,40,40,0.6);
+        /* background-color: #696969;
+        background-color: rgba(40,40,40,0.6); */
         padding-top: 60px;
       }
       .animate {
@@ -112,15 +110,15 @@
 
 <canvas id="my-canvas"></canvas>
 
-  <img srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px; margin-left: -40px; width: 80px; height: 80px;" vsrc="Tortue.png"></img>
-  <img onclick="document.getElementById('id01').style.display='block'" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png"></img>
-  <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png"></img>
-  <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png"></img>
+  <img onclick="document.getElementById('id01').style.display='block'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px; margin-left: -40px; width: 80px; height: 80px;" vsrc="Tortue.png"></img>
+  <img onclick="document.getElementById('id02').style.display='block'" srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png"></img>
+  <img onclick="document.getElementById('id03').style.display='block'" srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png"></img>
+  <img onclick="document.getElementById('id04').style.display='block'" srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png"></img>
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png"></img>
-  <img srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png"></img>
+  <img onclick="document.getElementById('id05').style.display='block'" srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png"></img>
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
-  <img srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png"></img>
-  <img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png"></img>
+  <img onclick="document.getElementById('id06').style.display='block'" srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png"></img>
+  <img onclick="document.getElementById('id07').style.display='block'" srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png"></img>
 
   <img  srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png"></img>
   <img  srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
@@ -135,15 +133,134 @@
   <div id="id01" class="modal">
     <form class="modal-content animate" action="/Barracks.html">
       <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Tortue</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Tortue.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <div id="id02" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+        <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Pewdiepie.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <div id="id03" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+        <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/BulletPoint.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <div id="id04" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+      <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Vision.png"></img>
     </div>
       <div class="container" style="background-color:#f1f1f1">
       </div>
     </form>
   </div>
+
+  <div id="id05" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+        <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Javelin.png"></img>
+    </div>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <div id="id06" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+        <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Ricochet.png"></img>
+    </div>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <div id="id07" class="modal">
+    <form class="modal-content animate" action="/Barracks.html">
+      <div class="container">
+        <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Blackout.png"></img>
+    </div>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+    </form>
+  </div>
+
+  <script>
+  let modal = document.getElementById('id01');
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+
 <p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
 <p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
-</a>d
+</a>
 </body>
 <html>
