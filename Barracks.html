@@ -110,25 +110,27 @@
 </head>
 <body>
 
-  <img onmouseover="document.getElementById('id01').style.display='block" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Tortue.png">
-  <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
-  <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png">
-  <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png">
-  <img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png">
+<canvas id="my-canvas"></canvas>
 
-  <img  srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png">
-  <img  srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img  srcset="OperatorImages/Glaze.png" style="position: absolute; top: 42%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png">
-  <img  srcset="OperatorImages/Outlook.png" style="position: absolute; top: 42%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png">
-  <img srcset="OperatorImages/Cloud9Benis.png" style="position: absolute; top: 56%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
+  <img srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px; margin-left: -40px; width: 80px; height: 80px;" vsrc="Tortue.png"></img>
+  <img onclick="document.getElementById('id01').style.display='block'" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png"></img>
+  <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png"></img>
+  <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png"></img>
+  <img srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png"></img>
+  <img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png"></img>
+
+  <img  srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png"></img>
+  <img  srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img  srcset="OperatorImages/Glaze.png" style="position: absolute; top: 42%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png"></img>
+  <img  srcset="OperatorImages/Outlook.png" style="position: absolute; top: 42%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png"></img>
+  <img srcset="OperatorImages/Cloud9Benis.png" style="position: absolute; top: 56%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png"></img>
 
   <div id="id01" class="modal">
     <form class="modal-content animate" action="/Barracks.html">
