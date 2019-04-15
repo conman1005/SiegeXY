@@ -377,6 +377,8 @@ function movement() {
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
+    playerBox.setAttribute('x', (window.innerWidth * 0.505));
+    playerBox.setAttribute('y', (window.innerHeight * 0.47));
     for (i = 0; i < 5; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
