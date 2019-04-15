@@ -445,6 +445,10 @@ document.onmousedown = function mouseDown () {
 
   hasShot = true;
 
+  bulletX[shot] = window.innerWidth / 2;
+  bulletY[shot] = window.innerHeight / 2;
+
+
   bulletDirectionX[shot] = 5;
   bulletDirectionY[shot] = 5;
 
