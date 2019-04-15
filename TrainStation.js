@@ -346,7 +346,7 @@ function movement() {
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
-    deg = rot * (180 / Math.PI)
+    deg = rot * (180 / Math.PI);
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
     if (hasShot === true) {
@@ -377,8 +377,8 @@ function movement() {
             ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
         }
     }
-    playerBox.setAttribute('x', (window.innerWidth * 0.505));
-    playerBox.setAttribute('y', (window.innerHeight * 0.47));
+    playerBox.setAttribute('x', (window.innerWidth * 0.495));
+    playerBox.setAttribute('y', (window.innerHeight * 0.48));
     for (i = 0; i < 5; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
