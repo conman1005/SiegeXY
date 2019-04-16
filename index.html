@@ -82,15 +82,6 @@ can.style.height = window.innerHeight + "px";>
 
 .dropdown:hover .dropbtn {background-color: #404040;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
 
     button {
   background-color: #404040;
@@ -109,9 +100,6 @@ input[type=text], input[type=password] {
     picture:hover{
     }
 
-    modal:hover{
-    }
-
     .cancelbtn {
   background-color: #404040;
   color: white;
@@ -123,24 +111,45 @@ input[type=text], input[type=password] {
 }
 
 
-span.psw {
+/* span.psw {
   float: right;
   padding-top: 16px;
-}
+} */
 
-/* The Modal (background) */
-.modal {
+.square {
+  position: absolute;
+  top: 15%;
+  left: 1%;
+  width: 25%;
+  height: 70%;
+  background-color: rgba(70,70,70,0.6);
+}
+.squareblack {
+  position: absolute;
+  word-wrap: break-word;
+  top: 15%;
+  left: 1%;
+  width: 25%;
+  height: 70%;
+  background-color: rgba(0,0,0,0.8);
+}
+modal:hover{
+}
+.modal{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 10%;
-  top: 60%;
-  width: 300px; /* Full width */
-  height: 100px; /* Full height */
+  left: 0%;
+  top: 0%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /* background-color: #696969;
+  background-color: rgba(40,40,40,0.6); */
+  padding-top: 60px;
 }
 
-
-@-webkit-keyframes animatezoom {
+/* @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}
 }
@@ -148,14 +157,14 @@ span.psw {
 @keyframes animatezoom {
   from {transform: scale(0)}
   to {transform: scale(1)}
-}
+} */
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+/* @media screen and (max-width: 300px) {
   span.psw {
      display: block;
      float: none;
-  }
+  } */
 
   .show {display: block;}
 }
@@ -224,17 +233,13 @@ span.psw {
    </a>
 
 <div id="id01" class="modal">
-  <form class="modal-content animate" action="/index.html">
     <div class="container">
       <iframe src="Songs/Music2.mp3" allow="autoplay" loop controls
       style="position: absolute;"
       id="iframeAudio">
 </iframe>
     </div>
-    <div class="container" style="background-color:#f1f1f1">
     </div>
-  </form>
-</div>
 
 <script>
 // Get the modal

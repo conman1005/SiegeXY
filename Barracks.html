@@ -77,6 +77,46 @@
           color: white;
           font-family: "Arial";
       }
+      text {
+    width: 320px;
+    border: 1px solid #000000;
+  }
+  text.a {
+    word-wrap: break-word;
+    position: absolute; top: 16%; left: 2%; font-size: 11px; color: #ffffff; text-align: left; font-weight: bold; word-wrap: break-word;
+  }
+
+  .dropdown {
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+     top: 57%;
+     left: 13.27%;
+     margin-top: -6%;
+     margin-left: -7.75%;
+     width: 16%;
+     height: 12%;
+    /* background-color: #606060; */
+    z-index: 1;
+    text-align: CENTER;
+  }
+
+  .dropdown-content img {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content img:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color: #404040;}
+
       .square {
         position: absolute;
         top: 15%;
@@ -84,6 +124,15 @@
         width: 25%;
         height: 70%;
         background-color: rgba(70,70,70,0.6);
+      }
+      .squareblack {
+        position: absolute;
+        word-wrap: break-word;
+        top: 15%;
+        left: 1%;
+        width: 25%;
+        height: 70%;
+        background-color: rgba(0,0,0,0.8);
       }
       modal:hover{
       }
@@ -130,6 +179,10 @@
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
   <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png"></img>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Tortue
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id01" class="modal">
       <div class="container">
         <div class="square"></div>
@@ -139,7 +192,17 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+
+    <div class="dropdown">
+<div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/MG-42.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/MG-42.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+   </div>
+ </div>
+
+  <img id="PrimaryWeaponSlotTortue" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
+   <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -148,10 +211,14 @@
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
-    <button onclick="document.getElementById('id50').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%;">BIO</button>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%;">BIO</button>
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Pewdiepie
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id02" class="modal">
       <div class="container">
@@ -162,6 +229,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotPewdiepie').src='GameTextures/Ak5.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/Ak5.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotPewdiepie').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+   </div>
+   </div>
+   <img id="PrimaryWeaponSlotPewdiepie" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -175,6 +250,10 @@
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Bullet Point
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id03" class="modal">
       <div class="container">
@@ -185,6 +264,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotBulletPoint').src='GameTextures/GunAK47BulletPiont.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/GunAK47BulletPiont.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotBulletPoint').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+   </div>
+   </div>
+   <img id="PrimaryWeaponSlotBulletPoint" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -199,6 +286,10 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Vision
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id04" class="modal">
       <div class="container">
       <div class="square"></div>
@@ -207,6 +298,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotVision').src='GameTextures/FBBerylVisionGun.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/FBBerylVisionGun.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotVision').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+   </div>
+   </div>
+   <img id="PrimaryWeaponSlotVision" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -220,6 +319,10 @@
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Javelin
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id05" class="modal">
       <div class="container">
@@ -230,6 +333,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotJavelin').src='GameTextures/BerettaARX160.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BerettaARX160.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotJavelin').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+    </div>
+    </div>
+    <img id="PrimaryWeaponSlotJavelin" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -243,6 +354,10 @@
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Ricochet
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id06" class="modal">
       <div class="container">
@@ -253,6 +368,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotRicochet').src='GameTextures/M4.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/M4.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotRicochet').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+    </div>
+    </div>
+    <img id="PrimaryWeaponSlotRicochet" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -267,6 +390,10 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Blackout
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id07" class="modal">
       <div class="container">
         <div class="square"></div>
@@ -276,6 +403,14 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotBlackout').src='GameTextures/BlackoutsF88Austeyr.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BlackoutsF88Austeyr.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotBlackout').src='GameTextures/HK416.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+    </div>
+    </div>
+    <img id="PrimaryWeaponSlotBlackout" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -289,6 +424,10 @@
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Riot
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id21" class="modal">
       <div class="container">
@@ -313,6 +452,10 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Glaze
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id22" class="modal">
       <div class="container">
         <div class="square"></div>
@@ -331,10 +474,14 @@
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
-    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+    <button onclick="document.getElementById('id50').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Outlook
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id23" class="modal">
       <div class="container">
@@ -359,6 +506,10 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Cloud9 Benis
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id24" class="modal">
       <div class="container">
       <div class="square"></div>
@@ -381,6 +532,10 @@
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Outlast
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
   <div id="id25" class="modal">
       <div class="container">
@@ -405,6 +560,10 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Whisper
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div id="id26" class="modal">
       <div class="container">
         <div class="square"></div>
@@ -428,6 +587,20 @@
       </div>
   </div>
 
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Glaze Bio
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <div id="id50" class="modal">
+      <div class="container">
+        <div class="squareblack"></div>
+    </div>
+<text class="a">Bio: Growing up in the icy wastelands of Siberia the only child of a single parent, ice skating was never her dream but rather her fathers. He pushed her to become the worlds best figure skater. She was pushed till she could hardly stand, she was taught with discipline and was never given much love from her father. She thought by becoming the best it would please him, she was on her way to the Olympics when her father died when she was just 16. Being an only child and never really liking figure skating she joined the Russian army at age 18 which eventually lead to her joining with the Russian Spetsnaz at age 20. Soon she specialized in entry denial while also putting her ice skating skills to the test using her advanced cryo tech known as the Zamer-myach. Which would allow her to move faster across the battlefield while also catching her enemies off guard.</text>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#000000">
+      </div>
+  </div>
+
   <script>
   var modal = document.getElementById('id01');
   var modal2 = document.getElementById('id02');
@@ -442,6 +615,7 @@
   var modal24 = document.getElementById('id24');
   var modal25 = document.getElementById('id25');
   var modal26 = document.getElementById('id26');
+  var modal50 = document.getElementById('id50');
 
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -482,6 +656,9 @@ document.getElementById('id25').style.display='none'
 }
 if (event.target == modal26) {
 document.getElementById('id26').style.display='none'
+}
+if (event.target == modal50) {
+document.getElementById('id50').style.display='none'
 }
 }
   </script>
