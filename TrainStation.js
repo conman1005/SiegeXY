@@ -398,25 +398,25 @@ function movement() {
         }            
         if (bulletCol(collisions[i]) === true) {
             console.log("collision");
-            bullets.splice(ii, 1 );
-            document.body.removeChild("bullet" + ii);
         }
     }
 }
 
 function bulletCol(rect) {
+    var x1 = rect.x.animVal.value + posX;
+    var y1 = rect.y.animVal.value + posY;
+    var width1 = rect.width.animVal.value;
+    var height1 = rect.height.animVal.value;
+    
     if (hasShot === false) {
         return false;
     }
     for (i in bullets) {
-        var x1 = rect.x.animVal.value + posX;
-        var y1 = rect.y.animVal.value + posY;
-        var width1 = rect.width.animVal.value;
-        var height1= rect.height.animVal.value;
+        console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets.legnth);
         
-        console.log()
-        
-        if(((x1 + width1) > bullets[i].style.left && x1 < (bullets[i].style.left + bullets[i].width)) && ((y1 + height1) > bullets[i].style.top && y1 < (bullets[i].style.top + bullets[i].height))) {
+        if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
+            //bullets.splice(i);
+            //document.body.removeChild("bullet" + i.toString);
             return true;
         } else {
             return false;
