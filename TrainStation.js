@@ -468,9 +468,10 @@ document.onmousedown = function mouseDown () {
   ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
 
   hasShot = true;
-    
+
   bulletX[shot] = window.innerWidth / 2;
   bulletY[shot] = window.innerHeight / 2;
+
 
   bulletDirectionX[shot] = 5;
   bulletDirectionY[shot] = 5;

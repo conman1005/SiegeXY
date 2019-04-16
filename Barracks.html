@@ -20,66 +20,13 @@
       <title>Siege XY</title>
       <body background = "MenuTextures/Barracks.jpg" >
       <style>
-      body {font-family: Arial, Helvetica, sans-serif;}
-      .dropdown {
+      body {
+        font-family: Arial, Helvetica, sans-serif;
       }
 
 
-      .dropdown-content {
-        display: none;
-        position: absolute;
-         top: 84%;
-         left: 50%;
-         margin-top: -10%;
-         margin-left: -10%;
-         width: 20%;
-        background-color: #606060;
-        z-index: 1;
-        text-align: CENTER;
-        width: 20%;
-      }
-
-      .dropdown-content a {
-        color: white;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-
-      .dropdown-content a:hover {background-color: #ddd;}
-
-      .dropdown:hover .dropdown-content {display: block;}
-
-      .dropdown:hover .dropbtn {background-color: #404040;}
-
-      /* Full-width input fields */
-      input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
-
-          button {
-        background-color: #404040;
-        color: white;
-        padding: 14px 20px;
-        margin: auto;
-        border: none;
-        cursor: pointer;
-        width: 20%;
-        position: absolute;
-      }
-          button:hover {
-          opacity: 0.8;
-          }
-
-          picture:hover{
-          }
-
-          .cancelbtn {
+      /* Set a style for all buttons */
+      button {
         background-color: #404040;
         color: white;
         padding: 14px 20px;
@@ -87,99 +34,462 @@
         border: none;
         cursor: pointer;
         width: 20%;
+        position: absolute;
       }
 
-
-      span.psw {
-        float: right;
-        padding-top: 16px;
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
       }
 
+      Tortue:hover{
+      opacity: 0.8;
+      }
+
+      p{
+      text-align: center;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      progress:hover {
+
+      }
+
+      text:hover {
+      }
+
+      }
+      body {
+          padding: 0; margin: 0;
+      }
+      canvas {
+          vertical-align: top;
+        }
+      h1, h2, h3, p {
+          text-align: center;
+          font-size: 60;
+          color: white;
+          font-family: "Arial";
+      }
       .square {
         position: absolute;
-        top: 35%;
-        left: 4%;
-        height: 195px;
-        width: 370px;
+        top: 15%;
+        left: 1%;
+        width: 25%;
+        height: 70%;
         background-color: rgba(70,70,70,0.6);
       }
-      /* The Modal (background) */
       modal:hover{
       }
       .modal{
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
-        z-index: 2; /* Sit on top */
-        margin-top: -20%;
-        margin-left: -20%;
-        left: 50%;
-        top: 50%;
-        width: 30%; /* Full width */
-        height: 40%; /* Full height */
+        z-index: 1; /* Sit on top */
+        left: 0%;
+        top: 0%;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
-        background-color: #696969;
-        background-color: rgba(40,40,40,0.6);
+        /* background-color: #696969;
+        background-color: rgba(40,40,40,0.6); */
         padding-top: 60px;
       }
-
-
-      @-webkit-keyframes animatezoom {
-        from {-webkit-transform: scale(0)}
-        to {-webkit-transform: scale(1)}
-      }
-
-      @keyframes animatezoom {
-        from {transform: scale(0)}
-        to {transform: scale(1)}
-      }
-
-      /* Change styles for span and cancel button on extra small screens */
-      @media screen and (max-width: 300px) {
-        span.psw {
-           display: block;
-           float: none;
-        }
-
-        .show {display: block;}
+      .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s;
       }
       </style>
 </head>
 <body>
 
-  <img onmouseover="document.getElementById('id01').style.display='block" onmouseout="document.getElementById('id01').style.display='none'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Tortue.png">
-  <img srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png">
-  <img srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png">
-  <img srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png">
-  <img srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png">
+<canvas id="my-canvas"></canvas>
 
-  <img  srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png">
-  <img  srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img  srcset="OperatorImages/Glaze.png" style="position: absolute; top: 42%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png">
-  <img  srcset="OperatorImages/Outlook.png" style="position: absolute; top: 42%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png">
-  <img srcset="OperatorImages/Cloud9Benis.png" style="position: absolute; top: 56%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
-  <img srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png">
+  <img onclick="document.getElementById('id01').style.display='block'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px; margin-left: -40px; width: 80px; height: 80px;" vsrc="Tortue.png"></img>
+  <img onclick="document.getElementById('id02').style.display='block'" srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png"></img>
+  <img onclick="document.getElementById('id03').style.display='block'" srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png"></img>
+  <img onclick="document.getElementById('id04').style.display='block'" srcset="OperatorImages/Vision.png" style="position: absolute; top: 42%;  left: 60%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Vision.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 60%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="OperatorNotDone.png"></img>
+  <img onclick="document.getElementById('id05').style.display='block'" srcset="OperatorImages/Javelin.png" style="position: absolute; top: 42%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img onclick="document.getElementById('id06').style.display='block'" srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 56%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png"></img>
+  <img onclick="document.getElementById('id07').style.display='block'" srcset="OperatorImages/Blackout.png" style="position: absolute; top: 28%;  left: 53%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Blackout.png"></img>
 
+  <img onclick="document.getElementById('id21').style.display='block'" srcset="OperatorImages/Riot.png" style="position: absolute; top: 28%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Riot.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 28%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img onclick="document.getElementById('id22').style.display='block'" srcset="OperatorImages/Glaze.png" style="position: absolute; top: 42%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Glaze.png"></img>
+  <img onclick="document.getElementById('id23').style.display='block'" srcset="OperatorImages/Outlook.png" style="position: absolute; top: 42%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Outlook.png"></img>
+  <img onclick="document.getElementById('id24').style.display='block'" srcset="OperatorImages/Cloud9Benis.png" style="position: absolute; top: 56%;  left: 37%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" width="75" height="75" vsrc="Cloud9Benis.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img onclick="document.getElementById('id25').style.display='block'" srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png"></img>
+  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
+  <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png"></img>
 
   <div id="id01" class="modal">
-    <form class="modal-content animate" action="/Barracks.html">
       <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Tortue</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Tortue.png"></img>
     </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button onclick="document.getElementById('id50').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%;">BIO</button>
       <div class="container" style="background-color:#f1f1f1">
       </div>
-    </form>
   </div>
+
+  <div id="id02" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Pewdiepie</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Pewdiepie.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id03" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Bullet Point</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/BulletPoint.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id04" class="modal">
+      <div class="container">
+      <div class="square"></div>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Vision.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id05" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Javelin</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Javelin.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id06" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Ricochet</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Ricochet.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id07" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Blackout</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Blackout.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id21" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Riot</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Riot.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button onclick="document.getElementById('idBioTortue').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%;">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id22" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Glaze</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Glaze.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id23" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Outlook</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Outlook.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id24" class="modal">
+      <div class="container">
+      <div class="square"></div>
+      <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Cloud9 Benis</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Cloud9Benis.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id25" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Outlast</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Outlast.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <div id="id26" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Whisper</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Whisper.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <script>
+  var modal = document.getElementById('id01');
+  var modal2 = document.getElementById('id02');
+  var modal3 = document.getElementById('id03');
+  var modal4 = document.getElementById('id04');
+  var modal5 = document.getElementById('id05');
+  var modal6 = document.getElementById('id06');
+  var modal7 = document.getElementById('id07');
+  var modal21 = document.getElementById('id21');
+  var modal22 = document.getElementById('id22');
+  var modal23 = document.getElementById('id23');
+  var modal24 = document.getElementById('id24');
+  var modal25 = document.getElementById('id25');
+  var modal26 = document.getElementById('id26');
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      document.getElementById('id01').style.display='none'
+    }
+    if (event.target == modal2) {
+      document.getElementById('id02').style.display='none'
+    }
+  if (event.target == modal3) {
+    document.getElementById('id03').style.display='none'
+  }
+  if (event.target == modal4) {
+    document.getElementById('id04').style.display='none'
+  }
+if (event.target == modal5) {
+  document.getElementById('id05').style.display='none'
+}
+if (event.target == modal6) {
+  document.getElementById('id06').style.display='none'
+}
+if (event.target == modal7) {
+  document.getElementById('id07').style.display='none'
+}
+if (event.target == modal21) {
+  document.getElementById('id21').style.display='none'
+}
+if (event.target == modal22) {
+  document.getElementById('id22').style.display='none'
+}
+if (event.target == modal23) {
+document.getElementById('id23').style.display='none'
+}
+if (event.target == modal24) {
+document.getElementById('id24').style.display='none'
+}
+if (event.target == modal25) {
+document.getElementById('id25').style.display='none'
+}
+if (event.target == modal26) {
+document.getElementById('id26').style.display='none'
+}
+}
+  </script>
 
 <p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
 <p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
-</a>d
+</a>
 </body>
 <html>
