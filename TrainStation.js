@@ -396,7 +396,7 @@ function movement() {
                 posX = posX + playerSpeed;
             }
         }
-        for (ii = 0; i < shot; ii++) {
+        for (ii = 0; ii < shot; ii++) {
             if (bulletCol(collisions[i], ii) === true) {
                 console.log("collision");
             }
@@ -414,7 +414,7 @@ function bulletCol(rect, i) {
         return false;
     }
     //for (i in bullets) {
-        console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
+        //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             //bullets.splice(i);
