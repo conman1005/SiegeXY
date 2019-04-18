@@ -415,12 +415,15 @@ function bulletCol(rect, i) {
     }
     //for (i in bullets) {
         //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
-        
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
-            //bullets.splice(i);
-            //document.body.removeChild("bullet" + i.toString);
             bulletDirectionX[i] = 0;
             bulletDirectionY[i] = 0;
+            bullets.splice(i);
+            //document.body.removeChild(bullets[i]);
+            console.log(bullets.legnth);
+            console.log(i);
+            document.getElementById("bullet" + i).remove();
+            shot--;
             return true;
         } else {
             return false;
