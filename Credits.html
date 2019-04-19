@@ -101,11 +101,12 @@ span.psw {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 3; /* Sit on top */
   left: 10%;
   top: 60%;
-  width: 300px; /* Full width */
-  height: 100px; /* Full height */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(255,255,255,1.0);
 }
 
 
@@ -150,4 +151,45 @@ span.psw {
 <a href="index.html">
 <button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
 </a>
+<!--
+<script onkeypress="MenuOpen()">
+function MenuOpen(){
+if(keycode === 80){
+document.getElementById('id01').style.display='block'
+}
+}
+</script>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/index.html">
+
+
+    <div class="container">
+      <button type="submit">Settings</button>
+
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Return</button>
+
+      <button onclick>Help</button>
+
+      <button onclick="myFunction()" class="button">Exit To Main Menu</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script> -->
 </html>
