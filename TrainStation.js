@@ -396,7 +396,7 @@ function movement() {
                 posX = posX + playerSpeed;
             }
         }
-        for (ii = 0; ii < shot; ii++) {
+        for (var ii = 0; ii < bullets.length; ii++) {
             if (bulletCol(collisions[i], ii) === true) {
                 console.log("collision");
             }
@@ -405,6 +405,7 @@ function movement() {
 }
 
 function bulletCol(rect, i) {
+    console.log("testcol", i);
     var x1 = rect.x.animVal.value + posX;
     var y1 = rect.y.animVal.value + posY;
     var width1 = rect.width.animVal.value;
@@ -418,19 +419,17 @@ function bulletCol(rect, i) {
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             bulletDirectionX[i] = 0;
             bulletDirectionY[i] = 0;
-            bullets.splice(i);
             //document.body.removeChild(bullets[i]);
-            console.log(bullets.legnth);
-            console.log(i);
+            console.log("length", bullets.length);
+            console.log("i", i);
             document.getElementById("bullet" + i).remove();
-            shot--;
+            bullets.splice(i);
             return true;
         } else {
             return false;
         }
     //}
 }
-
 function checkCol(rect1, rect2) {
     var x1 = rect1.x.animVal.value + posX;
     var x2 = rect2.x.animVal.value;
@@ -457,6 +456,7 @@ function checkCol(rect1, rect2) {
     }
 }
 document.onmousedown = function mouseDown () {
+    var shot = bullets.length;
   var e = window.event;
   console.log("mouseX: " + (e.clientX - posX) + "   mouseY: + " + (e.clientY - posY));
   if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
@@ -504,7 +504,6 @@ document.onmousedown = function mouseDown () {
 
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 4;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 4;
-  shot++;
 // }
 // }
 }
