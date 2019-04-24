@@ -403,7 +403,7 @@ function movement() {
         }
     }
 }
-
+var collided = 0;
 function bulletCol(rect, i) {
     console.log("testcol", i);
     var x1 = rect.x.animVal.value + posX;
@@ -417,13 +417,11 @@ function bulletCol(rect, i) {
     //for (i in bullets) {
         //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
-            bulletDirectionX[i] = 0;
-            bulletDirectionY[i] = 0;
             //document.body.removeChild(bullets[i]);
             console.log("length", bullets.length);
             console.log("i", i);
-            document.getElementById("bullet" + i).remove();
-            bullets.splice(i);
+            document.getElementById(bullets[i].id).remove();
+            //bullets.splice(i);
             return true;
         } else {
             return false;
@@ -492,6 +490,8 @@ document.onmousedown = function mouseDown () {
   newBullet.setAttribute("height", "6");
 
   newBullet.style.transform = 'rotate('+deg+'deg)';
+    
+  newBullet.id = ("bullet" + shot.toString());
 
   document.body.appendChild(newBullet);
 
