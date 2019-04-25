@@ -3,6 +3,7 @@ var ctx;
 
 var imgLayer1 = document.getElementById("layer1");
 var imgLayer2 = document.getElementById("layer2");
+var gameArea = document.getElementById("divGame");
 // var imgTerrorist1 = document.getElementById("terrorist1")
 
 var imgBlackout;
@@ -20,6 +21,10 @@ var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
 var posY = 0;
+
+var terrorist = document.getElementsByClassName("terrorist");
+var terroristX = [1565, 1120, 725];
+var terroristY = [420, 840, 1465];
 
 var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
@@ -178,8 +183,7 @@ function movement() {
                 }
             }
         }
-        imgLayer1.style.top = posY + "px";
-        imgLayer2.style.top = posY + "px";
+        gameArea.style.top = posY + "px";
         walls.style.top = posY + "px";
 
 
@@ -231,8 +235,7 @@ function movement() {
                 }
             }
         }
-        imgLayer1.style.left = posX + "px";
-        imgLayer2.style.left = posX + "px";
+        gameArea.style.left = posX + "px";
         walls.style.left = posX + "px";
 
 
@@ -284,8 +287,7 @@ function movement() {
                 }
             }
         }
-        imgLayer1.style.top = posY + "px";
-        imgLayer2.style.top = posY + "px";
+        gameArea.style.top = posY + "px";
         walls.style.top = posY + "px";
 
         // imgTerrorist1.style.top = terro1Y + "px";
@@ -336,8 +338,7 @@ function movement() {
                 }
             }
         }
-        imgLayer1.style.left = posX + "px";
-        imgLayer2.style.left = posX + "px";
+        gameArea.style.left = posX + "px";
         walls.style.left = posX + "px";
 
         // imgTerrorist1.style.left = terro1Y + "px";
@@ -349,6 +350,13 @@ function movement() {
     deg = rot * (180 / Math.PI);
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
+    
+    for (i = 0; i < terrorist.length; i++) {
+        var rott = Math.atan2(window.innerHeight / 2 - posY + terroristY[i], window.innerWidth / 2 - posX + terroristX[i]);
+        degt = rott * (180 / Math.PI);
+        terrorist[i].setAttribute('style', 'transform: rotate('+degt+'deg)');
+    }
+    
     if (hasShot === true) {
         var i;
         for (i in bullets) {
@@ -405,7 +413,7 @@ function movement() {
 }
 var collided = 0;
 function bulletCol(rect, i) {
-    console.log("testcol", i);
+    //console.log("testcol", i);
     var x1 = rect.x.animVal.value + posX;
     var y1 = rect.y.animVal.value + posY;
     var width1 = rect.width.animVal.value;
