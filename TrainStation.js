@@ -30,6 +30,8 @@ var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
 var playerBox = document.getElementById("playerCollision");
 
+var bulletHell = false;
+
 //paper.setup(document.getElementById("paperCanvas"));
 
 //var walls = paper.project.importSVG(document.getElementById('walls'));
@@ -357,6 +359,37 @@ function movement() {
         terrorist[i].style.transform = 'rotate('+degt+'deg)';
         terrorist[i].style.left = terroristX[i] + "px";
         terrorist[i].style.top = terroristY[i] + "px";
+        if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
+              var shot = bullets.length;
+              hasShot = true;
+
+              bulletX[shot] = terroristX[i] + posX;
+              bulletY[shot] = terroristY[i] + posY;
+
+              var newBullet = document.createElement("IMG");
+              newBullet.setAttribute("id", "bullet" + shot);
+              newBullet.setAttribute("src", "GameTextures/Bullet.png");
+              newBullet.setAttribute("style", "position: absolute");
+              //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
+              newBullet.setAttribute("width", "13");
+              newBullet.setAttribute("height", "6");
+
+              newBullet.style.transform = 'rotate('+degt+'deg)';
+
+              newBullet.id = ("bullet" + shot.toString());
+
+              document.body.appendChild(newBullet);
+
+              bullets.push(document.getElementById("bullet" + shot.toString()));
+
+              bullets[shot].style.left = bulletY[shot] + "px";
+              bullets[shot].style.top = bulletX[shot] + "px";
+
+                //credit to Spencer Jones for the Math below
+
+              bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 4;
+              bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
+        }
     }
 
     if (hasShot === true) {
@@ -487,10 +520,6 @@ document.onmousedown = function mouseDown () {
 
   bulletX[shot] = window.innerWidth / 2;
   bulletY[shot] = window.innerHeight / 2;
-
-
-  bulletDirectionX[shot] = 5;
-  bulletDirectionY[shot] = 5;
 
   var newBullet = document.createElement("IMG");
   newBullet.setAttribute("id", "bullet" + shot);
