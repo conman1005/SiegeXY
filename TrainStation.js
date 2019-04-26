@@ -350,7 +350,7 @@ function movement() {
     deg = rot * (180 / Math.PI);
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
-    
+
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
         degt = rott * (180 / Math.PI);
@@ -358,7 +358,7 @@ function movement() {
         terrorist[i].style.left = terroristX[i] + "px";
         terrorist[i].style.top = terroristY[i] + "px";
     }
-    
+
     if (hasShot === true) {
         var i;
         for (i in bullets) {
@@ -420,7 +420,7 @@ function bulletCol(rect, i) {
     var y1 = rect.y.animVal.value + posY;
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
-    
+
     if (hasShot === false) {
         return false;
     }
@@ -452,9 +452,9 @@ function checkCol(rect1, rect2) {
 //     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
 
 // =======
-    
+
 //     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
-    
+
 // >>>>>>> master
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
         //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
@@ -463,6 +463,7 @@ function checkCol(rect1, rect2) {
         return false;
     }
 }
+
 document.onmousedown = function mouseDown () {
     var shot = bullets.length;
   var e = window.event;
@@ -500,7 +501,7 @@ document.onmousedown = function mouseDown () {
   newBullet.setAttribute("height", "6");
 
   newBullet.style.transform = 'rotate('+deg+'deg)';
-    
+
   newBullet.id = ("bullet" + shot.toString());
 
   document.body.appendChild(newBullet);
