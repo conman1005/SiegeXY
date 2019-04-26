@@ -439,15 +439,18 @@ function movement() {
                 posX = posX + playerSpeed;
             }
         }
-        for (var ii = 0; ii < bullets.length; ii++) {
-            if (bulletCol(collisions[i], ii) === true) {
-                console.log("collision");
-            }
+        if (bulletCol(collisions[i]) === true) {
+            console.log("collision");
+        }
+    }
+    for (t = 0; t < terrorist.length; t++) {
+        if (bulletCol(terrorist[t]) === true) {
+            
         }
     }
 }
 var collided = 0;
-function bulletCol(rect, i) {
+function bulletCol(rect) {
     //console.log("testcol", i);
     var x1 = rect.x.animVal.value + posX;
     var y1 = rect.y.animVal.value + posY;
@@ -457,7 +460,7 @@ function bulletCol(rect, i) {
     if (hasShot === false) {
         return false;
     }
-    //for (i in bullets) {
+    for (i in bullets) {
         //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             //document.body.removeChild(bullets[i]);
@@ -469,7 +472,7 @@ function bulletCol(rect, i) {
         } else {
             return false;
         }
-    //}
+    }
 }
 function checkCol(rect1, rect2) {
     var x1 = rect1.x.animVal.value + posX;
