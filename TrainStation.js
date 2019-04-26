@@ -352,9 +352,11 @@ function movement() {
     document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
     
     for (i = 0; i < terrorist.length; i++) {
-        var rott = Math.atan2(window.innerHeight / 2 - posY + terroristY[i], window.innerWidth / 2 - posX + terroristX[i]);
+        var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
         degt = rott * (180 / Math.PI);
-        terrorist[i].setAttribute('style', 'transform: rotate('+degt+'deg)');
+        terrorist[i].style.transform = 'rotate('+degt+'deg)';
+        terrorist[i].style.left = terroristX[i] + "px";
+        terrorist[i].style.top = terroristY[i] + "px";
     }
     
     if (hasShot === true) {
