@@ -76,7 +76,7 @@ div#load_screen > div#loading{
         #ter1, #ter2, #ter3 {
             transform-origin: 30% 50%;
         }
-        
+
       #Blackout, #Tortue, #PewDiePie {
         position: absolute;
         pointer-events: none;
@@ -157,24 +157,30 @@ div#load_screen > div#loading{
           <img id="layer2"src="GameTextures/TrainStation Layer2 1.png" alt="Layer 2">
           <img id="ter1" class="terrorist" src="GameTextures/Terrorist1.png" style="position:absolute; left: 1565px; top: 420px;">
           <img id="ter2" class="terrorist" src="GameTextures/Terrorist1.png" style="position:absolute; left: 1120px; top: 840px;">
-          <img id="ter3" class="terrorist" src="GameTextures/Terrorist1.png" style="position:absolute; left: 715px; top: 1410px;">
+          <img id="ter3" class="terrorist" src="GameTextures/Terrorist1.png" style="position:absolute; left: 715px; top: 1425px;">
           <!-- <img id="terrorist1" src="GameTextures/Terrorist1.png" alt="Terrorist1"> -->
         </div>
       <svg id="walls" height="4000" width="4000">
-          <rect class="collision" x="0" y="0" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collision" x="0" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collision" x="0" y="3970" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collision" x="3970" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collision" x="30" y="1970" height="350" width="140" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          
-          <rect class="collisionT" x="1590" y="445" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collisionT" x="1145" y="865" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
-          <rect class="collisionT" x="740" y="1480" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="0" y="0" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="0" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="0" y="3970" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="3970" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="30" y="1970" height="350" width="140" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+
+              <rect class="collision" x="0" y="0" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="0" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="0" y="3970" height="30" width="4000" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="3970" y="0" height="4000" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collision" x="30" y="1970" height="350" width="140" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+
+              <rect class="collisionT" x="1590" y="445" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collisionT" x="1145" y="865" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+              <rect class="collisionT" x="740" y="1480" height="30" width="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
       </svg>
 
     <div id='static'>
         <svg id="svgP" width="4000" height="4000">
-            <rect id="playerCollision" x="975" y="465" width="30" height="30" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
+            <rect id="playerCollision" x="975" y="465" width="25" height="25" style="fill:lime;stroke:purple;stroke-width:1;opacity:0.5;"/>
         </svg>
         <img id="AmmoCounter" src="GameTextures/AmmoCounterLong.png">
         <p id="AmmoAmmount">30/120</p>
