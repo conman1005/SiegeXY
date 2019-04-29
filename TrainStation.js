@@ -455,13 +455,13 @@ function movement() {
             }
         }
         for (var ii = 0; ii < bullets.length; ii++) {
-            if (bulletCol(collisions[i], ii) === true) {
+            if (bulletCol(collisions[i], ii, false) === true) {
                 console.log("collision");
             }
         }
     }
     for (var ii = 0; ii < bullets.length; ii++) {
-        if (bulletCol(playerBox, ii) === true) {
+        if (bulletCol(playerBox, ii, true) === true) {
             HP = HP - 10;
             if (HP <= 0) {
                 
@@ -472,12 +472,12 @@ function movement() {
     }
 }
 var collided = 0;
-function bulletCol(rect, i) {
+function bulletCol(rect, i, static) {
     //console.log("testcol", i);
     var x1;
     var y1;
     
-    if (static = true) {
+    if (static === true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
