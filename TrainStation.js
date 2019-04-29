@@ -16,7 +16,7 @@ var gameArea = document.getElementById("divGame");
 
 var healthBar = document.getElementById("Healthbar");
 
-var playerSpeed = 1.5;
+var playerSpeed = 2.2;
 var run = false;
 
 var terro1X = 900;
@@ -437,7 +437,7 @@ function movement() {
     }
     playerBox.setAttribute('x', (window.innerWidth * 0.495));
     playerBox.setAttribute('y', (window.innerHeight * 0.48));
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < collisions.length; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
             console.log("collision");
@@ -464,7 +464,7 @@ function movement() {
         if (bulletCol(playerBox, ii, true) === true) {
             HP = HP - 10;
             if (HP <= 0) {
-
+                
             }
             console.log('HP: ' + HP);
             healthBar.value = HP;
@@ -476,15 +476,15 @@ function bulletCol(rect, i, static) {
     //console.log("testcol", i);
     var x1;
     var y1;
-
-    if (static = true) {
+    
+    if (static === true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
         x1 = rect.x.animVal.value + posX;
         y1 = rect.y.animVal.value + posY;
     }
-
+    
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
 
@@ -579,12 +579,13 @@ document.onmousedown = function mouseDown () {
 
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
-
+    
+    
   bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
   bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
-
+    
   bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
-  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";
+  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";    
 // }
 // }
 }
