@@ -14,6 +14,8 @@ var ammoCount = document.getElementById("AmmoAmmount");
 
 var gameArea = document.getElementById("divGame");
 
+var healthBar = document.getElementById("Healthbar");
+
 var playerSpeed = 2.2;
 var run = false;
 
@@ -52,6 +54,9 @@ var ammo_Ak47 = 120;
 var clip_pistol = 11;
 var ammo_pistol = 51
 var shot = 0;
+
+var HP = 100;
+var eHP = [100, 100, 100];
 
 var hasShot = false;
 
@@ -455,6 +460,16 @@ function movement() {
             }
         }
     }
+    for (var ii = 0; ii < bullets.length; ii++) {
+        if (bulletCol(playerBox, ii) === true) {
+            HP = HP - 10;
+            if (HP <= 0) {
+                
+            }
+            console.log('HP: ' + HP);
+            healthBar.value = HP;
+        }
+    }
 }
 var collided = 0;
 function bulletCol(rect, i) {
@@ -467,7 +482,8 @@ function bulletCol(rect, i) {
     if (hasShot === false) {
         return false;
     }
-    //for (i in bullets) {
+    try {
+    //for (i = 0; i < bullets.length; i++) {
         //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             //document.body.removeChild(bullets[i]);
@@ -479,6 +495,9 @@ function bulletCol(rect, i) {
         } else {
             return false;
         }
+    } catch(err) {
+        return false;
+    }
     //}
 }
 function checkCol(rect1, rect2) {
@@ -547,13 +566,16 @@ document.onmousedown = function mouseDown () {
 
   bullets.push(document.getElementById("bullet" + shot.toString()));
 
-  bullets[shot].style.left = bulletY[shot] + "px";
-  bullets[shot].style.top = bulletX[shot] + "px";
-
     //credit to Spencer Jones for the Math below
 
-  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 4;
-  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 4;
+  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
+  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
+    
+  bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 5;
+  bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 5;
+    
+  bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
+  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";    
 // }
 // }
 }
