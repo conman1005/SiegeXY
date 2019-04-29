@@ -21,6 +21,7 @@ var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
 var posY = 0;
+var menuopen = false;
 
 var terrorist = document.getElementsByClassName("terrorist");
 var terroristX = [1565, 1120, 725];
@@ -104,6 +105,15 @@ document.onkeydown = function (e) {
   }
   if (keycode === 49){
     imgPewDiePie.src = "GameTextures/Op4Primary.png";
+  }
+
+  if (keycode === 27 && menuopen === false) {
+      document.getElementById('idMenu').style.display='block';
+      menuopen = true;
+  }
+  else if (keycode === 27 && menuopen === true) {
+      document.getElementById('idMenu').style.display='none';
+      menuopen = false;
   }
 }
 
