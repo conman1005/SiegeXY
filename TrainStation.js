@@ -455,13 +455,13 @@ function movement() {
             }
         }
         for (var ii = 0; ii < bullets.length; ii++) {
-            if (bulletCol(collisions[i], ii) === true) {
+            if (bulletCol(collisions[i], ii, false) === true) {
                 console.log("collision");
             }
         }
     }
     for (var ii = 0; ii < bullets.length; ii++) {
-        if (bulletCol(playerBox, ii) === true) {
+        if (bulletCol(playerBox, ii, true) === true) {
             HP = HP - 10;
             if (HP <= 0) {
                 
@@ -472,10 +472,19 @@ function movement() {
     }
 }
 var collided = 0;
-function bulletCol(rect, i) {
+function bulletCol(rect, i, static) {
     //console.log("testcol", i);
-    var x1 = rect.x.animVal.value + posX;
-    var y1 = rect.y.animVal.value + posY;
+    var x1;
+    var y1;
+    
+    if (static = true) {
+        x1 = rect.x.animVal.value;
+        y1 = rect.y.animVal.value;
+    } else {
+        x1 = rect.x.animVal.value + posX;
+        y1 = rect.y.animVal.value + posY;
+    }
+    
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
 
@@ -571,8 +580,8 @@ document.onmousedown = function mouseDown () {
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
     
-  bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 5;
-  bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 5;
+  bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
+  bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
     
   bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
   bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";    
