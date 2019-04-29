@@ -437,7 +437,7 @@ function movement() {
     }
     playerBox.setAttribute('x', (window.innerWidth * 0.495));
     playerBox.setAttribute('y', (window.innerHeight * 0.48));
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < ; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
             console.log("collision");
