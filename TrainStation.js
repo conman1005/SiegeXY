@@ -16,7 +16,7 @@ var gameArea = document.getElementById("divGame");
 
 var healthBar = document.getElementById("Healthbar");
 
-var playerSpeed = 1.5;
+var playerSpeed = 2.2;
 var run = false;
 
 var terro1X = 900;
@@ -464,7 +464,7 @@ function movement() {
         if (bulletCol(playerBox, ii) === true) {
             HP = HP - 10;
             if (HP <= 0) {
-
+                
             }
             console.log('HP: ' + HP);
             healthBar.value = HP;
@@ -474,10 +474,9 @@ function movement() {
 var collided = 0;
 function bulletCol(rect, i) {
     //console.log("testcol", i);
-<<<<<<< HEAD
     var x1;
     var y1;
-
+    
     if (static = true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
@@ -485,11 +484,7 @@ function bulletCol(rect, i) {
         x1 = rect.x.animVal.value + posX;
         y1 = rect.y.animVal.value + posY;
     }
-
-=======
-    var x1 = rect.x.animVal.value + posX;
-    var y1 = rect.y.animVal.value + posY;
->>>>>>> parent of d3b4030... Merge branch 'master' into Nathan-Branch2
+    
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
 
@@ -584,19 +579,13 @@ document.onmousedown = function mouseDown () {
 
   bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
   bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
-<<<<<<< HEAD
-
+    
+    
   bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
   bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
-
-=======
     
-  bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 5;
-  bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 5;
-    
->>>>>>> parent of d3b4030... Merge branch 'master' into Nathan-Branch2
   bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
-  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";
+  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";    
 // }
 // }
 }
