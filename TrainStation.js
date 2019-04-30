@@ -27,7 +27,7 @@ var menuopen = false;
 
 var terrorist = document.getElementsByClassName("terrorist");
 var terroristX = [1565, 1120, 725];
-var terroristY = [420, 840, 1465];
+var terroristY = [420, 840, 1405];
 
 var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
@@ -437,7 +437,7 @@ function movement() {
     }
     playerBox.setAttribute('x', (window.innerWidth * 0.495));
     playerBox.setAttribute('y', (window.innerHeight * 0.48));
-    for (i = 0; i < ; i++) {
+    for (i = 0; i < collisions.length; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
             console.log("collision");
