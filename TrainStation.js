@@ -27,7 +27,7 @@ var menuopen = false;
 
 var terrorist = document.getElementsByClassName("terrorist");
 var terroristX = [1565, 1120, 725];
-var terroristY = [420, 840, 1465];
+var terroristY = [420, 840, 1405];
 
 var dT = 0;
 
