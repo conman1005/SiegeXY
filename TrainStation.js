@@ -488,6 +488,8 @@ function bulletCol(rect, i, static) {
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
 
+    var id = bullets[i].id;
+
     if (hasShot === false) {
         return false;
     }
@@ -498,16 +500,29 @@ function bulletCol(rect, i, static) {
             //document.body.removeChild(bullets[i]);
             console.log("length", bullets.length);
             console.log("i", i);
-            document.getElementById(bullets[i].id).remove();
-            //bullets.splice(i);
+            /*bullets.splice(i);
+            bulletX.splice(i);
+            bulletY.splice(i);
+            bulletDirectionX.splice(i);
+            bulletDirectionY.splice(i);*/
+            document.getElementById(id).remove();
             return true;
         } else {
             return false;
         }
     } catch(err) {
-        return false;
+        //bullets.splice(i);
     }
     //}
+    /*if (document.getElementById(bullets[i].id) == null) {
+        console.log("splice");
+        bullets.splice(i);
+        bulletX.splice(i);
+        bulletY.splice(i);
+        bulletDirectionX.splice(i);
+        bulletDirectionY.splice(i);
+        document.getElementById(id).remove();
+    }*/
 }
 function checkCol(rect1, rect2) {
     var x1 = rect1.x.animVal.value + posX;
@@ -585,6 +600,8 @@ document.onmousedown = function mouseDown () {
 
   bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
   bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";
+
+    console.log("bullets ", bullets.length);
 // }
 // }
 }
