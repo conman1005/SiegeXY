@@ -29,9 +29,12 @@ var terrorist = document.getElementsByClassName("terrorist");
 var terroristX = [1565, 1120, 725];
 var terroristY = [420, 840, 1405];
 
+var dT = 0;
+
 var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
 var playerBox = document.getElementById("playerCollision");
+var tBox = document.getElementsByClassName("collisionT");
 
 var bulletHell = false;
 
@@ -374,36 +377,52 @@ function movement() {
         terrorist[i].style.transform = 'rotate('+degt+'deg)';
         terrorist[i].style.left = terroristX[i] + "px";
         terrorist[i].style.top = terroristY[i] + "px";
-        if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
-              var shot = bullets.length;
-              hasShot = true;
+        if (eHP[i] > 0) {
+            if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
+                  var shot = bullets.length;
+                  hasShot = true;
 
-              bulletX[shot] = terroristX[i] + posX;
-              bulletY[shot] = terroristY[i] + posY;
+                  bulletX[shot] = terroristX[i] + posX;
+                  bulletY[shot] = terroristY[i] + posY;
 
-              var newBullet = document.createElement("IMG");
-              newBullet.setAttribute("id", "bullet" + shot);
-              newBullet.setAttribute("src", "GameTextures/Bullet.png");
-              newBullet.setAttribute("style", "position: absolute");
-              //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-              newBullet.setAttribute("width", "13");
-              newBullet.setAttribute("height", "6");
+                  var newBullet = document.createElement("IMG");
+                  newBullet.setAttribute("id", "bullet" + shot);
+                  newBullet.setAttribute("src", "GameTextures/Bullet.png");
+                  newBullet.setAttribute("style", "position: absolute");
+                  //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
+                  newBullet.setAttribute("width", "13");
+                  newBullet.setAttribute("height", "6");
 
-              newBullet.style.transform = 'rotate('+degt+'deg)';
+                  newBullet.style.transform = 'rotate('+degt+'deg)';
 
-              newBullet.id = ("bullet" + shot.toString());
+                  newBullet.id = ("bullet" + shot.toString());
 
-              document.body.appendChild(newBullet);
+                  document.body.appendChild(newBullet);
 
-              bullets.push(document.getElementById("bullet" + shot.toString()));
+                  bullets.push(document.getElementById("bullet" + shot.toString()));
 
-              bullets[shot].style.left = bulletY[shot] + "px";
-              bullets[shot].style.top = bulletX[shot] + "px";
+                  bullets[shot].style.left = bulletY[shot] + "px";
+                  bullets[shot].style.top = bulletX[shot] + "px";
 
-                //credit to Spencer Jones for the Math below
+                    //credit to Spencer Jones for the Math below
 
-              bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 4;
-              bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
+                  bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 4;
+                  bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
+            }
+            for (ii = 0; ii < bullets.length; ii++) {
+              if (bulletCol(tBox[i], ii, false) === true) {
+                  eHP[i] = eHP[i] - 10;
+                  if (eHP[i] <= 0) {
+                      terrorist[i].style.visibility = "hidden";
+                      dT++;
+                      console.log(eHP, dT);
+                      if (dT === terrorist.length) {
+                          alert("You Win!");
+                          window.location.href = "/";
+                      }
+                  }
+              }
+            }
         }
     }
 
@@ -477,7 +496,7 @@ function bulletCol(rect, i, static) {
     var x1;
     var y1;
 
-    if (static = true) {
+    if (static === true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
@@ -498,8 +517,8 @@ function bulletCol(rect, i, static) {
         //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             //document.body.removeChild(bullets[i]);
-            console.log("length", bullets.length);
-            console.log("i", i);
+            //console.log("length", bullets.length);
+            //console.log("i", i);
             /*bullets.splice(i);
             bulletX.splice(i);
             bulletY.splice(i);
