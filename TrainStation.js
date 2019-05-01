@@ -523,11 +523,11 @@ function bulletCol(rect, i, static) {
             //document.body.removeChild(bullets[i]);
             //console.log("length", bullets.length);
             //console.log("i", i);
-            bullets.splice(i);
+            /*bullets.splice(i);
             bulletX.splice(i);
             bulletY.splice(i);
             bulletDirectionX.splice(i);
-            bulletDirectionY.splice(i);
+            bulletDirectionY.splice(i);*/
             document.getElementById(id).remove();
             return true;
         } else {
@@ -544,10 +544,7 @@ function bulletCol(rect, i, static) {
         bulletY.splice(i);
         bulletDirectionX.splice(i);
         bulletDirectionY.splice(i);
-        console.log("length", bullets.length);
-        console.log("i", i);
-        console.log(bulletX, bulletY, bulletDirectionX, bulletDirectionY);
-        //document.getElementById(id).remove();
+        document.getElementById(id).remove();
     }*/
 }
 function checkCol(rect1, rect2) {
