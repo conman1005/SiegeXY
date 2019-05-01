@@ -579,13 +579,13 @@ document.onmousedown = function mouseDown () {
   var e = window.event;
   console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
   if (recMade === false) {
-      x1 = e.cleintX - posX;
-      y1 = e.cleintY - posY;
+      x1 = mouse[0], y1 = mouse[1];
       recMade = true;
   } else {
-      x2 = e.cleintX - posX;
-      y2 = e.cleintY - posY;
-      //console.log("<rect class=\"collision\" x=\""x1"\" y=\""y1"\" height=\""y2 - y1"\" width=\""x2 - x1"\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.0;\"/>");
+      x2 = mouse[0], y2 = mouse[1];
+      var h = y2 - y1;
+      var w = x2 - x1;
+      console.log("<rect class=\"collision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
       recMade = false;
   }
     if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
@@ -677,6 +677,6 @@ function getOffset(el) {
   const rect = el.getBoundingClientRect();
   return {
     left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY
+    top: rect.top + window.scrollY,
   }
 }
