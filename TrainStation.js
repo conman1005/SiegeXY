@@ -16,7 +16,7 @@ var gameArea = document.getElementById("divGame");
 
 var healthBar = document.getElementById("Healthbar");
 
-var playerSpeed = 1.5;
+var playerSpeed = 1.3;
 var run = false;
 
 var terro1X = 900;
@@ -110,9 +110,11 @@ document.onkeydown = function (e) {
   }
   if (keycode === 50){
     imgPewDiePie.src = "GameTextures/Op4.png";
+       playerSpeed = 1.5;
   }
   if (keycode === 49){
     imgPewDiePie.src = "GameTextures/Op4Primary.png";
+       playerSpeed = 1.3;
   }
 
   if (keycode === 27 && menuopen === false) {
@@ -146,9 +148,11 @@ document.onkeyup = function (e) {
 
   if (keycode === 50){
     imgPewDiePie.src = "GameTextures/Op4.png";
+       playerSpeed = 1.5;
   }
   if (keycode === 49){
     imgPewDiePie.src = "GameTextures/Op4Primary.png";
+     playerSpeed = 1.3;
   }
 }
 
