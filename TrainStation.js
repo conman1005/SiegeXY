@@ -430,12 +430,32 @@ function movement() {
     }
 
     if (hasShot === true) {
-        var i;
-        for (i in bullets) {
+        var n = 0;
+        for (i = 0; i < bullets.length; i++) {
           bulletX[i] = bulletX[i] + bulletDirectionX[i];
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
+          //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
+          //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
+            
+          //bullets[i].style.left = parseInt(bullets[i].getAttribute("data-x")) + parseInt(bullets[i].getAttribute("data-directionX")) + "px";
+          //bullets[i].style.top = parseInt(bullets[i].getAttribute("data-y")) + parseInt(bullets[i].getAttribute("data-directionY")) + "px";
+            
+          if (document.getElementById(bullets[i].id) == null) {
+              n++
+              console.log("n", n);
+              if (n >= bullets.length) {
+                  while (bullets.length > 0) {
+                      bullets = [];
+                      bulletX = [];
+                      bulletY = [];
+                      bulletDirectionX = [];
+                      bulletDirectionY = [];
+                      n = 0;
+                  }
+              }
+          }
         }
     }
     if (reloadTimer >= 1) {
@@ -624,7 +644,12 @@ document.onmousedown = function mouseDown () {
   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
   newBullet.setAttribute("width", "13");
   newBullet.setAttribute("height", "6");
-
+    
+  newBullet.setAttribute("data-x", window.innerWidth / 2);
+  newBullet.setAttribute("data-y", window.innerHeight / 2);
+  newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
+  newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
+    
   newBullet.style.transform = 'rotate('+deg+'deg)';
 
   newBullet.id = ("bullet" + shot.toString());
@@ -641,8 +666,8 @@ document.onmousedown = function mouseDown () {
   bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
   bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
 
-  bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
-  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";
+  //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
+  //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
 
     console.log("bullets ", bullets.length);
 // }
