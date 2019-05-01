@@ -1,8 +1,8 @@
 var cnvGame;
 var ctx;
 
-var imgLayer1 = document.getElementById("layer1");
 var imgLayer2 = document.getElementById("layer2");
+var imgLayer1 = document.getElementById("layer1");
 var gameArea = document.getElementById("divGame");
 // var imgTerrorist1 = document.getElementById("terrorist1")
 
@@ -35,7 +35,7 @@ var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
 var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
-
+var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
 
 //paper.setup(document.getElementById("paperCanvas"));
@@ -373,7 +373,6 @@ function movement() {
     var rot = Math.atan2(dy, dx);
     deg = rot * (180 / Math.PI);
     imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
-    document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
 
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
@@ -513,9 +512,15 @@ function movement() {
             healthBar.value = HP;
         }
     }
+    for(var i = 0; i < vision.lenth; i++) {
+      if (checkCol(playerBox, vision[i]) === true){
+        console.log("Yes");
+        document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
+      }
+    }
 }
 var collided = 0;
-function bulletCol(rect, i, static) {
+function bulletCol(rect, i, static){
     //console.log("testcol", i);
     var x1;
     var y1;
