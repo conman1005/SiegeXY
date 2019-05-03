@@ -37,6 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
+var god = false;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
@@ -413,7 +414,7 @@ function movement() {
                   bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
             }
             for (ii = 0; ii < bullets.length; ii++) {
-              if (bulletCol(tBox[i], ii, false) === true) {
+              if ((bulletCol(tBox[i], ii, false) === true)) {
                   eHP[i] = eHP[i] - 10;
                   if (eHP[i] <= 0) {
                       terrorist[i].style.visibility = "hidden";
@@ -503,13 +504,13 @@ function movement() {
         }
     }
     for (var ii = 0; ii < bullets.length; ii++) {
-        if (bulletCol(playerBox, ii, true) === true) {
+        if ((bulletCol(playerBox, ii, true) === true) && (god === false)) {
             HP = HP - 10;
-            if (HP <= 0) {
-
-            }
-            console.log('HP: ' + HP);
             healthBar.value = HP;
+            if (HP <= 0) {
+                alert("You Lose!");
+                window.location.href = "/";
+            }
         }
     }
     var vis = 0;
