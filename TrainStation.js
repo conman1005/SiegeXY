@@ -512,10 +512,15 @@ function movement() {
             healthBar.value = HP;
         }
     }
-    for(var i = 0; i < vision.lenth; i++) {
-      if (checkCol(playerBox, vision[i]) === true){
-        console.log("Yes");
+    var vis = 0;
+    for (var i = 0; i < vision.length; i++) {
+      if (checkCol(vision[i], playerBox) === true) {
         document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
+      } else if (checkCol(vision[i], playerBox) === false) {
+          vis++;
+          if (vis === vision.length) {
+            document.getElementById("layer2").setAttribute("style","opacity:1.0; -moz-opacity:0.0; filter:alpha(opacity=1)");
+          }
       }
     }
 }
