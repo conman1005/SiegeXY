@@ -419,7 +419,6 @@ function movement() {
                   if (eHP[i] <= 0) {
                       terrorist[i].style.visibility = "hidden";
                       dT++;
-                      console.log(eHP, dT);
                       if (dT === terrorist.length) {
                           alert("You Win!");
                           window.location.href = "/";
@@ -445,7 +444,6 @@ function movement() {
             
           if (document.getElementById(bullets[i].id) == null) {
               n++
-              console.log("n", n);
               if (n >= bullets.length) {
                   while (bullets.length > 0) {
                       bullets = [];
@@ -483,7 +481,6 @@ function movement() {
     for (i = 0; i < collisions.length; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
-            console.log("collision");
             if (up === true) {
                 posY = posY - playerSpeed;
             }
@@ -499,7 +496,6 @@ function movement() {
         }
         for (var ii = 0; ii < bullets.length; ii++) {
             if (bulletCol(collisions[i], ii, false) === true) {
-                console.log("collision");
             }
         }
     }
@@ -527,7 +523,6 @@ function movement() {
 }
 var collided = 0;
 function bulletCol(rect, i, static){
-    //console.log("testcol", i);
     var x1;
     var y1;
 
@@ -549,16 +544,7 @@ function bulletCol(rect, i, static){
     }
     try {
     //for (i = 0; i < bullets.length; i++) {
-        //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
-            //document.body.removeChild(bullets[i]);
-            //console.log("length", bullets.length);
-            //console.log("i", i);
-            /*bullets.splice(i);
-            bulletX.splice(i);
-            bulletY.splice(i);
-            bulletDirectionX.splice(i);
-            bulletDirectionY.splice(i);*/
             document.getElementById(id).remove();
             return true;
         } else {
@@ -567,16 +553,7 @@ function bulletCol(rect, i, static){
     } catch(err) {
         //bullets.splice(i);
     }
-    //}
-    /*if (document.getElementById(bullets[i].id) == null) {
-        console.log("splice");
-        bullets.splice(i);
-        bulletX.splice(i);
-        bulletY.splice(i);
-        bulletDirectionX.splice(i);
-        bulletDirectionY.splice(i);
-        document.getElementById(id).remove();
-    }*/
+
 }
 function checkCol(rect1, rect2) {
     var x1 = rect1.x.animVal.value + posX;
@@ -587,17 +564,8 @@ function checkCol(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
     var height2 = rect2.height.animVal.value;
-// <<<<<<< Nathan-Branch2
-
-//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
-
-// =======
-
-//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
-
-// >>>>>>> master
+    
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
-        //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
         return true;
     } else {
         return false;
@@ -612,7 +580,7 @@ var y2;
 document.onmousedown = function mouseDown () {
   var shot = bullets.length;
   var e = window.event;
-  console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
+  //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
   if (recMade === false) {
       x1 = mouse[0], y1 = mouse[1];
       recMade = true;
@@ -674,8 +642,6 @@ document.onmousedown = function mouseDown () {
 
   //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
   //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
-
-    console.log("bullets ", bullets.length);
 // }
 // }
 }
@@ -688,25 +654,6 @@ document.onmousedown = function mouseDown () {
   else {
     operator.src = "GameTextures/Op4Primary.png";
   }
-}*/
-
-/*function showIntersections(path1, path2) {
-    var intersections = path1.getIntersections(path2);
-    if (intersections == true) {
-        console.log(true);
-        return true;
-    } else {
-        console.log(false);
-        return false;
-    }
-}*/
-
-/*function checkCol(poly, pt){
-    for(var c = false, i = -1, l = poly.length, j = l - 1; ++i < l; j = i)
-        ((poly[i].y <= pt.y && pt.y < poly[j].y) || (poly[j].y <= pt.y && pt.y < poly[i].y))
-        && (pt.x < (poly[j].x - poly[i].x) * (pt.y - poly[i].y) / (poly[j].y - poly[i].y) + poly[i].x)
-        && (c = !c);
-    return c;
 }*/
 
 document.addEventListener('contextmenu', event => event.preventDefault());
