@@ -83,8 +83,11 @@ var bullet = new Image;
 // var sound = new Howl({
 //   src: ['SoundEffects/Shot1.mp3']
 // });
+var load = false;
 
-
+window.addEventListener("load", function () {
+    load = true
+});
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -163,6 +166,9 @@ document.addEventListener('mousemove', function(ev) {
 });
 
 function movement() {
+    if (load === false) {
+        return;
+    }
     if (up === true) {
         if (run === true) {
             if ((left === true) || (right === true)) {
@@ -385,6 +391,9 @@ function movement() {
             if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
                   var shot = bullets.length;
                   hasShot = true;
+                  
+                  var gunShot = new Audio('SoundEffects/Shot1.mp3');
+                  gunShot.play();
 
                   bulletX[shot] = terroristX[i] + posX;
                   bulletY[shot] = terroristY[i] + posY;
@@ -578,6 +587,9 @@ var y1;
 var x2;
 var y2;
 document.onmousedown = function mouseDown () {
+  if (load === false) {
+        return;
+  }
   var shot = bullets.length;
   var e = window.event;
   //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
@@ -595,8 +607,9 @@ document.onmousedown = function mouseDown () {
       //empty gun sfx
       return;
   }
-
-  // sound.play();
+  
+  var gunShot = new Audio('SoundEffects/Shot1.mp3');
+  gunShot.play();
 
   // if(clip_AK47 >= 0){
   // var clip_AK47 = 30;
