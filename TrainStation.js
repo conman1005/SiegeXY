@@ -37,7 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
-var god = false;
+var god = true;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
@@ -79,6 +79,9 @@ var mouse = [0, 0];
 var point = getOffset(imgPewDiePie);
 
 var bullet = new Image;
+
+var url = window.location.href.search("op=") + 3;
+var op = window.location.href.substr(url);
 
 // var sound = new Howl({
 //   src: ['SoundEffects/Shot1.mp3']
@@ -587,6 +590,7 @@ var y1;
 var x2;
 var y2;
 document.onmousedown = function mouseDown () {
+  console.log(op);
   if (load === false) {
         return;
   }
