@@ -8,7 +8,7 @@ var gameArea = document.getElementById("divGame");
 
 var imgBlackout;
 var imgTortue;
-var imgPewDiePie = document.getElementById("PewDiePie");
+var imgPlayer = document.getElementById("PewDiePie");
 
 var ammoCount = document.getElementById("AmmoAmmount");
 
@@ -37,7 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
-var god = false;
+var god = true;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
@@ -76,7 +76,7 @@ var left = false;
 var right = false;
 
 var mouse = [0, 0];
-var point = getOffset(imgPewDiePie);
+var point = getOffset(imgPlayer);
 
 var bullet = new Image;
 
@@ -89,7 +89,15 @@ var op = window.location.href.substr(url);
 var load = false;
 
 window.addEventListener("load", function () {
-    load = true
+    load = true;
+    var http = new XMLHttpRequest();
+    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
+    http.send();
+    if (http.status!=404 === false) {
+        imgPlayer.src = "GameTextures/Op4Primary.png";
+        return;
+    }
+    imgPlayer.src = "GameTextures/Op" + op + ".png";
 });
 
 document.onkeydown = function (e) {
@@ -116,11 +124,11 @@ document.onkeydown = function (e) {
     right = true;
   }
   if (keycode === 50){
-    imgPewDiePie.src = "GameTextures/Op4.png";
+    imgPlayer.src = "GameTextures/Op4.png";
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPewDiePie.src = "GameTextures/Op4Primary.png";
+    imgPlayer.src = "GameTextures/Op4Primary.png";
        playerSpeed = 1.3;
   }
 
@@ -154,11 +162,11 @@ document.onkeyup = function (e) {
   }
 
   if (keycode === 50){
-    imgPewDiePie.src = "GameTextures/Op4.png";
+    imgPlayer.src = "GameTextures/Op4.png";
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPewDiePie.src = "GameTextures/Op4Primary.png";
+    imgPlayer.src = "GameTextures/Op4Primary.png";
      playerSpeed = 1.3;
   }
 }
@@ -382,7 +390,7 @@ function movement() {
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     deg = rot * (180 / Math.PI);
-    imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
+    imgPlayer.setAttribute('style', 'transform: rotate('+deg+'deg)');
 
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
