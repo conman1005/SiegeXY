@@ -8,7 +8,7 @@ var gameArea = document.getElementById("divGame");
 
 var imgBlackout;
 var imgTortue;
-var imgPewDiePie = document.getElementById("PewDiePie");
+var imgPlayer = document.getElementById("PewDiePie");
 
 var ammoCount = document.getElementById("AmmoAmmount");
 
@@ -37,6 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
+var god = false;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
@@ -75,15 +76,29 @@ var left = false;
 var right = false;
 
 var mouse = [0, 0];
-var point = getOffset(imgPewDiePie);
+var point = getOffset(imgPlayer);
 
 var bullet = new Image;
+
+var url = window.location.href.search("op=") + 3;
+var op = window.location.href.substr(url);
 
 // var sound = new Howl({
 //   src: ['SoundEffects/Shot1.mp3']
 // });
+var load = false;
 
-
+window.addEventListener("load", function () {
+    load = true;
+    var http = new XMLHttpRequest();
+    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
+    http.send();
+    if (http.status!=404 === false) {
+        imgPlayer.src = "GameTextures/Op4Primary.png";
+        return;
+    }
+    imgPlayer.src = "GameTextures/Op" + op + ".png";
+});
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -109,11 +124,11 @@ document.onkeydown = function (e) {
     right = true;
   }
   if (keycode === 50){
-    imgPewDiePie.src = "GameTextures/Op4.png";
+    imgPlayer.src = "GameTextures/Op4.png";
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPewDiePie.src = "GameTextures/Op4Primary.png";
+    imgPlayer.src = "GameTextures/Op4Primary.png";
        playerSpeed = 1.3;
   }
 
@@ -147,11 +162,11 @@ document.onkeyup = function (e) {
   }
 
   if (keycode === 50){
-    imgPewDiePie.src = "GameTextures/Op4.png";
+    imgPlayer.src = "GameTextures/Op4.png";
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPewDiePie.src = "GameTextures/Op4Primary.png";
+    imgPlayer.src = "GameTextures/Op4Primary.png";
      playerSpeed = 1.3;
   }
 }
@@ -162,6 +177,9 @@ document.addEventListener('mousemove', function(ev) {
 });
 
 function movement() {
+    if (load === false) {
+        return;
+    }
     if (up === true) {
         if (run === true) {
             if ((left === true) || (right === true)) {
@@ -372,7 +390,7 @@ function movement() {
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     deg = rot * (180 / Math.PI);
-    imgPewDiePie.setAttribute('style', 'transform: rotate('+deg+'deg)');
+    imgPlayer.setAttribute('style', 'transform: rotate('+deg+'deg)');
 
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
@@ -384,6 +402,9 @@ function movement() {
             if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
                   var shot = bullets.length;
                   hasShot = true;
+                  
+                  var gunShot = new Audio('SoundEffects/Shot1.mp3');
+                  gunShot.play();
 
                   bulletX[shot] = terroristX[i] + posX;
                   bulletY[shot] = terroristY[i] + posY;
@@ -413,12 +434,11 @@ function movement() {
                   bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
             }
             for (ii = 0; ii < bullets.length; ii++) {
-              if (bulletCol(tBox[i], ii, false) === true) {
+              if ((bulletCol(tBox[i], ii, false) === true)) {
                   eHP[i] = eHP[i] - 10;
                   if (eHP[i] <= 0) {
                       terrorist[i].style.visibility = "hidden";
                       dT++;
-                      console.log(eHP, dT);
                       if (dT === terrorist.length) {
                           alert("You Win!");
                           window.location.href = "/";
@@ -430,12 +450,31 @@ function movement() {
     }
 
     if (hasShot === true) {
-        var i;
-        for (i in bullets) {
+        var n = 0;
+        for (i = 0; i < bullets.length; i++) {
           bulletX[i] = bulletX[i] + bulletDirectionX[i];
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
+          //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
+          //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
+            
+          //bullets[i].style.left = parseInt(bullets[i].getAttribute("data-x")) + parseInt(bullets[i].getAttribute("data-directionX")) + "px";
+          //bullets[i].style.top = parseInt(bullets[i].getAttribute("data-y")) + parseInt(bullets[i].getAttribute("data-directionY")) + "px";
+            
+          if (document.getElementById(bullets[i].id) == null) {
+              n++
+              if (n >= bullets.length) {
+                  while (bullets.length > 0) {
+                      bullets = [];
+                      bulletX = [];
+                      bulletY = [];
+                      bulletDirectionX = [];
+                      bulletDirectionY = [];
+                      n = 0;
+                  }
+              }
+          }
         }
     }
     if (reloadTimer >= 1) {
@@ -462,7 +501,6 @@ function movement() {
     for (i = 0; i < collisions.length; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
         if (checkCol(collisions[i], playerBox) === true) {
-            console.log("collision");
             if (up === true) {
                 posY = posY - playerSpeed;
             }
@@ -478,30 +516,33 @@ function movement() {
         }
         for (var ii = 0; ii < bullets.length; ii++) {
             if (bulletCol(collisions[i], ii, false) === true) {
-                console.log("collision");
             }
         }
     }
     for (var ii = 0; ii < bullets.length; ii++) {
-        if (bulletCol(playerBox, ii, true) === true) {
+        if ((bulletCol(playerBox, ii, true) === true) && (god === false)) {
             HP = HP - 10;
-            if (HP <= 0) {
-
-            }
-            console.log('HP: ' + HP);
             healthBar.value = HP;
+            if (HP <= 0) {
+                alert("You Lose!");
+                window.location.href = "/";
+            }
         }
     }
-    for(var i = 0; i < vision.lenth; i++) {
-      if (checkCol(playerBox, vision[i]) === true){
-        console.log("Yes");
+    var vis = 0;
+    for (var i = 0; i < vision.length; i++) {
+      if (checkCol(vision[i], playerBox) === true) {
         document.getElementById("layer2").setAttribute("style","opacity:0.0; -moz-opacity:0.0; filter:alpha(opacity=0)");
+      } else if (checkCol(vision[i], playerBox) === false) {
+          vis++;
+          if (vis === vision.length) {
+            document.getElementById("layer2").setAttribute("style","opacity:1.0; -moz-opacity:0.0; filter:alpha(opacity=1)");
+          }
       }
     }
 }
 var collided = 0;
 function bulletCol(rect, i, static){
-    //console.log("testcol", i);
     var x1;
     var y1;
 
@@ -523,16 +564,7 @@ function bulletCol(rect, i, static){
     }
     try {
     //for (i = 0; i < bullets.length; i++) {
-        //console.log(parseFloat(bullets[i].style.left), parseFloat(bullets[i].style.top), 16, 16, i, bullets);
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
-            //document.body.removeChild(bullets[i]);
-            //console.log("length", bullets.length);
-            //console.log("i", i);
-            /*bullets.splice(i);
-            bulletX.splice(i);
-            bulletY.splice(i);
-            bulletDirectionX.splice(i);
-            bulletDirectionY.splice(i);*/
             document.getElementById(id).remove();
             return true;
         } else {
@@ -541,16 +573,7 @@ function bulletCol(rect, i, static){
     } catch(err) {
         //bullets.splice(i);
     }
-    //}
-    /*if (document.getElementById(bullets[i].id) == null) {
-        console.log("splice");
-        bullets.splice(i);
-        bulletX.splice(i);
-        bulletY.splice(i);
-        bulletDirectionX.splice(i);
-        bulletDirectionY.splice(i);
-        document.getElementById(id).remove();
-    }*/
+
 }
 function checkCol(rect1, rect2) {
     var x1 = rect1.x.animVal.value + posX;
@@ -561,17 +584,8 @@ function checkCol(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
     var height2 = rect2.height.animVal.value;
-// <<<<<<< Nathan-Branch2
-
-//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
-
-// =======
-
-//     //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
-
-// >>>>>>> master
+    
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
-        //console.log(x1, x2, y1, y2, width1, width2, height1, height2);
         return true;
     } else {
         return false;
@@ -584,9 +598,13 @@ var y1;
 var x2;
 var y2;
 document.onmousedown = function mouseDown () {
+  console.log(op);
+  if (load === false) {
+        return;
+  }
   var shot = bullets.length;
   var e = window.event;
-  console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
+  //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
   if (recMade === false) {
       x1 = mouse[0], y1 = mouse[1];
       recMade = true;
@@ -601,8 +619,9 @@ document.onmousedown = function mouseDown () {
       //empty gun sfx
       return;
   }
-
-  // sound.play();
+  
+  var gunShot = new Audio('SoundEffects/Shot1.mp3');
+  gunShot.play();
 
   // if(clip_AK47 >= 0){
   // var clip_AK47 = 30;
@@ -624,7 +643,12 @@ document.onmousedown = function mouseDown () {
   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
   newBullet.setAttribute("width", "13");
   newBullet.setAttribute("height", "6");
-
+    
+  newBullet.setAttribute("data-x", window.innerWidth / 2);
+  newBullet.setAttribute("data-y", window.innerHeight / 2);
+  newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
+  newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
+    
   newBullet.style.transform = 'rotate('+deg+'deg)';
 
   newBullet.id = ("bullet" + shot.toString());
@@ -641,10 +665,8 @@ document.onmousedown = function mouseDown () {
   bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
   bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
 
-  bullets[shot].style.left = (bulletX[shot] + bulletDirectionX[shot] * 150) + "px";
-  bullets[shot].style.top = (bulletY[shot] + bulletDirectionY[shot] * 150) + "px";
-
-    console.log("bullets ", bullets.length);
+  //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
+  //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
 // }
 // }
 }
@@ -657,25 +679,6 @@ document.onmousedown = function mouseDown () {
   else {
     operator.src = "GameTextures/Op4Primary.png";
   }
-}*/
-
-/*function showIntersections(path1, path2) {
-    var intersections = path1.getIntersections(path2);
-    if (intersections == true) {
-        console.log(true);
-        return true;
-    } else {
-        console.log(false);
-        return false;
-    }
-}*/
-
-/*function checkCol(poly, pt){
-    for(var c = false, i = -1, l = poly.length, j = l - 1; ++i < l; j = i)
-        ((poly[i].y <= pt.y && pt.y < poly[j].y) || (poly[j].y <= pt.y && pt.y < poly[i].y))
-        && (pt.x < (poly[j].x - poly[i].x) * (pt.y - poly[i].y) / (poly[j].y - poly[i].y) + poly[i].x)
-        && (c = !c);
-    return c;
 }*/
 
 document.addEventListener('contextmenu', event => event.preventDefault());
