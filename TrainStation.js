@@ -37,7 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
-var god = false;
+var god = true;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
@@ -79,6 +79,7 @@ var shooting = false;
 var shootTime = 0;
 var fireRate = 27;
 var shootTimer = 0;
+var spray = false;
 
 var mouse = [0, 0];
 var point = getOffset(imgPlayer);
@@ -580,8 +581,15 @@ function movement() {
               newBullet.setAttribute("data-y", window.innerHeight / 2);
               newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
               newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
+            
+              var degSpray;
+              if (spray === false) {
+                  degSpray = deg;
+              } else {
+                  degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
+              }
 
-              newBullet.style.transform = 'rotate('+deg+'deg)';
+              newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
               newBullet.id = ("bullet" + shot.toString());
 
@@ -591,11 +599,12 @@ function movement() {
 
                 //credit to Spencer Jones for the Math below
 
-              bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
-              bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
+              bulletDirectionX[shot] = Math.cos(degSpray * Math.PI / 180) * 5;
+              bulletDirectionY[shot] = Math.sin(degSpray * Math.PI / 180) * 5;
 
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
+              spray = true;
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
         }
@@ -662,6 +671,7 @@ document.onmousedown = function mouseDown () {
         return;
   }
   shooting = true;
+  spray = false;
   if (recMade === false) {
       x1 = mouse[0], y1 = mouse[1];
       recMade = true;
