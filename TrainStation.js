@@ -75,6 +75,11 @@ var down = false;
 var left = false;
 var right = false;
 
+var shooting = false;
+var shootTime = 0;
+var fireRate = 27;
+var shootTimer = 0;
+
 var mouse = [0, 0];
 var point = getOffset(imgPlayer);
 
@@ -414,8 +419,8 @@ function movement() {
                   newBullet.setAttribute("src", "GameTextures/Bullet.png");
                   newBullet.setAttribute("style", "position: absolute");
                   //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-                  newBullet.setAttribute("width", "13");
-                  newBullet.setAttribute("height", "6");
+                  newBullet.setAttribute("width", "10");
+                  newBullet.setAttribute("height", "4.1");
 
                   newBullet.style.transform = 'rotate('+degt+'deg)';
 
@@ -540,6 +545,61 @@ function movement() {
           }
       }
     }
+    if ((shooting === true) && (clip_Ak47 > 0)) {
+        shootTimer++;
+        if (shootTimer === 1) {
+              var shot = bullets.length;
+              var e = window.event;
+              //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
+
+              var gunShot = new Audio('SoundEffects/Shot1.mp3');
+              gunShot.play();
+
+              // if(clip_AK47 >= 0){
+              // var clip_AK47 = 30;
+              // var shottimer = setInterval(shooting,120);
+              // function shooting(){
+              clip_Ak47--;
+              // if(clip_AK47 >= 0){
+              ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
+
+              hasShot = true;
+
+              bulletX[shot] = window.innerWidth / 2;
+              bulletY[shot] = window.innerHeight / 2;
+
+              var newBullet = document.createElement("IMG");
+              newBullet.setAttribute("id", "bullet" + shot);
+              newBullet.setAttribute("src", "GameTextures/Bullet.png");
+              newBullet.setAttribute("style", "position: absolute");
+              //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
+              newBullet.setAttribute("width", "10");
+              newBullet.setAttribute("height", "4.1");
+
+              newBullet.setAttribute("data-x", window.innerWidth / 2);
+              newBullet.setAttribute("data-y", window.innerHeight / 2);
+              newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
+              newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
+
+              newBullet.style.transform = 'rotate('+deg+'deg)';
+
+              newBullet.id = ("bullet" + shot.toString());
+
+              document.body.appendChild(newBullet);
+
+              bullets.push(document.getElementById("bullet" + shot.toString()));
+
+                //credit to Spencer Jones for the Math below
+
+              bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
+              bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
+
+              bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
+              bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
+        } else if (shootTimer === fireRate) {
+            shootTimer = 0;
+        }
+    }
 }
 var collided = 0;
 function bulletCol(rect, i, static){
@@ -598,13 +658,10 @@ var y1;
 var x2;
 var y2;
 document.onmousedown = function mouseDown () {
-  console.log(op);
-  if (load === false) {
+  if (load === false){
         return;
   }
-  var shot = bullets.length;
-  var e = window.event;
-  //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
+  shooting = true;
   if (recMade === false) {
       x1 = mouse[0], y1 = mouse[1];
       recMade = true;
@@ -619,56 +676,16 @@ document.onmousedown = function mouseDown () {
       //empty gun sfx
       return;
   }
-  
-  var gunShot = new Audio('SoundEffects/Shot1.mp3');
-  gunShot.play();
-
-  // if(clip_AK47 >= 0){
-  // var clip_AK47 = 30;
-  // var shottimer = setInterval(shooting,120);
-  // function shooting(){
-  clip_Ak47--;
-  // if(clip_AK47 >= 0){
-  ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
-
-  hasShot = true;
-
-  bulletX[shot] = window.innerWidth / 2;
-  bulletY[shot] = window.innerHeight / 2;
-
-  var newBullet = document.createElement("IMG");
-  newBullet.setAttribute("id", "bullet" + shot);
-  newBullet.setAttribute("src", "GameTextures/Bullet.png");
-  newBullet.setAttribute("style", "position: absolute");
-  //newBullet.setAttribute('style', 'transform: rotate('+deg+'deg)');
-  newBullet.setAttribute("width", "13");
-  newBullet.setAttribute("height", "6");
-    
-  newBullet.setAttribute("data-x", window.innerWidth / 2);
-  newBullet.setAttribute("data-y", window.innerHeight / 2);
-  newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
-  newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
-    
-  newBullet.style.transform = 'rotate('+deg+'deg)';
-
-  newBullet.id = ("bullet" + shot.toString());
-
-  document.body.appendChild(newBullet);
-
-  bullets.push(document.getElementById("bullet" + shot.toString()));
-
-    //credit to Spencer Jones for the Math below
-
-  bulletDirectionX[shot] = Math.cos(deg * Math.PI / 180) * 5;
-  bulletDirectionY[shot] = Math.sin(deg * Math.PI / 180) * 5;
-
-  bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
-  bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
 
   //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
   //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
 // }
 // }
+}
+
+document.onmouseup = function () {
+    shooting = false;
+    shootTimer = 0;
 }
 
 /*window.onscroll = function (e) {
