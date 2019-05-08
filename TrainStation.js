@@ -37,7 +37,7 @@ var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
-var god = true;
+var god = false;
 
 //paper.setup(document.getElementById("paperCanvas"));
 
