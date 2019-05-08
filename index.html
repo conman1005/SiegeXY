@@ -234,10 +234,10 @@ modal:hover{
 
 <div id="id01" class="modal">
     <div class="container">
-      <iframe src="Songs/Music2.mp3" allow="autoplay" loop controls
+      <!--<iframe src="Songs/Music2.mp3" allow="autoplay" loop controls
       style="position: absolute;"
       id="iframeAudio">
-</iframe>
+</iframe>-->
     </div>
     </div>
 
@@ -251,8 +251,12 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
-
+var music = new Audio('Songs/Cyber_Starting_Area.mp3');
+window.addEventListener("load", function () {
+    music.volume = 0.25;
+    music.loop = true;
+    music.play();
+});
 </script>
 
   </body>
