@@ -24,7 +24,16 @@
       body {
         font-family: Arial, Helvetica, sans-serif;
       }
-
+      #frame{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 1000px;
+        height: 700px;
+      }
 
       /* Set a style for all buttons */
       button {
@@ -154,12 +163,97 @@
         -webkit-animation: animatezoom 0.6s;
         animation: animatezoom 0.6s;
       }
+      #menutable{
+        position: absolute; left: 50%; margin-left: -25%; top: 50%; margin-top: -25%;
+      }
+      #menutable img{
+        width: 80px;
+        height:80px;
+      }
+      #menutable th{
+      font-size: 40; color:#ffffff;
+      }
       </style>
 </head>
 <body>
 
-<canvas id="my-canvas"></canvas>
+<!-- <canvas id="my-canvas"></canvas> -->
+<!-- <div id='container'> -->
+<div id='frame'>
 
+<table id='menutable'>
+  <tr>
+    <th colspan=3>DEFENDERS</th>
+    <td></td>
+    <th colspan=3>ATTACKERS</th>
+  </tr>
+  <tr>
+    <td>
+        <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" vsrc="Whisper.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id21').style.display='block'" srcset="OperatorImages/Riot.png" vsrc="Riot.png"></img>
+    </td>
+    <td>
+      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+    </td>
+    <td></td>
+    <td>
+      <img onclick="document.getElementById('id07').style.display='block'" srcset="OperatorImages/Blackout.png" vsrc="Blackout.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id01').style.display='block'" srcset="OperatorImages/Tortue.png" vsrc="Tortue.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id02').style.display='block'" srcset="OperatorImages/Pewdiepie.png"  vsrc="Pewdiepie.png"></img>
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id23').style.display='block'" srcset="OperatorImages/Outlook.png" vsrc="Outlook.png"></img>
+    </td>
+    <td>
+     <img onclick="document.getElementById('id22').style.display='block'" srcset="OperatorImages/Glaze.png" vsrc="Glaze.png"></img>
+    </td>
+    <td></td>
+    <td>
+    <img onclick="document.getElementById('id05').style.display='block'" srcset="OperatorImages/Javelin.png" vsrc="Javelin.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id04').style.display='block'" srcset="OperatorImages/Vision.png"  vsrc="Vision.png"></img>
+    </td>
+    <td>
+     <img onclick="document.getElementById('id03').style.display='block'" srcset="OperatorImages/BulletPoint.png"  vsrc="Bullet Point.png"></img>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+    </td>
+    <td>
+      <img onclick="document.getElementById('id24').style.display='block'" srcset="OperatorImages/Cloud9Benis.png" vsrc="Cloud9Benis.png"></img>
+    </td>
+    <td>
+     <img onclick="document.getElementById('id25').style.display='block'" srcset="OperatorImages/Outlast.png" vsrc="Outlast.png"></img>
+    </td>
+    <td></td>
+    <td>
+    <img onclick="document.getElementById('id06').style.display='block'" srcset="OperatorImages/Ricochet.png" vsrc="Ricochet.png"></img>
+    </td>
+    <td>
+      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+    </td>
+    <td>
+     <img onclick="document.getElementById('id09').style.display='block'" srcset="OperatorImages/WolfGang.png"  vsrc="WolfGang.png"></img>
+    </td>
+  </tr>
+<table>
+<!--
   <img onclick="document.getElementById('id01').style.display='block'" srcset="OperatorImages/Tortue.png" style="position: absolute; top: 28%;  left: 60%; margin-top: -40px; margin-left: -40px; width: 80px; height: 80px;" vsrc="Tortue.png"></img>
   <img onclick="document.getElementById('id02').style.display='block'" srcset="OperatorImages/Pewdiepie.png" style="position: absolute; top: 28%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Pewdiepie.png"></img>
   <img onclick="document.getElementById('id03').style.display='block'" srcset="OperatorImages/BulletPoint.png" style="position: absolute; top: 42%;  left: 67%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Bullet Point.png"></img>
@@ -178,8 +272,7 @@
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 42%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
   <img onclick="document.getElementById('id25').style.display='block'" srcset="OperatorImages/Outlast.png" style="position: absolute; top: 56%;  left: 44%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Outlast.png"></img>
   <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 56%;  left: 30%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png"></img>
-  <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png"></img>
-
+  <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" style="position: absolute; top: 28%;  left: 30%; margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Whisper.png"></img> -->
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Tortue
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -427,6 +520,41 @@
   </div>
 
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //WolfGang
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <div id="id09" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Blackout</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/WolfGang.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div class="dropdown">
+    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div class="dropdown-content">
+     <img onclick="document.getElementById('PrimaryWeaponSlotWolfGang').src='GameTextures/BlackoutsF88Austeyr.png', BlackoutPrimaryGun('BlackoutsF88Austeyr')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BlackoutsF88Austeyr.png"></img>
+     <img onclick="document.getElementById('PrimaryWeaponSlotWolfGang').src='GameTextures/LMTMARS-L.png', BlackoutPrimaryGun('LMTMARS-L')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/LMTMARS-L.png"></img>
+    </div>
+    </div>
+    <img id="PrimaryWeaponSlotWolfGang" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Riot
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -618,6 +746,16 @@
       </div>
   </div>
 
+
+<a href="index.html">
+<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
+</a>
+
+
+</div>
+<!-- </div> -->
+
+
   <script>
   var modal = document.getElementById('id01');
   var modal2 = document.getElementById('id02');
@@ -626,6 +764,7 @@
   var modal5 = document.getElementById('id05');
   var modal6 = document.getElementById('id06');
   var modal7 = document.getElementById('id07');
+  var modal9 = document.getElementById('id09');
   var modal21 = document.getElementById('id21');
   var modal22 = document.getElementById('id22');
   var modal23 = document.getElementById('id23');
@@ -656,6 +795,9 @@ if (event.target == modal6) {
 if (event.target == modal7) {
   document.getElementById('id07').style.display='none'
 }
+if (event.target == modal9) {
+  document.getElementById('id09').style.display='none'
+}
 if (event.target == modal21) {
   document.getElementById('id21').style.display='none'
 }
@@ -680,11 +822,6 @@ document.getElementById('id50').style.display='none'
 }
   </script>
 
-<p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
-<p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
-<a href="index.html">
-<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
-</a>
 
 <script>
 if (typeof(Storage) !== "undefined") {
@@ -703,6 +840,8 @@ if (typeof(Storage) !== "undefined") {
   document.getElementById('PrimaryWeaponSlotJavelin').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("RicochetPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("RicochetPrimary");
   document.getElementById('PrimaryWeaponSlotRicochet').src="GameTextures/"+ image +".png";
+  var image = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
+  document.getElementById('PrimaryWeaponSlotWolfGang').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
   document.getElementById('PrimaryWeaponSlotGlaze').src="GameTextures/"+ image +".png";
 
@@ -730,6 +869,9 @@ localStorage.setItem("JavelinPrimary", image);
 }
 function RicochetPrimaryGun(image){
 localStorage.setItem("RicochetPrimary", image);
+}
+function WolfGangPrimaryGun(image){
+localStorage.setItem("WolfGangPrimary", image);
 }
 function GlazePrimaryGun(image){
 localStorage.setItem("GlazePrimary", image);
