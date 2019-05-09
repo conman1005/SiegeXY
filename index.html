@@ -208,7 +208,7 @@ modal:hover{
     "class="button">Credits</button>
     </a>
 
-   <button onclick="document.getElementById('id01').style.display='block'"
+   <button onclick="document.getElementById('id01').style.display='block' && Clickplay"
    style="position: absolute;
    top: 97%;  left: 50%;
    margin-top: -10%;
@@ -251,6 +251,13 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+var Clickplay = new Audio('Songs/Cyber_Starting_Area.mp3');
+window.addEventListener("load", function () {
+    Clickplay.volume = 0.35;
+    Clickplay.loop = true;
+    Clickplay.play();
+});
+</script>
 var music = new Audio('Songs/Cyber_Starting_Area.mp3');
 window.addEventListener("load", function () {
     music.volume = 0.25;
