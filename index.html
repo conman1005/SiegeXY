@@ -173,7 +173,7 @@ modal:hover{
 
 
    <div class="dropdown">
-  <button class="button"
+  <button onmouseover="document.getElementById('SoundEF')" class="button"
   style="
    position: absolute;
    top: 81%;
@@ -200,6 +200,7 @@ modal:hover{
 
     <a onclick="window.location.href = 'Credits.html?t=' + music.currentTime">
     <button
+
     style="position: absolute;
     top: 113%;
     left: 50%;
@@ -209,7 +210,7 @@ modal:hover{
     "class="button">Credits</button>
     </a>
 
-   <button onclick="document.getElementById('id01').style.display='block' && Clickplay"
+   <button onclick="document.getElementById('id01').style.display='block'"
    style="position: absolute;
    top: 97%;  left: 50%;
    margin-top: -10%;
@@ -252,6 +253,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
 var Clickplay = new Audio('Songs/Cyber_Starting_Area.mp3');
 window.addEventListener("load", function () {
     Clickplay.volume = 0.35;
@@ -268,11 +270,19 @@ var music = new Audio('Songs/Cyber_Starting_Area.mp3');
     } else {t = 0;}
     
 window.addEventListener("load", function () {
-    music.volume = 0.25;
+    music.volume = 0.05;
     music.loop = true;
     music.currentTime = t;
     music.play();
 });
+</script>
+
+<script id="SoundEF">
+function SoundEffectMenuHover(){
+var clickplay = new Audio('SoundEffects/ButtonClickMenu.mp3');
+clickplay.volume = 1.00;
+clickplay.play();
+}
 </script>
 
   </body>
