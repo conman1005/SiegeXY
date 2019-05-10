@@ -632,7 +632,6 @@ function bulletCol(rect, i, static){
         return false;
     }
     try {
-    //for (i = 0; i < bullets.length; i++) {
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             document.getElementById(id).remove();
             return true;
@@ -640,7 +639,7 @@ function bulletCol(rect, i, static){
             return false;
         }
     } catch(err) {
-        //bullets.splice(i);
+        
     }
 
 }
@@ -671,7 +670,6 @@ function inRange(rect1, rect2) {
     var height2 = rect2.height.animVal.value;
     
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
-        console.log("in range");
         return true;
     } else {
         return false;
@@ -704,11 +702,6 @@ document.onmousedown = function mouseDown () {
       //empty gun sfx
       return;
   }
-
-  //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
-  //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
-// }
-// }
 }
 
 document.onmouseup = function () {
