@@ -405,7 +405,7 @@ function movement() {
         terrorist[i].style.left = terroristX[i] + "px";
         terrorist[i].style.top = terroristY[i] + "px";
         if (eHP[i] > 0) {
-            if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
+            if (((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) && (inRange(tBox[i], playerBox) === true)) {
                   var shot = bullets.length;
                   hasShot = true;
                   
@@ -655,6 +655,23 @@ function checkCol(rect1, rect2) {
     var height2 = rect2.height.animVal.value;
     
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function inRange(rect1, rect2) {
+    var x1 = rect1.x.animVal.value + posX - 470;
+    var x2 = rect2.x.animVal.value;
+    var y1 = rect1.y.animVal.value + posY - 470;
+    var y2 = rect2.y.animVal.value;
+    var width1 = rect1.width.animVal.value + 500;
+    var width2 = rect2.width.animVal.value;
+    var height1= rect1.height.animVal.value + 500;
+    var height2 = rect2.height.animVal.value;
+    
+    if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
+        console.log("in range");
         return true;
     } else {
         return false;
