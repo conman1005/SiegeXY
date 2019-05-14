@@ -233,7 +233,7 @@
 
   <tr>
     <td>
-      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+      <img srcset="OperatorImages/Inferno.png" vsrc="Inferno.png"></img>
     </td>
     <td>
       <img onclick="document.getElementById('id24').style.display='block'" srcset="OperatorImages/Cloud9Benis.png" vsrc="Cloud9Benis.png"></img>
@@ -733,6 +733,32 @@
   </div>
 
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Whisper
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <div id="id27" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Inferno</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Inferno.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Glaze Bio
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -771,6 +797,7 @@
   var modal24 = document.getElementById('id24');
   var modal25 = document.getElementById('id25');
   var modal26 = document.getElementById('id26');
+  var modal27 = document.getElementById('id27');
   var modal50 = document.getElementById('id50');
 
   window.onclick = function(event) {
@@ -816,6 +843,9 @@ document.getElementById('id25').style.display='none'
 if (event.target == modal26) {
 document.getElementById('id26').style.display='none'
 }
+if (event.target == modal27) {
+document.getElementById('id27').style.display='none'
+}
 if (event.target == modal50) {
 document.getElementById('id50').style.display='none'
 }
@@ -842,6 +872,8 @@ if (typeof(Storage) !== "undefined") {
   document.getElementById('PrimaryWeaponSlotRicochet').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
   document.getElementById('PrimaryWeaponSlotWolfGang').src="GameTextures/"+ image +".png";
+  var image = localStorage.getItem("InfernoPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("InfernoPrimary");
+  document.getElementById('PrimaryWeaponSlotInferno').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
   document.getElementById('PrimaryWeaponSlotGlaze').src="GameTextures/"+ image +".png";
 
