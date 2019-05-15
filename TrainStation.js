@@ -696,7 +696,6 @@ document.onmousedown = function mouseDown () {
       var w = x2 - x1;
       console.log("<rect class=\"collision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
       recMade = false;
-      console.log(x1, y1, x2, y2, h, w);
   }
     if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
       //empty gun sfx
