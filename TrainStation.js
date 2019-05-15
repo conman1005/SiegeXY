@@ -694,7 +694,7 @@ document.onmousedown = function mouseDown () {
       x2 = mouse[0] - posX, y2 = mouse[1] - posY;
       var h = y2 - y1;
       var w = x2 - x1;
-      console.log("<rect class=\"collision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
+      console.log("<rect class=\"collisionVision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
       recMade = false;
   }
     if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
