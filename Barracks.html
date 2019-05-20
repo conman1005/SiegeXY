@@ -38,7 +38,7 @@
       /* Set a style for all buttons */
       button {
         background-color: #404040;
-        color: white;
+        position: absolute; top: 36%; left: 19%; width: 210px; height: 67px;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
@@ -142,7 +142,7 @@
         left: 1%;
         width: 25%;
         height: 70%;
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(0,0,0,1);
       }
       modal:hover{
       }
@@ -173,6 +173,33 @@
       #menutable th{
       font-size: 40; color:#ffffff;
       }
+
+      .OpName {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.OpName .OpNameText {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.OpName:hover .OpNameText {
+  visibility: visible;
+}
       </style>
 </head>
 <body>
@@ -189,67 +216,121 @@
   </tr>
   <tr>
     <td>
-        <img onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" vsrc="Whisper.png"></img>
+      <div class="OpName">
+        <img onmouseover="" onclick="document.getElementById('id26').style.display='block'"srcset="OperatorImages/Whisper.png" vsrc="Whisper.png"></img>
+        <span class="OpNameText">Whisper</span>
+        </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id21').style.display='block'" srcset="OperatorImages/Riot.png" vsrc="Riot.png"></img>
+      <span class="OpNameText">Riot</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
       <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+      <span class="OpNameText">Whisper</span>
+      </div>
     </td>
     <td></td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id07').style.display='block'" srcset="OperatorImages/Blackout.png" vsrc="Blackout.png"></img>
+      <span class="OpNameText">Blackout</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id01').style.display='block'" srcset="OperatorImages/Tortue.png" vsrc="Tortue.png"></img>
+      <span class="OpNameText">Tortue</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id02').style.display='block'" srcset="OperatorImages/Pewdiepie.png"  vsrc="Pewdiepie.png"></img>
+      <span class="OpNameText">PewDiePie</span>
+      </div>
     </td>
 
   </tr>
   <tr>
     <td>
+      <div class="OpName">
       <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+      <span class="OpNameText">Whisper</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id23').style.display='block'" srcset="OperatorImages/Outlook.png" vsrc="Outlook.png"></img>
+      <span class="OpNameText">Outlook</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
      <img onclick="document.getElementById('id22').style.display='block'" srcset="OperatorImages/Glaze.png" vsrc="Glaze.png"></img>
+     <span class="OpNameText">Glaze</span>
+     </div>
     </td>
     <td></td>
     <td>
+      <div class="OpName">
     <img onclick="document.getElementById('id05').style.display='block'" srcset="OperatorImages/Javelin.png" vsrc="Javelin.png"></img>
+    <span class="OpNameText">Javelin</span>
+    </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id04').style.display='block'" srcset="OperatorImages/Vision.png"  vsrc="Vision.png"></img>
+      <span class="OpNameText">Vision</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
      <img onclick="document.getElementById('id03').style.display='block'" srcset="OperatorImages/BulletPoint.png"  vsrc="Bullet Point.png"></img>
+     <span class="OpNameText">Bullet Point</span>
+     </div>
     </td>
   </tr>
 
   <tr>
     <td>
-      <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+      <div class="OpName">
+      <img onclick="document.getElementById('id27').style.display='block'" srcset="OperatorImages/Inferno.png" vsrc="Inferno.png"></img>
+      <span class="OpNameText">Inferno</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
       <img onclick="document.getElementById('id24').style.display='block'" srcset="OperatorImages/Cloud9Benis.png" vsrc="Cloud9Benis.png"></img>
+      <span class="OpNameText">Cloud9 Benis</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
      <img onclick="document.getElementById('id25').style.display='block'" srcset="OperatorImages/Outlast.png" vsrc="Outlast.png"></img>
+     <span class="OpNameText">Outlast</span>
+     </div>
     </td>
     <td></td>
     <td>
+      <div class="OpName">
     <img onclick="document.getElementById('id06').style.display='block'" srcset="OperatorImages/Ricochet.png" vsrc="Ricochet.png"></img>
+    <span class="OpNameText">Ricochet</span>
+    </div>
     </td>
     <td>
+      <div class="OpName">
       <img srcset="OperatorImages/OperatorNotDone.png" vsrc="OperatorNotDone.png"></img>
+      <span class="OpNameText">Whisper</span>
+      </div>
     </td>
     <td>
+      <div class="OpName">
      <img onclick="document.getElementById('id09').style.display='block'" srcset="OperatorImages/WolfGang.png"  vsrc="WolfGang.png"></img>
+     <span class="OpNameText">WolfGang</span>
+     </div>
     </td>
   </tr>
 <table>
@@ -286,15 +367,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-
-    <div class="dropdown">
-<div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/MG-42.png' , TortuePrimaryGun('MG-42')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/MG-42.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/HK416.png' , TortuePrimaryGun('HK416')"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
-   </div>
- </div>
-
+<div onclick="document.getElementById('id0WTour').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
   <img id="PrimaryWeaponSlotTortue" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -323,13 +396,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotPewdiepie').src='GameTextures/Ak5.png', PewdiepiePrimaryGun('Ak5')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/Ak5.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotPewdiepie').src='GameTextures/CBJ-MS.png', PewdiepiePrimaryGun('CBJ-MS')"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/CBJ-MS.png"></img>
-   </div>
-   </div>
+    <div onclick="document.getElementById('id0WPewd').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
    <img id="PrimaryWeaponSlotPewdiepie" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -358,13 +425,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotBulletPoint').src='GameTextures/GunAK47BulletPiont.png' , BulletPointPrimaryGun('GunAK47BulletPiont')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/GunAK47BulletPiont.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotBulletPoint').src='GameTextures/SR-2Veresk.png' , BulletPointPrimaryGun('SR-2Veresk')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/SR-2Veresk.png"></img>
-   </div>
-   </div>
+    <div onclick="document.getElementById('id0WBull').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
    <img id="PrimaryWeaponSlotBulletPoint" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -392,13 +453,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotVision').src='GameTextures/FBBerylVisionGun.png', VisionPrimaryGun('FBBerylVisionGun')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/FBBerylVisionGun.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotVision').src='GameTextures/PM-84Glauberyt.png', VisionPrimaryGun('PM-84Glauberyt')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/PM-84Glauberyt.png"></img>
-   </div>
-   </div>
+    <div onclick="document.getElementById('id0WVisi').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
    <img id="PrimaryWeaponSlotVision" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -427,13 +482,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotJavelin').src='GameTextures/BerettaARX160.png', JavelinPrimaryGun('BerettaARX160')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BerettaARX160.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotJavelin').src='GameTextures/FranchiSpas-15.png', JavelinPrimaryGun('FranchiSpas-15')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/FranchiSpas-15.png"></img>
-    </div>
-    </div>
+    <div onclick="document.getElementById('id0WJave').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <img id="PrimaryWeaponSlotJavelin" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -462,13 +511,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotRicochet').src='GameTextures/M4.png', RicochetPrimaryGun('M4')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/M4.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotRicochet').src='GameTextures/MP5.png', RicochetPrimaryGun('MP5')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/MP5.png"></img>
-    </div>
-    </div>
+    <div onclick="document.getElementById('id0WRico').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <img id="PrimaryWeaponSlotRicochet" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -497,13 +540,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotBlackout').src='GameTextures/BlackoutsF88Austeyr.png', BlackoutPrimaryGun('BlackoutsF88Austeyr')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BlackoutsF88Austeyr.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotBlackout').src='GameTextures/LMTMARS-L.png', BlackoutPrimaryGun('LMTMARS-L')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/LMTMARS-L.png"></img>
-    </div>
-    </div>
+    <div onclick="document.getElementById('id0WBlac').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <img id="PrimaryWeaponSlotBlackout" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -532,13 +569,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotWolfGang').src='GameTextures/BlackoutsF88Austeyr.png', BlackoutPrimaryGun('BlackoutsF88Austeyr')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/BlackoutsF88Austeyr.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotWolfGang').src='GameTextures/LMTMARS-L.png', BlackoutPrimaryGun('LMTMARS-L')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/LMTMARS-L.png"></img>
-    </div>
-    </div>
+    <div onclick="document.getElementById('id0WWolf').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <img id="PrimaryWeaponSlotWolfGang" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -567,6 +598,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div onclick="document.getElementById('id0WRiot').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -594,13 +626,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY: </p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotGlaze').src='GameTextures/Vityaz-SN.png', GlazePrimaryGun('Vityaz-SN')" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/Vityaz-SN.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotGlaze').src='GameTextures/RMB-93.png', GlazePrimaryGun('RMB-93')" style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/RMB-93.png"></img>
-    </div>
-    </div>
+    <div onclick="document.getElementById('id0WGlaz').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <img id="PrimaryWeaponSlotGlaze" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -629,12 +655,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
-    <div class="dropdown">
-    <div style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
-    <div class="dropdown-content">
-     <img onclick="document.getElementById('PrimaryWeaponSlotOutlook').src='GameTextures/SLR.png'" style=" position: absolute; top: 0%; left: -5.5%; width: 210px; height: 67px;" src="GameTextures/SLR.png"></img>
-     <img onclick="document.getElementById('PrimaryWeaponSlotOutlook').src='GameTextures/RMB-93.png'"style=" position: absolute; top: 106%; left: -5.5%; width: 210px; height: 67px;" srcset="GameTextures/RMB-93.png"></img>
-    </div>
+    <div onclick="document.getElementById('id0WOutl').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     </div>
     <img id="PrimaryWeaponSlotOutlook" style="position: absolute; z-index: 2; top: 36%; left: 6%; width: 210px; height: 67px; "src="GameTextures/WeaponSlotPrimary.png"></img>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
@@ -664,6 +685,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div onclick="document.getElementById('id0WClou').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -691,6 +713,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div onclick="document.getElementById('id0WOutlast').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -718,6 +741,7 @@
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
     <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
     <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div onclick="document.getElementById('id0WWhis').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
@@ -733,6 +757,33 @@
   </div>
 
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Whisper
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <div id="id27" class="modal">
+      <div class="container">
+        <div class="square"></div>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Inferno</p>
+      <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/Inferno.png"></img>
+    </div>
+    <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
+    <p style=" position: absolute; top: 45.5%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">ATTACHMENTS</p>
+    <p style=" position: absolute; top: 57%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div onclick="document.getElementById('id0WInfe').style.display='block'" style="position: absolute; border-style: solid; z-index: 3; opacity: 0.0; top: 35%; left: 5.5%; height: 78px; width: 215px;"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 5.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 12%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 16%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 51%; left: 20%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
+    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#f1f1f1">
+      </div>
+  </div>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Glaze Bio
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -745,6 +796,57 @@
       <div class="container" style="background-color:#000000">
       </div>
   </div>
+
+  <div id="id0WTour" class="modal">
+      <div class="container">
+      <div class="squareblack">
+          <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/MG-42.png' , TortuePrimaryGun('MG-42') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+          <span class="OpNameText">MG-42</span>
+          </div>
+          <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/HK416.png' , TortuePrimaryGun('HK416') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+            <span class="OpNameText">HK416</span>
+            </div>
+          <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+            <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+        <img style=" position: absolute; top: 36%; left: 19%; width: 210px; height: 67px;" src="GameTextures/MG-42.png"></img>
+        <img style=" position: absolute; top: 53%; left: 19%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+   </div>
+   </div>
+ </div>
+
+ <!-- <div id="id0WGlaz" class="modal">
+     <div class="container">
+     <div class="squareblack">
+         <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/MG-42.png' , TortuePrimaryGun('MG-42') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+         <span class="OpNameText">MG-42</span>
+         </div>
+         <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/HK416.png' , TortuePrimaryGun('HK416') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+           <span class="OpNameText">HK416</span>
+           </div>
+         <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+           <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+       <img style=" position: absolute; top: 36%; left: 19%; width: 210px; height: 67px;" src="GameTextures/MG-42.png"></img>
+       <img style=" position: absolute; top: 53%; left: 19%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+  </div>
+  </div>
+</div>
+
+<div id="id0WPewd" class="modal">
+    <div class="container">
+    <div class="squareblack">
+        <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/MG-42.png' , TortuePrimaryGun('MG-42') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+        <span class="OpNameText">MG-42</span>
+        </div>
+        <div class="OpName" onclick="document.getElementById('PrimaryWeaponSlotTortue').src='GameTextures/HK416.png' , TortuePrimaryGun('HK416') , document.getElementById('id0WTour').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);">
+          <span class="OpNameText">HK416</span>
+          </div>
+        <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 35%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+          <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 52%; left: 18.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+      <img style=" position: absolute; top: 36%; left: 19%; width: 210px; height: 67px;" src="GameTextures/MG-42.png"></img>
+      <img style=" position: absolute; top: 53%; left: 19%; width: 210px; height: 67px;" srcset="GameTextures/HK416.png"></img>
+ </div>
+ </div>
+</div> -->
 
 
 <a href="index.html">
@@ -771,6 +873,7 @@
   var modal24 = document.getElementById('id24');
   var modal25 = document.getElementById('id25');
   var modal26 = document.getElementById('id26');
+  var modal27 = document.getElementById('id27');
   var modal50 = document.getElementById('id50');
 
   window.onclick = function(event) {
@@ -816,6 +919,9 @@ document.getElementById('id25').style.display='none'
 if (event.target == modal26) {
 document.getElementById('id26').style.display='none'
 }
+if (event.target == modal27) {
+document.getElementById('id27').style.display='none'
+}
 if (event.target == modal50) {
 document.getElementById('id50').style.display='none'
 }
@@ -856,6 +962,8 @@ if (typeof(Storage) !== "undefined") {
   document.getElementById('PrimaryWeaponSlotRicochet').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
   document.getElementById('PrimaryWeaponSlotWolfGang').src="GameTextures/"+ image +".png";
+  var image = localStorage.getItem("InfernoPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("InfernoPrimary");
+  document.getElementById('PrimaryWeaponSlotInferno').src="GameTextures/"+ image +".png";
   var image = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
   document.getElementById('PrimaryWeaponSlotGlaze').src="GameTextures/"+ image +".png";
 

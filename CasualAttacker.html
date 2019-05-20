@@ -205,7 +205,7 @@ window.addEventListener("load", function(){
   <img onmouseover="document.getElementById('id06').style.display='block'" onmouseout="document.getElementById('id06').style.display='none'" srcset="OperatorImages/Javelin.png" style="position: absolute; top: 52%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Javelin.png">
 </a>
 <a href="TrainStation.html?op=Recruit">
-  <img srcset="OperatorImages/OperatorNotDone.png" style="position: absolute; top: 66%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="OperatorNotDone.png">
+  <img onmouseover="document.getElementById('id09').style.display='block'" onmouseout="document.getElementById('id09').style.display='none'" srcset="OperatorImages/WolfGang.png" style="position: absolute; top: 66%;  left: 57%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="WolfGang.png">
 </a>
 <a href="TrainStation.html?op=Ricochet">
   <img onmouseover="document.getElementById('id07').style.display='block'" onmouseout="document.getElementById('id07').style.display='none'" srcset="OperatorImages/Ricochet.png" style="position: absolute; top: 66%;  left: 43%;margin-top: -40px;margin-left: -40px;width: 80px;height: 80px;" vsrc="Ricochet.png">
@@ -351,7 +351,29 @@ window.addEventListener("load", function(){
     </div>
   </form>
 </div>
+
+<div id="id09" class="modal">
+  <form class="modal-content animate" action="/CasualAttacker.html">
+    <div class="container">
+      <p style=" position: absolute; font-size: 35px; text-align: center; top: -7%; left: 31%;">WolfGang</p>
+    <p style=" position: absolute; font-size: 11px; text-align: left; top: 15%; left: 31%;">Has a clip of bullets that bounce off walls when shot.</p>
+    <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/WolfGang.png"></img>
+    </div>
+    <div class="square"></div>
+    <img id="PrimaryWeaponWolfGang" style=" position: absolute; top: 60%; left: 8%; width: 210px; height: 67px;" src="GameTextures/WeaponSlotPrimary.png"></img>
+    <p style=" position: absolute; top: 30%; left: 39%; font-size: 20px; color: #000000; text-align: center; font-weight: bold; ">WEAPONS</p>
+    <p style=" position: absolute; top: 44%; left: 10%; font-size: 15px; color: #000000; text-align: left; font-weight: bold; ">PRIMARY: M4</p>
+    <p style=" position: absolute; top: 44%; left: 64%; font-size: 15px; color: #000000; text-align: left; font-weight: bold; ">SIDE: </p>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 58%; left: 7%; height: 78px; width: 215px; background-color: rgba(0,0,0,0.0);"></div>
+    <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 58%; left: 62%; height: 78px; width: 117px; background-color: rgba(0,0,0,0.0);"></div>
+    <div class="container" style="background-color:#f1f1f1">
+    </div>
+  </form>
+</div>
+
 <script>
+
+
 
 var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
 document.getElementById('PrimaryWeaponBlackout').src="GameTextures/"+ image +".png";
@@ -367,6 +389,8 @@ var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimar
 document.getElementById('PrimaryWeaponBulletPoint').src="GameTextures/"+ image +".png";
 var image = localStorage.getItem("JavelinPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("JavelinPrimary");
 document.getElementById('PrimaryWeaponJavelin').src="GameTextures/"+ image +".png";
+var image = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("JavelinPrimary");
+document.getElementById('PrimaryWeaponWolfGang').src="GameTextures/"+ image +".png";
 
   </script>
  </body>
