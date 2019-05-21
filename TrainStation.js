@@ -410,6 +410,7 @@ function movement() {
                   hasShot = true;
                   
                   var gunShot = new Audio('SoundEffects/Shot1.mp3');
+                  gunShot.volume = 0.25;
                   gunShot.play();
 
                   bulletX[shot] = terroristX[i] + posX;
@@ -554,6 +555,7 @@ function movement() {
               //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
 
               var gunShot = new Audio('SoundEffects/Shot1.mp3');
+              gunShot.volume = 0.25;
               gunShot.play();
 
               // if(clip_AK47 >= 0){
