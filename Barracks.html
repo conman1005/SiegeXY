@@ -610,7 +610,7 @@
   <div id="id09" class="modal">
       <div class="container">
         <div class="square"></div>
-        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">Blackout</p>
+        <p style=" position: absolute; font-size: 35px; text-align: center; top: 11%; left: 10%;">WolfGang</p>
       <img style=" position: absolute; top: 17%; left: 2%; width: 90px; height: 90px;" srcset="OperatorImages/WolfGang.png"></img>
     </div>
     <p style=" position: absolute; top: 30%; left: 6%; font-size: 15px; color: #ffffff; text-align: left; font-weight: bold; ">PRIMARY:</p>
@@ -902,7 +902,7 @@
 
 
 
-  <div id="id50" class="modal">
+  <div id="idGlazeBio" class="modal">
       <div class="container">
         <div class="squareblack"></div>
     </div>
@@ -1017,6 +1017,21 @@
  </div>
 </div>
 
+<div id="id0WGlaz" class="modal">
+    <div class="container">
+    <div style="Position: absolute; left: 25%; " class="WeaponSquare">
+        <div onclick="document.getElementById('PrimaryWeaponSlotGlaze').src='GameTextures/Vityaz-SN.png' , GlazePrimaryGun('Vityaz-SN') , document.getElementById('id0WGlaz').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 20%; left: 9.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);"></div>
+        <div onclick="document.getElementById('PrimaryWeaponSlotGlaze').src='GameTextures/PM-84Glauberyt.png' , GlazePrimaryGun('PM-84Glauberyt') , document.getElementById('id0WGlaz').style.display='none'" style="position: absolute; border-style: solid; z-index: 2; border-color: #000000; opacity: 0.5; top: 50%; left: 9.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.0);"></div>
+          <p style="position: absolute; top: 10%; left: 40%; font-size: 15;">Vityaz-SN</p>
+          <p style="position: absolute; top: 40%; left: 40%; font-size: 15;">PM-84 Glauberyt</p>
+        <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 20%; left: 9.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+          <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 50%; left: 9.5%; height: 78px; width: 215px; background-color: rgba(255,255,255,0.4);"></div>
+      <img style=" position: absolute; top: 22%; left: 11%; width: 210px; height: 67px;" src="GameTextures/Vityaz-SN.png"></img>
+      <img style=" position: absolute; top: 52%; left: 11%; width: 210px; height: 67px;" srcset="GameTextures/PM-84Glauberyt.png"></img>
+ </div>
+ </div>
+</div>
+
 
 
 
@@ -1048,13 +1063,14 @@
   var modal27 = document.getElementById('id27');
   var modal28 = document.getElementById('id28');
   var modal29 = document.getElementById('id29');
-  var modal50 = document.getElementById('id50');
+  var modalGalzeBio = document.getElementById('idGlazeBio');
   var WTour = document.getElementById('id0WTour');
   var WOutl = document.getElementById('id0WOutl');
   var WPewd = document.getElementById('id0WPewd');
   var WBlac = document.getElementById('id0WBlac');
   var WJave = document.getElementById('id0WJave');
   var WVisi = document.getElementById('id0WVisi');
+  var WOutlast = document.getElementById('id0WOutlast');
 
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -1111,8 +1127,8 @@ document.getElementById('id28').style.display='none'
 if (event.target == modal29) {
 document.getElementById('id29').style.display='none'
 }
-if (event.target == modal50) {
-document.getElementById('id50').style.display='none'
+if (event.target == modalGlazeBio) {
+document.getElementById('idGlazeBio').style.display='none'
 }
 if (event.target == WTour) {
 document.getElementById('id0WTour').style.display='none'
@@ -1131,6 +1147,9 @@ document.getElementById('id0WJave').style.display='none'
 }
 if (event.target == WVisi) {
 document.getElementById('id0WVisi').style.display='none'
+}
+if (event.target == WOutlast) {
+document.getElementById('id0WOutlast').style.display='none'
 }
 }
   </script>
