@@ -1152,8 +1152,22 @@ if (event.target == WOutlast) {
 document.getElementById('id0WOutlast').style.display='none'
 }
 }
+  var url = window.location.href.search("t=") + 2;
+  var t = parseFloat(window.location.href.substr(url));
+  var music = new Audio('Songs/Cyber_Starting_Area.mp3');
+    window.addEventListener("load", function () {
+        music.volume = 0.25;
+        music.loop = true;
+        music.currentTime = t;
+        music.play();
+    });
   </script>
 
+<p style="position: absolute; top: 5%; left: 55%; font-size: 40; color:#ffffff;">Attackers</p>
+<p style="position: absolute; top: 5%; left: 30%; font-size: 40; color:#ffffff;">Defenders</p>
+<a onclick="window.location.href = '/?t=' + music.currentTime;">
+<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
+</a>
 
 <script>
 if (typeof(Storage) !== "undefined") {

@@ -405,7 +405,7 @@ function movement() {
         terrorist[i].style.left = terroristX[i] + "px";
         terrorist[i].style.top = terroristY[i] + "px";
         if (eHP[i] > 0) {
-            if ((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) {
+            if (((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) && (inRange(tBox[i], playerBox) === true)) {
                   var shot = bullets.length;
                   hasShot = true;
                   
@@ -632,7 +632,6 @@ function bulletCol(rect, i, static){
         return false;
     }
     try {
-    //for (i = 0; i < bullets.length; i++) {
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             document.getElementById(id).remove();
             return true;
@@ -640,7 +639,7 @@ function bulletCol(rect, i, static){
             return false;
         }
     } catch(err) {
-        //bullets.splice(i);
+        
     }
 
 }
@@ -652,6 +651,22 @@ function checkCol(rect1, rect2) {
     var width1 = rect1.width.animVal.value;
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
+    var height2 = rect2.height.animVal.value;
+    
+    if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function inRange(rect1, rect2) {
+    var x1 = rect1.x.animVal.value + posX - 470;
+    var x2 = rect2.x.animVal.value;
+    var y1 = rect1.y.animVal.value + posY - 470;
+    var y2 = rect2.y.animVal.value;
+    var width1 = rect1.width.animVal.value + 500;
+    var width2 = rect2.width.animVal.value;
+    var height1= rect1.height.animVal.value + 500;
     var height2 = rect2.height.animVal.value;
     
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
@@ -673,24 +688,19 @@ document.onmousedown = function mouseDown () {
   shooting = true;
   spray = false;
   if (recMade === false) {
-      x1 = mouse[0], y1 = mouse[1];
+      x1 = mouse[0] - posX, y1 = mouse[1] - posY;
       recMade = true;
   } else {
-      x2 = mouse[0], y2 = mouse[1];
+      x2 = mouse[0] - posX, y2 = mouse[1] - posY;
       var h = y2 - y1;
       var w = x2 - x1;
-      console.log("<rect class=\"collision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
+      console.log("<rect class=\"collisionVision\" x=\"" + x1 + "\" y=\"" + y1 + "\" height=\"" + h + "\" width=\"" + w + "\" style=\"fill:lime;stroke:purple;stroke-width:1;opacity:0.5;\"/>");
       recMade = false;
   }
     if ((clip_Ak47 === 0) || (reloadTimer > 0)) {
       //empty gun sfx
       return;
   }
-
-  //bullets[shot].style.left = (parseInt(bullets[shot].getAttribute("data-x")) + parseInt(bullets[shot].getAttribute("data-directionX")) * 150) + "px";
-  //bullets[shot].style.top = (parseInt(bullets[shot].getAttribute("data-y")) + parseInt(bullets[shot].getAttribute("data-directionY")) * 150) + "px";
-// }
-// }
 }
 
 document.onmouseup = function () {

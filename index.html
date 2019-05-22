@@ -22,17 +22,7 @@
     <title>Siege XY</title>
 
     <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
-<canvas id="my-canvas"></canvas>
 
-
-
-
-<script
-var can = document.getElementById("my-canvas");
-
-can.style.width = window.innerWidth + "px";
-can.style.height = window.innerHeight + "px";>
-</script>
 <picture>
   <source media="(min-width: 650px)" srcset="MenuTextures/SiegeXY.png">
   <img  style="
@@ -46,7 +36,8 @@ can.style.height = window.innerHeight + "px";>
   height: 360px;
   "vsrc="MenuTextures/SiegeXY.png">
 </picture>
- <body background = "MenuTextures/Background.jpg" >
+    </head>
+ <body background = "MenuTextures/Background.jpg">
     <style>
     body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -197,8 +188,9 @@ modal:hover{
     <!--</div>-->
     </form>
 
-    <a href="Credits.html">
-    <button onmouseover="document.getElementById('SoundEF')"
+    <a onclick="window.location.href = 'Credits.html?t=' + music.currentTime">
+    <button
+
     style="position: absolute;
     top: 113%;
     left: 50%;
@@ -216,7 +208,7 @@ modal:hover{
    width: 20%;
    ">Settings</button>
 
-   <a href="Barracks.html">
+   <a onclick="window.location.href = 'Barracks.html?t=' + music.currentTime;">
    <button
    style="position: absolute;
    top: 89%;  left: 50%;
@@ -226,7 +218,7 @@ modal:hover{
    ">Barracks</button>
    </a>
 
-   <a href="HowToPlay.html">
+   <a onclick="window.location.href = 'HowToPlay.html?t=' + music.currentTime">
    <button style="position: absolute; top: 105%; left: 50%; margin-top: -10%;
    margin-left: -10%;
    width: 20%;">How To Play</button>
@@ -252,10 +244,25 @@ window.onclick = function(event) {
     }
 }
 
-var music = new Audio('Songs/Cyber_Starting_Area.mp3');
+var Clickplay = new Audio('Songs/Cyber_Starting_Area.mp3');
 window.addEventListener("load", function () {
-    music.volume = 0.05;
+    Clickplay.volume = 0.35;
+    Clickplay.loop = true;
+    //Clickplay.play();
+});
+    
+var url;
+var t = 0;
+var music = new Audio('Songs/Cyber_Starting_Area.mp3');
+    if (window.location.href.search("t=") !== -1) {
+        url = window.location.href.search("t=") + 2;
+        t = parseFloat(window.location.href.substr(url));
+    } else {t = 0;}
+    
+window.addEventListener("load", function () {
+    music.volume = 0.25;
     music.loop = true;
+    music.currentTime = t;
     music.play();
 });
 </script>
