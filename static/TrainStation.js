@@ -96,7 +96,8 @@ var load = false;
 
 var host = window.document.location.host.replace(/:.*/, '');
 
-var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
+//var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
+var client = new Colyseus.Client("ws:" + host + ":2567");
 var room = client.join("my_room");
 
 var players = {};
