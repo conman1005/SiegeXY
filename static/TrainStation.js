@@ -100,7 +100,7 @@ var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host 
 var room = client.join("my_room");
 
 var players = {};
-      
+
 
 room.onJoin.add(function() {
         console.log(room);
@@ -121,7 +121,9 @@ room.onJoin.add(function() {
             gameArea.appendChild(dom);
             
             players[sessionId] = dom;
-            //document.body.appendChild(dom);
+            
+            room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
+            room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
           }
 
 
@@ -141,11 +143,17 @@ room.onJoin.add(function() {
            console.log(change.value);
           if(change.operation=="replace"){
             var dom = players[sessionId];
-            if(change.path.attribute=='x'){
-              dom.style.left = change.value + "px";
+            if (change.path.attribute=='x'){
+                dom.style.left = change.value + "px";
             }
-            if(change.path.attribute=='y'){
-              dom.style.top = change.value + "px";
+            if (change.path.attribute=='y'){
+                dom.style.top = change.value + "px";
+            }
+            if (change.path.attribute=='rot') {
+                dom.style.transform = 'rotate(' + change.value + 'deg)';
+            }
+            if ((dom.style.top === window.innerHeight / 2) && (dom.style.left === window.innerWidth / 2)) {
+                dom.style.opacity = 0;
             }
           }
         });
@@ -456,7 +464,8 @@ function movement() {
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     deg = rot * (180 / Math.PI);
-    imgPlayer.setAttribute('style', 'transform: rotate('+deg+'deg)');
+    imgPlayer.style.transform = 'rotate(' + deg + 'deg)';
+    room.send({ type:'rotate', dir: deg});
 
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);

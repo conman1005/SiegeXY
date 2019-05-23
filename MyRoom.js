@@ -1,9 +1,10 @@
 const colyseus = require('colyseus');
 
 class Player {
-  constructor (x, y) {
+  constructor (x, y, rot) {
     this.x = x;
     this.y = y;
+    this.rot = rot;
   }
 }
 
@@ -41,6 +42,9 @@ class RoomState {
   moveY (client, dir) {
       this.players[client.sessionId].y = 0 - dir;
   }
+  rotate (client, dir) {
+      this.players[client.sessionId].rot = dir;
+  }
 }
 
 exports.MyRoom = class extends colyseus.Room {
@@ -67,6 +71,8 @@ exports.MyRoom = class extends colyseus.Room {
         this.state.moveX(client, data.dir);
     } else if (data.type && data.type=='moveY') {
         this.state.moveY(client, data.dir);
+    } else if (data.type && data.type=='rotate') {
+        this.state.rotate(client, data.dir);
     }
   }
 }
