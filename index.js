@@ -8,7 +8,7 @@ const monitor = require("@colyseus/monitor").monitor;
 const MyRoom = require('./MyRoom').MyRoom;
 colyseus.serialize(colyseus.FossilDeltaSerializer)(MyRoom);
 
-const port = process.env.PORT || 2567;
+const port = process.env.PORT || 8000;
 const app = express();
 
 const server = http.createServer(app);
@@ -23,4 +23,4 @@ app.use('/', express.static(path.join(__dirname, "static")));
 
 
 gameServer.listen(port);
-console.log(`Listening on ws://localhost:${ port }`)
+console.log(`Listening on ws://siege-xy.tk:${ port }`)
