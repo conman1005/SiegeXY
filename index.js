@@ -8,7 +8,7 @@ const monitor = require("@colyseus/monitor").monitor;
 const MyRoom = require('./MyRoom').MyRoom;
 colyseus.serialize(colyseus.FossilDeltaSerializer)(MyRoom);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 const app = express();
 
 const server = http.createServer(app);
@@ -19,7 +19,7 @@ gameServer.register('my_room', MyRoom);
 
 // Register colyseus monitor AFTER registering your room handlers
 app.use("/colyseus", monitor(gameServer));
-app.use('/', express.static(path.join(__dirname, "static")));
+app.use('/', express.static(path.join(__dirname, "/")));
 
 
 gameServer.listen(port);
