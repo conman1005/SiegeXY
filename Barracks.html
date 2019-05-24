@@ -93,7 +93,7 @@
   }
   text.a {
     word-wrap: break-word;
-    position: absolute; top: 16%; left: 2%; font-size: 11px; color: #ffffff; text-align: left; font-weight: bold; word-wrap: break-word;
+    position: absolute; top: 16%; left: 2%; font-size: 13px; color: #ffffff; text-align: left; font-weight: bold; word-wrap: break-word;
   }
 
   .dropdown {
@@ -686,8 +686,8 @@
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 62%; left: 5.5%; height: 78px; width: 117px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 4%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
     <div style="position: absolute; border-style: solid; border-color: #000000; opacity: 0.5; top: 75%; left: 8%; height: 35px; width: 40px; background-color: rgba(255,255,255,0.4);"></div>
-    <button style="position: absolute; top: 70%; left: 18.5%; width: 7%; height: 6%; ">ABOUT</button>
-    <button onclick="document.getElementById('id50').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+    <button onclick="document.getElementById('idAboutGlaze').style.display='block'" style="position: absolute; top: 70%; left: 18.5%; width: 7%; height: 6%; ">ABOUT</button>
+    <button onclick="document.getElementById('idGlazeBio').style.display='block'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
       <div class="container" style="background-color:#f1f1f1">
       </div>
   </div>
@@ -907,7 +907,17 @@
         <div class="squareblack"></div>
     </div>
 <text class="a">Bio: Growing up in the icy wastelands of Siberia the only child of a single parent, ice skating was never her dream but rather her fathers. He pushed her to become the worlds best figure skater. She was pushed till she could hardly stand, she was taught with discipline and was never given much love from her father. She thought by becoming the best it would please him, she was on her way to the Olympics when her father died when she was just 16. Being an only child and never really liking figure skating she joined the Russian army at age 18 which eventually lead to her joining with the Russian Spetsnaz at age 20. Soon she specialized in entry denial while also putting her ice skating skills to the test using her advanced cryo tech known as the Zamer-myach. Which would allow her to move faster across the battlefield while also catching her enemies off guard.</text>
-    <button style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+    <button onclick="document.getElementById('idGlazeBio').style.display='none'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">BIO</button>
+      <div class="container" style="background-color:#000000">
+      </div>
+  </div>
+
+  <div id="idAboutGlaze" class="modal">
+      <div class="container">
+        <div class="squareblack"></div>
+    </div>
+<text class="a"></text>
+    <button onclick="document.getElementById('idAboutGlaze').style.display='none'" style="position: absolute; top: 77%; left: 18.5%; width: 7%; height: 6%; ">ABOUT</button>
       <div class="container" style="background-color:#000000">
       </div>
   </div>
