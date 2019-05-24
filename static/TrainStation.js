@@ -94,6 +94,80 @@ var op = window.location.href.substr(url);
 // });
 var load = false;
 
+var host = window.document.location.host.replace(/:.*/, '');
+
+//var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
+var client = new Colyseus.Client("ws:" + host + ":80");
+var room = client.join("my_room");
+
+var players = {};
+
+var myId = '';
+
+
+room.onJoin.add(function() {
+        console.log(room);
+        if (myId === '') {
+          myId = room.sessionId;
+        }
+
+        room.listen("players/:id", (change) => {
+          console.log("change", change)
+          var sessionId = change.path.id;
+
+          if(change.operation=='add'){
+            var player = change.value;
+            var dom = document.createElement("IMG");
+            dom.className = "player";
+            dom.setAttribute("style", "position: absolute");
+            dom.style.left = player.x + "px";
+            dom.style.top = player.y + "px";
+              
+            dom.src = "GameTextures/Op4Primary.png";
+            gameArea.appendChild(dom);
+            
+            players[sessionId] = dom;
+            
+            room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
+            room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
+          }
+
+
+          else if(change.operation=='remove'){
+            gameArea.removeChild(players[sessionId]);
+            delete players[sessionId];
+          }
+            //players[myId].style.opacity = "0.0";
+        }); // immediate
+    
+      room.listen("players/:id/:attribute", (change) => {
+          console.log(change);
+          var sessionId = change.path.id;
+           console.log(change.operation); // => "add" | "remove" | "replace"
+           console.log(change.path.attribute, "has been changed");
+           console.log(change.path.id);
+           console.log(change.value);
+          if(change.operation=="replace"){
+            var dom = players[sessionId];
+            if (change.path.attribute=='x'){
+                dom.style.left = change.value + "px";
+            }
+            if (change.path.attribute=='y'){
+                dom.style.top = change.value + "px";
+            }
+            if (change.path.attribute=='rot') {
+                dom.style.transform = 'rotate(' + change.value + 'deg)';
+            }
+            if ((dom.style.top === window.innerHeight / 2) && (dom.style.left === window.innerWidth / 2)) {
+                dom.style.opacity = 0;
+            }
+          }
+        });
+      });
+
+
+
+
 window.addEventListener("load", function () {
     load = true;
     var http = new XMLHttpRequest();
@@ -118,7 +192,7 @@ document.onkeydown = function (e) {
     run = true;
   }
   if (keycode === 87) {
-    up = true
+    up = true;
   }
   if (keycode === 65) {
     left = true;
@@ -131,11 +205,11 @@ document.onkeydown = function (e) {
   }
   if (keycode === 50){
     imgPlayer.src = "GameTextures/Op4.png";
-       playerSpeed = 1.5;
+    playerSpeed = 1.5;
   }
   if (keycode === 49){
     imgPlayer.src = "GameTextures/Op4Primary.png";
-       playerSpeed = 1.3;
+    playerSpeed = 1.3;
   }
 
   if (keycode === 27 && menuopen === false) {
@@ -235,7 +309,7 @@ function movement() {
         walls.style.top = posY + "px";
 
 
-        // imgTerrorist1.style.top = terro1Y + "px";
+        room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
 
     }
     if (left === true) {
@@ -287,7 +361,7 @@ function movement() {
         walls.style.left = posX + "px";
 
 
-        // imgTerrorist1.style.left = terro1X + "px";
+        room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
 
     }
     if (down === true ) {
@@ -338,7 +412,7 @@ function movement() {
         gameArea.style.top = posY + "px";
         walls.style.top = posY + "px";
 
-        // imgTerrorist1.style.top = terro1Y + "px";
+        room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
 
     }
     if (right === true) {
@@ -389,14 +463,14 @@ function movement() {
         gameArea.style.left = posX + "px";
         walls.style.left = posX + "px";
 
-        // imgTerrorist1.style.left = terro1Y + "px";
-
+        room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
     var rot = Math.atan2(dy, dx);
     deg = rot * (180 / Math.PI);
-    imgPlayer.setAttribute('style', 'transform: rotate('+deg+'deg)');
+    imgPlayer.style.transform = 'rotate(' + deg + 'deg)';
+    room.send({ type:'rotate', dir: deg});
 
     for (i = 0; i < terrorist.length; i++) {
         var rott = Math.atan2(window.innerHeight / 2 - posY - terroristY[i], window.innerWidth / 2 - posX - terroristX[i]);
@@ -609,6 +683,10 @@ function movement() {
             shootTimer = 0;
         }
     }
+    //room.send({ type:'move', left: posX + window.innerWidth / 2, top: posY + window.innerHeight / 2});
+    players[myId].style.left = window.innerWidth / 2 - posX + 'px';
+    players[myId].style.top = window.innerHeight / 2 - posY + 'px';
+    players[myId].style.transform = 'rotate('+deg+'deg)';
 }
 var collided = 0;
 function bulletCol(rect, i, static){
