@@ -684,6 +684,9 @@ function movement() {
         }
     }
     //room.send({ type:'move', left: posX + window.innerWidth / 2, top: posY + window.innerHeight / 2});
+    players[myId].style.left = window.innerWidth / 2 - posX + 'px';
+    players[myId].style.top = window.innerHeight / 2 - posY + 'px';
+    players[myId].style.transform = 'rotate('+deg+'deg)';
 }
 var collided = 0;
 function bulletCol(rect, i, static){
