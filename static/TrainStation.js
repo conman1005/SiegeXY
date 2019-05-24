@@ -102,9 +102,14 @@ var room = client.join("my_room");
 
 var players = {};
 
+var myId = '';
+
 
 room.onJoin.add(function() {
         console.log(room);
+        if (myId === '') {
+          myId = room.sessionId;
+        }
 
         room.listen("players/:id", (change) => {
           console.log("change", change)
@@ -129,10 +134,10 @@ room.onJoin.add(function() {
 
 
           else if(change.operation=='remove'){
-            document.body.removeChild(players[sessionId]);
+            gameArea.removeChild(players[sessionId]);
             delete players[sessionId];
           }
-
+            players[myId].style.visibility = "hidden";
         }); // immediate
     
       room.listen("players/:id/:attribute", (change) => {
@@ -459,7 +464,6 @@ function movement() {
         walls.style.left = posX + "px";
 
         room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
-
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
