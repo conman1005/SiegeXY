@@ -137,7 +137,7 @@ room.onJoin.add(function() {
             gameArea.removeChild(players[sessionId]);
             delete players[sessionId];
           }
-            players[myId].style.visibility = "hidden";
+            players[myId].style.opacity = "0.0";
         }); // immediate
     
       room.listen("players/:id/:attribute", (change) => {
