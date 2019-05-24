@@ -33,6 +33,7 @@ var dT = 0;
 
 var walls = document.getElementById("walls");
 var collisions = document.getElementsByClassName("collision");
+var collisions2 = [];
 var playerBox = document.getElementById("playerCollision");
 var tBox = document.getElementsByClassName("collisionT");
 var vision = document.getElementsByClassName("collisionVision");
@@ -165,14 +166,25 @@ room.onJoin.add(function() {
         });
       });
 
+/*var walls2 = [1, 2, 3, 4]
+var myOb = {"attr":"prop", "height":5, "name":"bob"}
+var arr2 = {
+    "ob1": {"attr":"prop", "height":5, "name":"bob"},
+    "ob2": {"attr":"prop", "height":5, "name":"bob"},
+    "ob3": {"attr":"prop", "height":5, "name":"bob"},
+}
 
-
+arr2.ob1.name*/
 
 window.addEventListener("load", function () {
     load = true;
     var http = new XMLHttpRequest();
     http.open('HEAD', "GameTextures/Op" + op + ".png", false);
     http.send();
+    for (i = 0; i < collisions.length; i++) {
+        collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
+        collisions[i].pop;
+    }
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
         return;
@@ -578,9 +590,9 @@ function movement() {
     }
     playerBox.setAttribute('x', (window.innerWidth * 0.495));
     playerBox.setAttribute('y', (window.innerHeight * 0.48));
-    for (i = 0; i < collisions.length; i++) {
+    for (i = 0; i < collisions2.length; i++) {
         //console.log(collisions[i].x.animVal.value, collisions[i].y.animVal.value);
-        if (checkCol(collisions[i], playerBox) === true) {
+        if (checkCol(collisions2[i], playerBox) === true) {
             if (up === true) {
                 posY = posY - playerSpeed;
             }
@@ -595,7 +607,7 @@ function movement() {
             }
         }
         for (var ii = 0; ii < bullets.length; ii++) {
-            if (bulletCol(collisions[i], ii, false) === true) {
+            if (bulletCol(collisions2[i], ii, false) === true) {
             }
         }
     }
@@ -673,8 +685,8 @@ function movement() {
 
                 //credit to Spencer Jones for the Math below
 
-              bulletDirectionX[shot] = Math.cos(degSpray * Math.PI / 180) * 5;
-              bulletDirectionY[shot] = Math.sin(degSpray * Math.PI / 180) * 5;
+              bulletDirectionX[shot] = Math.cos(degSpray * Math.PI / 180) * 10;
+              bulletDirectionY[shot] = Math.sin(degSpray * Math.PI / 180) * 10;
 
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
