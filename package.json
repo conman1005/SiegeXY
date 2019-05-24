@@ -21,7 +21,7 @@
     "@colyseus/monitor": "^0.10.0",
     "colyseus": "^0.10.7",
     "colyseus.js": "^0.10.5",
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "nodemon": "^1.19.0"
   }
 }
