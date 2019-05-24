@@ -106,6 +106,9 @@ var myId = '';
 
 room.onJoin.add(function() {
         console.log(room);
+        if (myId === '') {
+          myId = room.sessionId;
+        }
         room.listen("players/:id", (change) => {
           console.log("change", change)
           var sessionId = change.path.id;
@@ -141,9 +144,6 @@ room.onJoin.add(function() {
            console.log(change.path.attribute, "has been changed");
            console.log(change.path.id);
            console.log(change.value);
-           if (myId === '') {
-             myId = room.sessionId;
-           }
           if(change.operation=="replace"){
             var dom = players[sessionId];
             if (change.path.attribute=='x'){
@@ -684,7 +684,6 @@ function movement() {
     //room.send({ type:'move', left: posX + window.innerWidth / 2, top: posY + window.innerHeight / 2});
     players[myId].style.left = window.innerWidth / 2 + "px";
     players[myId].style.top = window.innerHeight / 2 + "px";
-    console.log('myId', myId);
 }
 var collided = 0;
 function bulletCol(rect, i, static){
