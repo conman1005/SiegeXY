@@ -96,16 +96,16 @@ var load = false;
 
 var host = window.document.location.host.replace(/:.*/, '');
 
-//var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
-var client = new Colyseus.Client("ws:" + host + ":2567");
+var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
+//var client = new Colyseus.Client("ws:" + host + ":2567");
 var room = client.join("my_room");
 
 var players = {};
 
+var myId = '';
 
 room.onJoin.add(function() {
         console.log(room);
-
         room.listen("players/:id", (change) => {
           console.log("change", change)
           var sessionId = change.path.id;
@@ -114,15 +114,15 @@ room.onJoin.add(function() {
             var player = change.value;
             var dom = document.createElement("IMG");
             dom.className = "player";
-            dom.setAttribute("style", "position: absolute");
+            dom.style.attribute = "absolute";
             dom.style.left = player.x + "px";
             dom.style.top = player.y + "px";
-              
+
             dom.src = "GameTextures/Op4Primary.png";
             gameArea.appendChild(dom);
-            
+
             players[sessionId] = dom;
-            
+
             room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
             room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
           }
@@ -132,9 +132,8 @@ room.onJoin.add(function() {
             document.body.removeChild(players[sessionId]);
             delete players[sessionId];
           }
-
         }); // immediate
-    
+
       room.listen("players/:id/:attribute", (change) => {
           console.log(change);
           var sessionId = change.path.id;
@@ -142,6 +141,9 @@ room.onJoin.add(function() {
            console.log(change.path.attribute, "has been changed");
            console.log(change.path.id);
            console.log(change.value);
+           if (myId === '') {
+             myId = room.sessionId;
+           }
           if(change.operation=="replace"){
             var dom = players[sessionId];
             if (change.path.attribute=='x'){
@@ -168,6 +170,7 @@ window.addEventListener("load", function () {
     var http = new XMLHttpRequest();
     http.open('HEAD', "GameTextures/Op" + op + ".png", false);
     http.send();
+    players[myId].style.opacity = "0.0";
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
         return;
@@ -459,7 +462,6 @@ function movement() {
         walls.style.left = posX + "px";
 
         room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
-
     }
 
     var dx = mouse[0]-point.left, dy = mouse[1]-point.top;
@@ -478,7 +480,7 @@ function movement() {
             if (((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) && (inRange(tBox[i], playerBox) === true)) {
                   var shot = bullets.length;
                   hasShot = true;
-                  
+
                   var gunShot = new Audio('SoundEffects/Shot1.mp3');
                   gunShot.play();
 
@@ -534,10 +536,10 @@ function movement() {
           bullets[i].style.top = bulletY[i] + "px";
           //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
           //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
-            
+
           //bullets[i].style.left = parseInt(bullets[i].getAttribute("data-x")) + parseInt(bullets[i].getAttribute("data-directionX")) + "px";
           //bullets[i].style.top = parseInt(bullets[i].getAttribute("data-y")) + parseInt(bullets[i].getAttribute("data-directionY")) + "px";
-            
+
           if (document.getElementById(bullets[i].id) == null) {
               n++
               if (n >= bullets.length) {
@@ -651,7 +653,7 @@ function movement() {
               newBullet.setAttribute("data-y", window.innerHeight / 2);
               newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
               newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
-            
+
               var degSpray;
               if (spray === false) {
                   degSpray = deg;
@@ -680,6 +682,9 @@ function movement() {
         }
     }
     //room.send({ type:'move', left: posX + window.innerWidth / 2, top: posY + window.innerHeight / 2});
+    players[myId].style.left = window.innerWidth / 2 + "px";
+    players[myId].style.top = window.innerHeight / 2 + "px";
+    console.log('myId', myId);
 }
 var collided = 0;
 function bulletCol(rect, i, static){
@@ -710,7 +715,7 @@ function bulletCol(rect, i, static){
             return false;
         }
     } catch(err) {
-        
+
     }
 
 }
@@ -723,7 +728,7 @@ function checkCol(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
     var height2 = rect2.height.animVal.value;
-    
+
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
         return true;
     } else {
@@ -739,7 +744,7 @@ function inRange(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value + 500;
     var height2 = rect2.height.animVal.value;
-    
+
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
         return true;
     } else {
