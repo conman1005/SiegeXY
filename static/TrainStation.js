@@ -123,12 +123,12 @@ room.onJoin.add(function() {
             dom.setAttribute("style", "position: absolute");
             dom.style.left = player.x + "px";
             dom.style.top = player.y + "px";
-              
+
             dom.src = "GameTextures/Op4Primary.png";
             gameArea.appendChild(dom);
-            
+
             players[sessionId] = dom;
-            
+
             room.send({ type:'moveX', dir: posX - window.innerWidth / 2});
             room.send({ type:'moveY', dir: posY - window.innerHeight / 2});
           }
@@ -140,7 +140,7 @@ room.onJoin.add(function() {
           }
             //players[myId].style.opacity = "0.0";
         }); // immediate
-    
+
       room.listen("players/:id/:attribute", (change) => {
           console.log(change);
           var sessionId = change.path.id;
@@ -494,7 +494,7 @@ function movement() {
             if (((Math.floor(Math.random() * 500) === 5) || (bulletHell === true)) && (inRange(tBox[i], playerBox) === true)) {
                   var shot = bullets.length;
                   hasShot = true;
-                  
+
                   var gunShot = new Audio('SoundEffects/Shot1.mp3');
                   gunShot.play();
 
@@ -522,8 +522,8 @@ function movement() {
 
                     //credit to Spencer Jones for the Math below
 
-                  bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 4;
-                  bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 4;
+                  bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 10;
+                  bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 10;
             }
             for (ii = 0; ii < bullets.length; ii++) {
               if ((bulletCol(tBox[i], ii, false) === true)) {
@@ -550,10 +550,10 @@ function movement() {
           bullets[i].style.top = bulletY[i] + "px";
           //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
           //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
-            
+
           //bullets[i].style.left = parseInt(bullets[i].getAttribute("data-x")) + parseInt(bullets[i].getAttribute("data-directionX")) + "px";
           //bullets[i].style.top = parseInt(bullets[i].getAttribute("data-y")) + parseInt(bullets[i].getAttribute("data-directionY")) + "px";
-            
+
           if (document.getElementById(bullets[i].id) == null) {
               n++
               if (n >= bullets.length) {
@@ -667,7 +667,7 @@ function movement() {
               newBullet.setAttribute("data-y", window.innerHeight / 2);
               newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
               newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
-            
+
               var degSpray;
               if (spray === false) {
                   degSpray = deg;
@@ -729,7 +729,7 @@ function bulletCol(rect, i, static){
             return false;
         }
     } catch(err) {
-        
+
     }
 
 }
@@ -742,7 +742,7 @@ function checkCol(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value;
     var height2 = rect2.height.animVal.value;
-    
+
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
         return true;
     } else {
@@ -758,7 +758,7 @@ function inRange(rect1, rect2) {
     var width2 = rect2.width.animVal.value;
     var height1= rect1.height.animVal.value + 500;
     var height2 = rect2.height.animVal.value;
-    
+
     if(((x1 + width1) > x2 && x1 < (x2 + width2)) && ((y1 + height1) > y2 && y1 < (y2 + height2))) {
         return true;
     } else {
