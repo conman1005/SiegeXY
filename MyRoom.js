@@ -1,5 +1,7 @@
 const colyseus = require('colyseus');
 
+var bullets = [];
+
 class Player {
   constructor (x, y, rot) {
     this.x = x;
@@ -8,6 +10,13 @@ class Player {
   }
 }
 
+class Bullet {
+    constructor (x, y, rot, xdir, ydir) {
+        this.x = x;
+        this.y = y;
+        this.rot = rot;
+    }
+}
 class RoomState {
   constructor () {
     this.players = {};
@@ -15,6 +24,10 @@ class RoomState {
 
   addPlayer (client) {
     this.players[ client.sessionId ] = new Player(rand(0, 500), rand(0, 500));
+  }
+    
+  newBullet (x, y, rot, xdir, ydir) {
+    bullets.push({"x": x, "y": y, "rot": rot, "xdir": xdir, "ydir": ydir});
   }
 
   removePlayer (client) {
@@ -45,7 +58,18 @@ class RoomState {
   rotate (client, dir) {
       this.players[client.sessionId].rot = dir;
   }
+  moveBullets () {
+    if (bullets[0]) {
+      for (i = 0; i < bullets.length; i++) {
+          bullets[i].y += bullets[i].ydir;
+          bullets[i].x += bullets[i].xdir;
+      }
+    }
 }
+}
+
+//var bulletTimer = setInterval(moveBullets, 5);
+
 
 exports.MyRoom = class extends colyseus.Room {
 
@@ -73,6 +97,8 @@ exports.MyRoom = class extends colyseus.Room {
         this.state.moveY(client, data.dir);
     } else if (data.type && data.type=='rotate') {
         this.state.rotate(client, data.dir);
+    } else if (data.type, data.type=='bullet') {
+        this.state.newBullet(client, data.x, data.y, data.rot, data.xdir, data.ydir);
     }
   }
 }

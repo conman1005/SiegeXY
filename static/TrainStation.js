@@ -548,6 +548,7 @@ function movement() {
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
+          
           //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
           //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
 
@@ -674,6 +675,9 @@ function movement() {
               } else {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
               }
+            
+              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10;
+              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10;
 
               newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
@@ -691,6 +695,8 @@ function movement() {
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
+              room.send({ type:'bullet', x: bulx, y: buly, rot, degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
+              console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
         }
