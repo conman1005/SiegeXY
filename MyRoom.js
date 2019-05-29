@@ -1,7 +1,5 @@
 const colyseus = require('colyseus');
 
-var bullets = [];
-
 class Player {
   constructor (x, y, rot, src) {
     this.x = x;
@@ -16,19 +14,23 @@ class Bullet {
         this.x = x;
         this.y = y;
         this.rot = rot;
+        this.xdir = xdir;
+        this.ydir = ydir;
     }
 }
 class RoomState {
   constructor () {
     this.players = {};
+    this.bullets = {};
   }
 
   addPlayer (client) {
     this.players[ client.sessionId ] = new Player(rand(0, 500), rand(0, 500));
   }
     
-  newBullet (x, y, rot, xdir, ydir) {
-    bullets.push({"x": x, "y": y, "rot": rot, "xdir": xdir, "ydir": ydir});
+  newBullet (client, x, y, rot, xdir, ydir) {
+    this.bullets[client.sessionId + "_" + Math.random()] = new Bullet(x, y, rot, xdir,ydir);
+    console.log(this.bullets);
   }
 
   removePlayer (client) {
@@ -92,7 +94,7 @@ exports.MyRoom = class extends colyseus.Room {
   }
 
   onMessage (client, data) {
-    console.log(data)
+    //console.log(data)
     if (data.type && data.type=='move') {
       this.state.movePlayer(client, data.dir);
     } else if (data.type && data.type=='moveX') {
