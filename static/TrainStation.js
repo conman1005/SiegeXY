@@ -126,6 +126,9 @@ room.onJoin.add(function() {
             dom.style.top = player.y + "px";
 
             dom.src = "GameTextures/Op4Primary.png";
+
+            dom.src = player.src;
+
             gameArea.appendChild(dom);
 
             players[sessionId] = dom;
@@ -163,6 +166,9 @@ room.onJoin.add(function() {
             if ((dom.style.top === window.innerHeight / 2) && (dom.style.left === window.innerWidth / 2)) {
                 dom.style.opacity = 0;
             }
+            if (change.path.attribute=='src') {
+                dom.src = change.value;
+            }
           }
         });
       });
@@ -176,9 +182,13 @@ var arr2 = {
 }
 
 arr2.ob1.name*/
-//
+
 window.addEventListener("load", function () {
     load = true;
+    for (i = 0; i < collisions.length; i++) {
+        collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
+        collisions[i].pop;
+    }
     var http = new XMLHttpRequest();
     // http.open('HEAD', "GameTextures/Op" + op + ".png", false);
     // http.send();
@@ -188,9 +198,14 @@ window.addEventListener("load", function () {
     }
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
-        return;
+    } else {
+        imgPlayer.src = "GameTextures/Op" + op + ".png";
     }
+
     // imgPlayer.src = "GameTextures/" + op + image + ".png";
+
+    room.send({ type:'src', src: imgPlayer.src});
+
 });
 
 document.onkeydown = function (e) {
@@ -271,7 +286,7 @@ document.addEventListener('mousemove', function(ev) {
 
 function movement() {
     if (load === false) {
-        return;
+      return;
     }
     if (up === true) {
         if (run === true) {
@@ -549,6 +564,7 @@ function movement() {
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
+          
           //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
           //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
 
@@ -675,6 +691,9 @@ function movement() {
               } else {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
               }
+            
+              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10;
+              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10;
 
               newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
@@ -692,6 +711,8 @@ function movement() {
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
+              room.send({ type:'bullet', x: bulx, y: buly, rot, degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
+              console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
         }
