@@ -124,6 +124,9 @@ room.onJoin.add(function() {
             dom.setAttribute("style", "position: absolute");
             dom.style.left = player.x + "px";
             dom.style.top = player.y + "px";
+
+            dom.src = "GameTextures/Op4Primary.png";
+
             dom.src = player.src;
 
             gameArea.appendChild(dom);
@@ -179,7 +182,7 @@ var arr2 = {
 }
 
 arr2.ob1.name*/
-//
+
 window.addEventListener("load", function () {
     load = true;
     var http = new XMLHttpRequest();
@@ -189,9 +192,6 @@ window.addEventListener("load", function () {
         collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
         collisions[i].pop;
     }
-    var http = new XMLHttpRequest();
-    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
-    http.send();
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
     } else {
