@@ -66,7 +66,7 @@ class RoomState {
           bullets[i].x += bullets[i].xdir;
       }
     }
-}
+  }
   chImg (client, src) {
     this.players[client.sessionId].src = src;
   }

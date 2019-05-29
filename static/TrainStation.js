@@ -125,7 +125,6 @@ room.onJoin.add(function() {
             dom.style.top = player.y + "px";
             dom.src = player.src;
 
-            dom.src = "GameTextures/Op4Primary.png";
             gameArea.appendChild(dom);
 
             players[sessionId] = dom;
@@ -190,6 +189,7 @@ window.addEventListener("load", function () {
     http.open('HEAD', "GameTextures/Op" + op + ".png", false);
     http.send();
     if (http.status!=404 === false) {
+        imgPlayer.src = "GameTextures/Op4Primary.png";
     } else {
         imgPlayer.src = "GameTextures/Op" + op + ".png";
     }
