@@ -123,6 +123,7 @@ room.onJoin.add(function() {
             dom.setAttribute("style", "position: absolute");
             dom.style.left = player.x + "px";
             dom.style.top = player.y + "px";
+            dom.src = player.src;
 
             dom.src = "GameTextures/Op4Primary.png";
             gameArea.appendChild(dom);
@@ -162,6 +163,9 @@ room.onJoin.add(function() {
             if ((dom.style.top === window.innerHeight / 2) && (dom.style.left === window.innerWidth / 2)) {
                 dom.style.opacity = 0;
             }
+            if (change.path.attribute=='src') {
+                dom.src = change.value;
+            }
           }
         });
       });
@@ -178,18 +182,18 @@ arr2.ob1.name*/
 
 window.addEventListener("load", function () {
     load = true;
-    var http = new XMLHttpRequest();
-    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
-    http.send();
     for (i = 0; i < collisions.length; i++) {
         collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
         collisions[i].pop;
     }
+    var http = new XMLHttpRequest();
+    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
+    http.send();
     if (http.status!=404 === false) {
-        imgPlayer.src = "GameTextures/Op4Primary.png";
-        return;
+    } else {
+        imgPlayer.src = "GameTextures/Op" + op + ".png";
     }
-    imgPlayer.src = "GameTextures/Op" + op + ".png";
+    room.send({ type:'src', src: imgPlayer.src});
 });
 
 document.onkeydown = function (e) {
@@ -270,7 +274,7 @@ document.addEventListener('mousemove', function(ev) {
 
 function movement() {
     if (load === false) {
-        return;
+      return;
     }
     if (up === true) {
         if (run === true) {

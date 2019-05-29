@@ -3,10 +3,11 @@ const colyseus = require('colyseus');
 var bullets = [];
 
 class Player {
-  constructor (x, y, rot) {
+  constructor (x, y, rot, src) {
     this.x = x;
     this.y = y;
     this.rot = rot;
+    this.src = src;
   }
 }
 
@@ -66,6 +67,9 @@ class RoomState {
       }
     }
 }
+  chImg (client, src) {
+    this.players[client.sessionId].src = src;
+  }
 }
 
 //var bulletTimer = setInterval(moveBullets, 5);
@@ -99,6 +103,8 @@ exports.MyRoom = class extends colyseus.Room {
         this.state.rotate(client, data.dir);
     } else if (data.type, data.type=='bullet') {
         this.state.newBullet(client, data.x, data.y, data.rot, data.xdir, data.ydir);
+    } else if (data.type && data.type=='src') {
+        this.state.chImg(client, data.src);
     }
   }
 }
