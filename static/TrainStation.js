@@ -1,6 +1,7 @@
 var cnvGame;
 var ctx;
 
+
 var imgLayer2 = document.getElementById("layer2");
 var imgLayer1 = document.getElementById("layer1");
 var gameArea = document.getElementById("divGame");
@@ -124,6 +125,9 @@ room.onJoin.add(function() {
             dom.setAttribute("style", "position: absolute");
             dom.style.left = player.x + "px";
             dom.style.top = player.y + "px";
+
+            dom.src = "GameTextures/Op4Primary.png";
+
             dom.src = player.src;
 
             gameArea.appendChild(dom);
@@ -216,14 +220,22 @@ window.addEventListener("load", function () {
         collisions[i].pop;
     }
     var http = new XMLHttpRequest();
-    http.open('HEAD', "GameTextures/Op" + op + ".png", false);
-    http.send();
+    // http.open('HEAD', "GameTextures/Op" + op + ".png", false);
+    // http.send();
+    for (i = 0; i < collisions.length; i++) {
+        collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
+        collisions[i].pop;
+    }
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
     } else {
         imgPlayer.src = "GameTextures/Op" + op + ".png";
     }
+
+    // imgPlayer.src = "GameTextures/" + op + image + ".png";
+
     room.send({ type:'src', src: imgPlayer.src});
+
 });
 
 document.onkeydown = function (e) {
@@ -858,4 +870,15 @@ function getOffset(el) {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY,
   }
+}
+
+var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+if(op === 'BulletPoint'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "_" + image +".png";
+console.log("BulletPoint");
+}
+var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
+if(op === 'Blackout'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "_" + image +".png";
+console.log("Blackout");
 }
