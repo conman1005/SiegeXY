@@ -17,6 +17,18 @@ var gameArea = document.getElementById("divGame");
 
 var healthBar = document.getElementById("Healthbar");
 
+
+var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+if(op === 'BulletPoint'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+console.log("BulletPoint");
+}
+var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
+if(op === 'Blackout'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+console.log("Blackout");
+}
+
 var playerSpeed = 1.3;
 var run = false;
 
@@ -215,13 +227,9 @@ arr2.ob1.name*/
 
 window.addEventListener("load", function () {
     load = true;
-    for (i = 0; i < collisions.length; i++) {
-        collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
-        collisions[i].pop;
-    }
     var http = new XMLHttpRequest();
-    // http.open('HEAD', "GameTextures/Op" + op + ".png", false);
-    // http.send();
+    http.open('HEAD', "GameTextures/" + op + "-" + image + ".png", false);
+    http.send();
     for (i = 0; i < collisions.length; i++) {
         collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
         collisions[i].pop;
@@ -229,13 +237,9 @@ window.addEventListener("load", function () {
     if (http.status!=404 === false) {
         imgPlayer.src = "GameTextures/Op4Primary.png";
     } else {
-        imgPlayer.src = "GameTextures/Op" + op + ".png";
+        imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
     }
-
-    // imgPlayer.src = "GameTextures/" + op + image + ".png";
-
     room.send({ type:'src', src: imgPlayer.src});
-
 });
 
 document.onkeydown = function (e) {
@@ -594,7 +598,7 @@ function movement() {
           bulletY[i] = bulletY[i] + bulletDirectionY[i];
           bullets[i].style.left = bulletX[i] + "px";
           bullets[i].style.top = bulletY[i] + "px";
-          
+
           //bullets[i].style.left = parseFloat(bullets[i].style.left) + bulletDirectionX + posX + "px";
           //bullets[i].style.top = parseFloat(bullets[i].style.top) + bulletDirectionY + posY + "px";
 
@@ -721,7 +725,7 @@ function movement() {
               } else {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
               }
-            
+
               var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10;
               var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10;
 
@@ -870,15 +874,4 @@ function getOffset(el) {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY,
   }
-}
-
-var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
-if(op === 'BulletPoint'){
-document.getElementById('PewDiePie').src="GameTextures/" + op + "_" + image +".png";
-console.log("BulletPoint");
-}
-var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
-if(op === 'Blackout'){
-document.getElementById('PewDiePie').src="GameTextures/" + op + "_" + image +".png";
-console.log("Blackout");
 }
