@@ -120,6 +120,7 @@ var client = new Colyseus.Client("ws:" + host + ":80");
 var room = client.join("my_room");
 
 var players = {};
+var sBullets = {};
 
 var myId = '';
 
@@ -189,6 +190,35 @@ room.onJoin.add(function() {
           }
         });
       });
+      room.listen("bullets/:id", (change) => {
+          console.log("change", change);
+          var sessionId = change.path.id;
+
+          if(change.operation=='add'){
+            var player = change.value;
+            var dom = document.createElement("IMG");
+            dom.className = "bullet";
+            dom.setAttribute("style", "position: absolute");
+            dom.style.left = player.x + "px";
+            dom.style.top = player.y + "px";
+            dom.style.width = "10";
+            dom.style.height = "4.1";
+            dom.style.transform = 'rotate(' + player.rot + 'deg)';
+            
+            dom.src = 'GameTextures/Bullet.png';
+
+            gameArea.appendChild(dom);
+
+            sBullets[sessionId] = dom;
+          }
+
+
+          else if(change.operation=='remove'){
+            gameArea.removeChild(players[sessionId]);
+            delete players[sessionId];
+          }
+            //players[myId].style.opacity = "0.0";
+        });
 
 /*var walls2 = [1, 2, 3, 4]
 var myOb = {"attr":"prop", "height":5, "name":"bob"}
