@@ -28,6 +28,11 @@ if(op === 'Blackout'){
 document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
 console.log("Blackout");
 }
+var image = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
+if(op === 'Vision'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+console.log("Vision");
+}
 
 var playerSpeed = 1.3;
 var run = false;
