@@ -186,7 +186,7 @@ room.onJoin.add(function() {
         });
       });
       room.listen("bullets/:id", (change) => {
-          console.log("change", change)
+          console.log("change", change);
           var sessionId = change.path.id;
 
           if(change.operation=='add'){

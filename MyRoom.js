@@ -30,7 +30,7 @@ class RoomState {
     
   newBullet (client, x, y, rot, xdir, ydir) {
     this.bullets[client.sessionId + "_" + Math.random()] = new Bullet(x, y, rot, xdir,ydir);
-    console.log(this.bullets);
+    console.log("bullet",this.bullets);
   }
 
   removePlayer (client) {
