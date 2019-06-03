@@ -130,9 +130,8 @@ span.psw {
 }
 </style>
 
-<video autoplay muted loop id="myVideo" style=" top: 0%; left: 0%; width:120%;
-  height:100%;
-  object-fit:cover;">
+<video autoplay muted loop id="myVideo" style=" position: absolute; top: 0%; left: 0%; width:100%;
+  height:100%; object-fit: cover;">
   <source src="MenuTextures/Credits.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
@@ -155,8 +154,8 @@ var url = window.location.href.search("t=") + 2;
             music.play();
         });
 </script>
-<p style="position: absolute; top: 10%; left: 45%; color: #ffffff; text-align: center;">GAME DEVELOPERS<br/><br/>Nathan Sturgeon<br/>Conner Cullity</p>
+<p style="position: absolute; top: 10%; left: 44%; color: #ffffff; text-align: center;">[GAME DEVELOPERS]<br/>---------------------------------<br/>Nathan Sturgeon<br/>Conner Cullity<br><br>[GAME ART]<br/>------------------------<br/>Aidan Dilling<br/><br>[HELPERS]<br/>--------------------------------<br/>David Hoare<br/>Spenecer Jones</p>
 <a onclick="window.location.href = '/?t=' + music.currentTime">
-<button style="position: absolute; top: 80%; left: 40%; color:#ffffff;">Return</button>
+<button style="position: absolute; top: 80%; left: 50%; margin-left: -5%; width: 10%; color:#ffffff;">Return</button>
 </a>
 </html>
