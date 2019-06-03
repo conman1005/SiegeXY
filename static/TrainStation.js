@@ -245,7 +245,7 @@ document.onkeydown = function (e) {
     playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
+    imgPlayer.src = "GameTextures/" + op + "-" + weapon + ".png";
     playerSpeed = 1.3;
   }
 
@@ -283,7 +283,7 @@ document.onkeyup = function (e) {
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
+    imgPlayer.src = "GameTextures/" + op + "-" + weapon + ".png";
     playerSpeed = 1.3;
   }
 }
