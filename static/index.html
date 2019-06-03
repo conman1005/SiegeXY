@@ -224,6 +224,12 @@ modal:hover{
    width: 20%;">How To Play</button>
    </a>
 
+   <a href="https://www.patreon.com/SiegeXY">
+   <button style="position: absolute; top: 110%; left: 13%; margin-top: -10%;
+   margin-left: -10%;
+   width: 10%;">Help Support Us</button>
+   </a>
+
 <div id="id01" class="modal">
     <div class="container">
       <!--<iframe src="Songs/Music2.mp3" allow="autoplay" loop controls
@@ -250,7 +256,7 @@ window.addEventListener("load", function () {
     Clickplay.loop = true;
     //Clickplay.play();
 });
-    
+
 var url;
 var t = 0;
 var music = new Audio('Songs/Cyber_Starting_Area.mp3');
@@ -258,7 +264,7 @@ var music = new Audio('Songs/Cyber_Starting_Area.mp3');
         url = window.location.href.search("t=") + 2;
         t = parseFloat(window.location.href.substr(url));
     } else {t = 0;}
-    
+
 window.addEventListener("load", function () {
     music.volume = 0.25;
     music.loop = true;
