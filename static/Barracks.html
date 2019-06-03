@@ -1218,57 +1218,62 @@ document.getElementById('id0WOutlast').style.display='none'
 <script>
 if (typeof(Storage) !== "undefined") {
 
-  var image = localStorage.getItem("TortuePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("TortuePrimary");
-  document.getElementById('PrimaryWeaponSlotTortue').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
-  document.getElementById('PrimaryWeaponSlotBulletPoint').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
-  document.getElementById('PrimaryWeaponSlotBlackout').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("PewdiepiePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("PewdiepiePrimary");
-  document.getElementById('PrimaryWeaponSlotPewdiepie').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
-  document.getElementById('PrimaryWeaponSlotVision').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("JavelinPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("JavelinPrimary");
-  document.getElementById('PrimaryWeaponSlotJavelin').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("RicochetPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("RicochetPrimary");
-  document.getElementById('PrimaryWeaponSlotRicochet').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
-  document.getElementById('PrimaryWeaponSlotWolfGang').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("InfernoPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("InfernoPrimary");
-  document.getElementById('PrimaryWeaponSlotInferno').src="GameTextures/"+ image +".png";
-  var image = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
-  document.getElementById('PrimaryWeaponSlotGlaze').src="GameTextures/"+ image +".png";
+  var PrimaryTortueImage = localStorage.getItem("TortuePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("TortuePrimary");
+  document.getElementById('PrimaryWeaponSlotTortue').src="GameTextures/"+ PrimaryTortueImage +".png";
+  var PrimaryBulletPointImage = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+  document.getElementById('PrimaryWeaponSlotBulletPoint').src="GameTextures/"+ PrimaryBulletPointImage +".png";
+  var PrimaryBlackoutImage = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
+  document.getElementById('PrimaryWeaponSlotBlackout').src="GameTextures/"+ PrimaryBlackoutImage +".png";
+  var PrimaryPewdiepieImage = localStorage.getItem("PewdiepiePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("PewdiepiePrimary");
+  document.getElementById('PrimaryWeaponSlotPewdiepie').src="GameTextures/"+ PrimaryPewdiepieImage +".png";
+  var PrimaryVisionImage = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
+  document.getElementById('PrimaryWeaponSlotVision').src="GameTextures/"+ PrimaryVisionImage +".png";
+  var PrimaryJavelinImage = localStorage.getItem("JavelinPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("JavelinPrimary");
+  document.getElementById('PrimaryWeaponSlotJavelin').src="GameTextures/"+ PrimaryJavelinImage +".png";
+  var PrimaryRicochetImage = localStorage.getItem("RicochetPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("RicochetPrimary");
+  document.getElementById('PrimaryWeaponSlotRicochet').src="GameTextures/"+ PrimaryRicochetImage +".png";
+  var PrimaryWolfGangImage = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
+  document.getElementById('PrimaryWeaponSlotWolfGang').src="GameTextures/"+ PrimaryWolfGangImage +".png";
+  var PrimaryInfernoImage = localStorage.getItem("InfernoPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("InfernoPrimary");
+  document.getElementById('PrimaryWeaponSlotInferno').src="GameTextures/"+ PrimaryInfernoImage +".png";
+  var PrimaryGlazeImage = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
+  document.getElementById('PrimaryWeaponSlotGlaze').src="GameTextures/"+ PrimaryGlazeImage +".png";
+
+
 
 } else {
 document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
 
-function TortuePrimaryGun(image){
-localStorage.setItem("TortuePrimary", image);
+function TortuePrimaryGun(PrimaryTortueImage){
+localStorage.setItem("TortuePrimary", PrimaryTortueImage);
 }
-function BulletPointPrimaryGun(image){
-localStorage.setItem("BulletPointPrimary", image);
+function BulletPointPrimaryGun(PrimaryBulletPointImage){
+localStorage.setItem("BulletPointPrimary", PrimaryBulletPointImage);
 }
-function BlackoutPrimaryGun(image){
-localStorage.setItem("BlackoutPrimary", image);
+function BlackoutPrimaryGun(PrimaryBlackoutImage){
+localStorage.setItem("BlackoutPrimary", PrimaryBlackoutImage);
 }
-function PewdiepiePrimaryGun(image){
-localStorage.setItem("PewdiepiePrimary", image);
+function PewdiepiePrimaryGun(PrimaryPewdiepieImage){
+localStorage.setItem("PewdiepiePrimary", PrimaryPewdiepieImage);
 }
-function VisionPrimaryGun(image){
-localStorage.setItem("VisionPrimary", image);
+function VisionPrimaryGun(PrimaryVisionImage){
+localStorage.setItem("VisionPrimary", PrimaryVisionImage);
 }
-function JavelinPrimaryGun(image){
-localStorage.setItem("JavelinPrimary", image);
+function JavelinPrimaryGun(PrimaryJavelinImage){
+localStorage.setItem("JavelinPrimary", PrimaryJavelinImage);
 }
-function RicochetPrimaryGun(image){
-localStorage.setItem("RicochetPrimary", image);
+function RicochetPrimaryGun(PrimaryRicochetImage){
+localStorage.setItem("RicochetPrimary", PrimaryRicochetImage);
 }
-function WolfGangPrimaryGun(image){
-localStorage.setItem("WolfGangPrimary", image);
+function WolfGangPrimaryGun(PrimaryWolfGangImage){
+localStorage.setItem("WolfGangPrimary", PrimaryWolfGangImage);
 }
-function GlazePrimaryGun(image){
-localStorage.setItem("GlazePrimary", image);
+function InfernoPrimaryGun(PrimaryInfernoImage){
+localStorage.setItem("InfernoPrimary", PrimaryInfernoImage);
+}
+function GlazePrimaryGun(PrimaryGlazeImage){
+localStorage.setItem("GlazePrimary", PrimaryGlazeImage);
 }
 </script>
 </body>
