@@ -17,20 +17,28 @@ var gameArea = document.getElementById("divGame");
 
 var healthBar = document.getElementById("Healthbar");
 
+var url = window.location.href.search("op=") + 3;
+var op = window.location.href.substr(url);
 
-var image = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+var PrimaryVisionImage = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
+var PrimaryBlackoutImage = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
+var PrimaryBulletPointImage = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+
+var weapon = "";
+
 if(op === 'BulletPoint'){
-document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryBulletPointImage +".png";
+weapon = localStorage.getItem("BulletPointPrimary");
 console.log("BulletPoint");
 }
-var image = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
-if(op === 'Blackout'){
-document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+else if(op === 'Blackout'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryBlackoutImage +".png";
+weapon = localStorage.getItem("BlackoutPrimary");
 console.log("Blackout");
 }
-var image = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
-if(op === 'Vision'){
-document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + image +".png";
+else if(op === 'Vision'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryVisionImage +".png";
+weapon = localStorage.getItem("VisionPrimary");
 console.log("Vision");
 }
 
@@ -105,8 +113,6 @@ var point = getOffset(imgPlayer);
 
 var bullet = new Image;
 
-var url = window.location.href.search("op=") + 3;
-var op = window.location.href.substr(url);
 
 // var sound = new Howl({
 //   src: ['SoundEffects/Shot1.mp3']
@@ -233,17 +239,11 @@ arr2.ob1.name*/
 window.addEventListener("load", function () {
     load = true;
     var http = new XMLHttpRequest();
-    http.open('HEAD', "GameTextures/" + op + "-" + image + ".png", false);
-    http.send();
     for (i = 0; i < collisions.length; i++) {
         collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
         collisions[i].pop;
     }
-    if (http.status!=404 === false) {
-        imgPlayer.src = "GameTextures/Op4Primary.png";
-    } else {
-        imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
-    }
+    imgPlayer.src = "GameTextures/" + op + "-" + weapon + ".png";
     room.send({ type:'src', src: imgPlayer.src});
 });
 
@@ -275,7 +275,7 @@ document.onkeydown = function (e) {
     playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPlayer.src = "GameTextures/Op4Primary.png";
+    imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
     playerSpeed = 1.3;
   }
 
@@ -313,8 +313,8 @@ document.onkeyup = function (e) {
        playerSpeed = 1.5;
   }
   if (keycode === 49){
-    imgPlayer.src = "GameTextures/Op4Primary.png";
-     playerSpeed = 1.3;
+    imgPlayer.src = "GameTextures/" + op + "-" + image + ".png";
+    playerSpeed = 1.3;
   }
 }
 
