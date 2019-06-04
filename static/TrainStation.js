@@ -210,7 +210,7 @@ room.onJoin.add(function() {
             dom.style.width = "10";
             dom.style.height = "4.1";
             dom.style.transform = 'rotate(' + player.rot + 'deg)';
-            
+
             dom.src = 'GameTextures/Bullet.png';
 
             gameArea.appendChild(dom);
