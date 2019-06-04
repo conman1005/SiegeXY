@@ -23,6 +23,7 @@ var op = window.location.href.substr(url);
 var PrimaryVisionImage = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
 var PrimaryBlackoutImage = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
 var PrimaryBulletPointImage = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+var PrimaryGlazeImage = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
 
 var weapon = "";
 
@@ -40,6 +41,11 @@ else if(op === 'Vision'){
 document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryVisionImage +".png";
 weapon = localStorage.getItem("VisionPrimary");
 console.log("Vision");
+}
+else if(op === 'Glaze'){
+document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryGlazeImage +".png";
+weapon = localStorage.getItem("GlazePrimary");
+console.log("Glaze");
 }
 
 var playerSpeed = 1.3;
