@@ -5,15 +5,15 @@ body{
 }
 #counter{
     position: absolute;
-    top:86%;
-    left: 8%;
+    top:89%;
+    left: 7%;
     transform: translate(-90%,-20%);
     z-index: 9;
 }
 #AmmoCounter{
     position: absolute;
-    top:86%;
-    left: 14%;
+    top:89%;
+    left: 13%;
     transform: translate(-90%,-20%);
     z-index: 9;
 }
