@@ -144,7 +144,7 @@ room.onJoin.add(function() {
         }
 
         room.listen("players/:id", (change) => {
-          console.log("change", change)
+          console.log("player change", change)
           var sessionId = change.path.id;
 
           if(change.operation=='add'){
@@ -176,12 +176,12 @@ room.onJoin.add(function() {
         }); // immediate
 
       room.listen("players/:id/:attribute", (change) => {
-          console.log(change);
+          //console.log(change);
           var sessionId = change.path.id;
-           console.log(change.operation); // => "add" | "remove" | "replace"
-           console.log(change.path.attribute, "has been changed");
-           console.log(change.path.id);
-           console.log(change.value);
+//           console.log(change.operation); // => "add" | "remove" | "replace"
+//           console.log(change.path.attribute, "has been changed");
+//           console.log(change.path.id);
+//           console.log(change.value);
           if(change.operation=="replace"){
             var dom = players[sessionId];
             if (change.path.attribute=='x'){
@@ -201,9 +201,9 @@ room.onJoin.add(function() {
             }
           }
         });
-      });
+
       room.listen("bullets/:id", (change) => {
-          console.log("change", change);
+          console.log("bullet change", change);
           var sessionId = change.path.id;
 
           if(change.operation=='add'){
@@ -216,6 +216,7 @@ room.onJoin.add(function() {
             dom.style.width = "10";
             dom.style.height = "4.1";
             dom.style.transform = 'rotate(' + player.rot + 'deg)';
+            console.log(player.x, player.y, player.rot);
 
             dom.src = 'GameTextures/Bullet.png';
 
@@ -231,6 +232,8 @@ room.onJoin.add(function() {
           }
             //players[myId].style.opacity = "0.0";
         });
+    
+    }); 
 
 /*var walls2 = [1, 2, 3, 4]
 var myOb = {"attr":"prop", "height":5, "name":"bob"}
@@ -630,6 +633,9 @@ function movement() {
               }
           }
         }
+        for (var sessionId in sBullets) {
+             
+        }
     }
     if (reloadTimer >= 1) {
         reloadTimer++;
@@ -737,8 +743,8 @@ function movement() {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
               }
 
-              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10;
-              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10;
+              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10 - posX;
+              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10 - posY;
 
               newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
@@ -756,7 +762,7 @@ function movement() {
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
-              room.send({ type:'bullet', x: bulx, y: buly, rot, degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
+              room.send({ type:'bullet', x: bulx, y: buly, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
               console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
