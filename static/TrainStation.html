@@ -147,6 +147,16 @@ div#load_screen > div#loading{
             opacity: 0;
           }
 
+          #hud {
+            position: absolute;
+            top: 85%;
+            left: -2%;
+            width: 22%;
+            height: 17%;
+            background-color: rgba(70,70,70,0.6);
+            border-radius: 10%;
+          }
+
           .AmmoIcon {
             position: absolute;
             top: 70%;
@@ -206,10 +216,10 @@ div#load_screen > div#loading{
        user-select:none;
        margin-top: -25px;
        margin-left: -25px;
-       width: 50px;
-       height: 50px;
-       top:90%;
-       left:17%;
+       width: 70px;
+       height: 70px;
+       top:91%;
+       left:15.5%;
        opacity:1;
       }
       #AmmoAmmount{
@@ -391,6 +401,7 @@ div#load_screen > div#loading{
         <!-- <div id="circle1"></div>
         <div id="circle3"></div> -->
         <!-- <p id="AmmoAmmount">30/120</p> -->
+        <div id="hud"></div>
         <img id="minimap" src="GameTextures/Train Station33.png" alt="Minimap">
         <img id="playericon" src="OperatorImages/Vial.png">
         <img class="player" id="PewDiePie" src="GameTextures/Op4Primary.png" onError="this.onerror=null;this.src='GameTextures/Op4Primary.png';" style="opacity:1.0;">
