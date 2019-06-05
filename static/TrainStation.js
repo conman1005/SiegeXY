@@ -11,11 +11,7 @@ var imgBlackout;
 var imgTortue;
 var imgPlayer = document.getElementById("PewDiePie");
 
-var ammoCount = document.getElementById("AmmoAmmount");
-
 var gameArea = document.getElementById("divGame");
-
-var healthBar = document.getElementById("Healthbar");
 
 var url = window.location.href.search("op=") + 3;
 var op = window.location.href.substr(url);
@@ -135,6 +131,50 @@ var players = {};
 var sBullets = {};
 
 var myId = '';
+
+var counter = document.getElementById('counter').getContext('2d');
+var no = 100; // Starting Point
+var pointToFill = 4.72;  //Point from where you want to fill the circle
+var cw = counter.canvas.width;  //Return canvas width
+var ch = counter.canvas.height; //Return canvas height
+var diff;   // find the different between current value (no) and trageted value (100)
+
+var AmmoProgress = document.getElementById('AmmoCounter').getContext('2d');
+var AmmoClip = 30;
+var AmmopointToFill = 4.72;  //Point from where you want to fill the circle
+var Ammocw = counter.canvas.width;  //Return canvas width
+var Ammoch = counter.canvas.height;  // Starting Point
+
+
+function fillCounter(){
+    diff = ((no/100) * Math.PI*2*10);
+    counter.clearRect(0,0,cw,ch);   // Clear canvas every time when function is call
+    counter.lineWidth = 8;     // size of stroke
+    counter.fillStyle = '#fff';     // color that you want to fill in counter/circle
+    counter.strokeStyle = '#90EE90';    // Stroke Color
+    counter.textAlign = 'center';
+    counter.font = "15px monospace";    //set font size and face
+    counter.fillText(no+'%',46,50);       //fillText(text,x,y);
+    counter.beginPath();
+    counter.arc(45,45,35,pointToFill,diff/10+pointToFill);    //arc(x,y,radius,start,stop)
+    counter.stroke();   // to fill stroke
+    }
+var fill = setInterval(fillCounter,50);
+
+function FillAmmo(){
+    Ammodiff = ((AmmoClip/30) * Math.PI*2*10);
+    AmmoProgress.clearRect(0,0,Ammocw,Ammoch);   // Clear canvas every time when function is call
+    AmmoProgress.lineWidth = 8;     // size of stroke
+    AmmoProgress.fillStyle = '#fff';     // color that you want to fill in counter/circle
+    AmmoProgress.strokeStyle = '#FADA5E';    // Stroke Color
+    AmmoProgress.textAlign = 'center';
+    AmmoProgress.font = "15px monospace";    //set font size and face
+    AmmoProgress.fillText(clip_Ak47 + "/" + ammo_Ak47,46,50);       //fillText(text,x,y);
+    AmmoProgress.beginPath();
+    AmmoProgress.arc(45,45,35,AmmopointToFill,Ammodiff/10+AmmopointToFill);    //arc(x,y,radius,start,stop)
+    AmmoProgress.stroke();   // to fill stroke
+    }
+var Ammmofill = setInterval(FillAmmo,50);
 
 
 room.onJoin.add(function() {
@@ -645,15 +685,18 @@ function movement() {
               if (clip_Ak47 + ammo_Ak47 > 30) {
                   ammo_Ak47 = ammo_Ak47 - (30 - clip_Ak47);
                   clip_Ak47 = 30;
+                  AmmoClip = 30;
               } else {
                   clip_Ak47 = clip_Ak47 + ammo_Ak47;
                   ammo_Ak47 = 0;
+                  AmmoClip = clip_Ak47;
               }
               } else {
                   ammo_Ak47 = ammo_Ak47 - (30 - clip_Ak47);
                   clip_Ak47 = 30;
+                  AmmoClip = clip_Ak47;
               }
-            ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
+            clip_Ak47 + "/" + ammo_Ak47;
         }
     }
     playerBox.setAttribute('x', (window.innerWidth * 0.495));
@@ -682,7 +725,7 @@ function movement() {
     for (var ii = 0; ii < bullets.length; ii++) {
         if ((bulletCol(playerBox, ii, true) === true) && (god === false)) {
             HP = HP - 10;
-            healthBar.value = HP;
+            no = no - 10;
             if (HP <= 0) {
                 alert("You Lose!");
                 window.location.href = "/";
@@ -715,8 +758,9 @@ function movement() {
               // var shottimer = setInterval(shooting,120);
               // function shooting(){
               clip_Ak47--;
+              AmmoClip = AmmoClip -1;
               // if(clip_AK47 >= 0){
-              ammoCount.innerHTML = clip_Ak47 + "/" + ammo_Ak47;
+              clip_Ak47 + "/" + ammo_Ak47;
 
               hasShot = true;
 
@@ -891,4 +935,5 @@ function getOffset(el) {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY,
   }
+
 }
