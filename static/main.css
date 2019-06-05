@@ -1,0 +1,19 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color:#E0D6CA;
+}
+#counter{
+    position: absolute;
+    top:86%;
+    left: 8%;
+    transform: translate(-90%,-20%);
+    z-index: 9;
+}
+#AmmoCounter{
+    position: absolute;
+    top:86%;
+    left: 14%;
+    transform: translate(-90%,-20%);
+    z-index: 9;
+}
