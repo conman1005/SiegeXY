@@ -256,13 +256,19 @@ room.onJoin.add(function() {
             dom.style.width = "10";
             dom.style.height = "4.1";
             dom.style.transform = 'rotate(' + player.rot + 'deg)';
+            dom.setAttributeNode(document.createAttribute("data-xdir"));
+            dom.setAttribute('data-xdir', player.xdir);
+            dom.setAttributeNode(document.createAttribute("data-ydir"));
+            dom.setAttribute('data-ydir', player.ydir);
             console.log(player.x, player.y, player.rot);
 
             dom.src = 'GameTextures/Bullet.png';
 
             gameArea.appendChild(dom);
 
-            sBullets[sessionId] = dom;
+            //sBullets[sessionId] = dom;
+            sBullets[sessionId] = {dom: dom, xdir: player.xdir, ydir: player.ydir};
+            console.log(sBullets[sessionId]);
           }
 
 
@@ -674,7 +680,9 @@ function movement() {
           }
         }
         for (var sessionId in sBullets) {
-             
+             sBullets[sessionId].dom.style.left =  (parseFloat(sBullets[sessionId].dom.style.left) + sBullets[sessionId].xdir) + 'px';
+             sBullets[sessionId].dom.style.top =  (parseFloat(sBullets[sessionId].dom.style.top) + sBullets[sessionId].ydir) + 'px';
+             console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
         }
     }
     if (reloadTimer >= 1) {
