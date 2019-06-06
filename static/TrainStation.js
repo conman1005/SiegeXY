@@ -149,7 +149,7 @@ var Ammoch = counter.canvas.height;  // Starting Point
 function fillCounter(){
     diff = ((no/100) * Math.PI*2*10);
     counter.clearRect(0,0,cw,ch);   // Clear canvas every time when function is call
-    counter.lineWidth = 8;     // size of stroke
+    counter.lineWidth = 6;     // size of stroke
     counter.fillStyle = '#fff';     // color that you want to fill in counter/circle
     counter.strokeStyle = '#90EE90';    // Stroke Color
     counter.textAlign = 'center';
@@ -164,9 +164,9 @@ var fill = setInterval(fillCounter,50);
 function FillAmmo(){
     Ammodiff = ((AmmoClip/30) * Math.PI*2*10);
     AmmoProgress.clearRect(0,0,Ammocw,Ammoch);   // Clear canvas every time when function is call
-    AmmoProgress.lineWidth = 8;     // size of stroke
+    AmmoProgress.lineWidth = 6;     // size of stroke
     AmmoProgress.fillStyle = '#fff';     // color that you want to fill in counter/circle
-    AmmoProgress.strokeStyle = '#FADA5E';    // Stroke Color
+    AmmoProgress.strokeStyle = '#ffffff';    // Stroke Color
     AmmoProgress.textAlign = 'center';
     AmmoProgress.font = "15px monospace";    //set font size and face
     AmmoProgress.fillText(clip_Ak47 + "/" + ammo_Ak47,46,50);       //fillText(text,x,y);
