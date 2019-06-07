@@ -260,6 +260,7 @@ room.onJoin.add(function() {
             dom.setAttribute('data-xdir', player.xdir);
             dom.setAttributeNode(document.createAttribute("data-ydir"));
             dom.setAttribute('data-ydir', player.ydir);
+            dom.id = sessionId;
             console.log(player.x, player.y, player.rot);
 
             dom.src = 'GameTextures/Bullet.png';
@@ -682,7 +683,14 @@ function movement() {
         for (var sessionId in sBullets) {
              sBullets[sessionId].dom.style.left =  (parseFloat(sBullets[sessionId].dom.style.left) + sBullets[sessionId].xdir) + 'px';
              sBullets[sessionId].dom.style.top =  (parseFloat(sBullets[sessionId].dom.style.top) + sBullets[sessionId].ydir) + 'px';
-             console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
+             //console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
+             for (i = 0; i < collisions2.length; i++) {
+                 if (sBulletCol(collisions2[i], sessionId, false) === true) {
+                     //sBullets[sessionId].dom.style.opacity = '0.0';
+                     gameArea.removeChild(sBullets[sessionId].dom);
+                     delete sBullets[sessionId];
+                 }
+             }
         }
     }
     if (reloadTimer >= 1) {
@@ -727,6 +735,7 @@ function movement() {
         }
         for (var ii = 0; ii < bullets.length; ii++) {
             if (bulletCol(collisions2[i], ii, false) === true) {
+                gameArea.removeChild[bullets];
             }
         }
     }
@@ -849,6 +858,36 @@ function bulletCol(rect, i, static){
     try {
         if(((x1 + width1) > parseFloat(bullets[i].style.left) && x1 < (parseFloat(bullets[i].style.left) + 16)) && ((y1 + height1) > parseFloat(bullets[i].style.top) && y1 < (parseFloat(bullets[i].style.top) + 16))) {
             document.getElementById(id).remove();
+            return true;
+        } else {
+            return false;
+        }
+    } catch(err) {
+
+    }
+
+}
+function sBulletCol(rect, sessionId, static){
+    var x1;
+    var y1;
+
+    if (static === true) {
+        x1 = rect.x.animVal.value;
+        y1 = rect.y.animVal.value;
+    } else {
+        x1 = rect.x.animVal.value + posX;
+        y1 = rect.y.animVal.value + posY;
+    }
+
+    var width1 = rect.width.animVal.value;
+    var height1 = rect.height.animVal.value;
+
+    if (hasShot === false) {
+        return false;
+    }
+    try {
+        if(((x1 + width1) > parseFloat(sBullets[sessionId].dom.style.left) && x1 < (parseFloat(sBullets[sessionId].dom.style.left) + 16)) && ((y1 + height1) > parseFloat(sBullets[sessionId].dom.style.top) && y1 < (parseFloat(sBullets[sessionId].dom.style.top) + 16))) {
+            //sBullets.dom.remove();
             return true;
         } else {
             return false;
