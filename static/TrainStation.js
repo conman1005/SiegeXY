@@ -274,8 +274,10 @@ room.onJoin.add(function() {
 
 
           else if(change.operation=='remove'){
-            gameArea.removeChild(players[sessionId]);
-            delete players[sessionId];
+            try {
+                gameArea.removeChild(players[sessionId]);
+                delete players[sessionId];
+            } catch (err) {}
           }
             //players[myId].style.opacity = "0.0";
         });
@@ -688,6 +690,7 @@ function movement() {
                  if (sBulletCol(collisions2[i], sessionId, false) === true) {
                      //sBullets[sessionId].dom.style.opacity = '0.0';
                      gameArea.removeChild(sBullets[sessionId].dom);
+                     room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
                  }
              }
