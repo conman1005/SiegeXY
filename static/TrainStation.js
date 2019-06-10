@@ -689,12 +689,25 @@ function movement() {
              sBullets[sessionId].dom.style.top =  (parseFloat(sBullets[sessionId].dom.style.top) + sBullets[sessionId].ydir) + 'px';
              //console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
              for (i = 0; i < collisions2.length; i++) {
-                 if (sBulletCol(collisions2[i], sessionId, false) === true) {
+                 if (sBulletCol(collisions2[i], sessionId, true) === true) {
                      console.log('sCol');
                      //sBullets[sessionId].dom.style.opacity = '0.0';
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
+                 }
+                 if ((sBulletCol(playerBox, sessionId, true))) {
+                     console.log('oof');
+                     gameArea.removeChild(sBullets[sessionId].dom);
+                     room.send({ type:'remove', id: sessionId});
+                     delete sBullets[sessionId];
+                     
+                     HP = HP - 10;
+                     no = no - 10;
+                     if (HP <= 0) {
+                        alert("You Lose!");
+                        window.location.href = "/";
+                    }
                  }
              }
         }
@@ -830,7 +843,7 @@ function movement() {
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
-              room.send({ type:'bullet', x: bulx, y: buly, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
+              room.send({ type:'bullet', x: bulx + Math.cos(degSpray * Math.PI / 180) * 15, y: buly + Math.sin(degSpray * Math.PI / 180) * 15, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
               console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
@@ -877,13 +890,13 @@ function bulletCol(rect, i, static){
 function sBulletCol(rect, sessionId, static){
     var x1;
     var y1;
-
+    
     if (static === true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
-        x1 = rect.x.animVal.value;
-        y1 = rect.y.animVal.value;
+        x1 = rect.x.animVal.value + posX;
+        y1 = rect.y.animVal.value + posY;
     }
 
     var width1 = rect.width.animVal.value;
