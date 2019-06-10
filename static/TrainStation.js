@@ -243,7 +243,7 @@ room.onJoin.add(function() {
         });
 
       room.listen("bullets/:id", (change) => {
-          console.log("bullet change", change);
+          //console.log("bullet change", change);
           var sessionId = change.path.id;
 
           if(change.operation=='add'){
@@ -261,7 +261,7 @@ room.onJoin.add(function() {
             dom.setAttributeNode(document.createAttribute("data-ydir"));
             dom.setAttribute('data-ydir', player.ydir);
             dom.id = sessionId;
-            console.log(player.x, player.y, player.rot);
+            //console.log(player.x, player.y, player.rot);
 
             dom.src = 'GameTextures/Bullet.png';
 
@@ -269,7 +269,7 @@ room.onJoin.add(function() {
 
             //sBullets[sessionId] = dom;
             sBullets[sessionId] = {dom: dom, xdir: player.xdir, ydir: player.ydir};
-            console.log(sBullets[sessionId]);
+            //console.log(sBullets[sessionId]);
             var gunShot = new Audio('SoundEffects/Shot1.mp3');
             gunShot.play();
           }
@@ -691,14 +691,12 @@ function movement() {
              //console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
              for (i = 0; i < collisions2.length; i++) {
                  if (sBulletCol(collisions2[i], sessionId, true) === true) {
-                     console.log('sCol');
                      //sBullets[sessionId].dom.style.opacity = '0.0';
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
                  }
                  if ((sBulletCol(playerBox, sessionId, false))) {
-                     console.log('oof');
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
@@ -830,10 +828,12 @@ function movement() {
 
               newBullet.id = ("bullet" + shot.toString());
               newBullet.style.opacity = 0.0;
+            
+              delete newBullet;
 
-              document.body.appendChild(newBullet);
+              //document.body.appendChild(newBullet);
 
-              bullets.push(document.getElementById("bullet" + shot.toString()));
+              //bullets.push(document.getElementById("bullet" + shot.toString()));
 
                 //credit to Spencer Jones for the Math below
 
@@ -844,7 +844,6 @@ function movement() {
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
               room.send({ type:'bullet', x: bulx + Math.cos(degSpray * Math.PI / 180) * 25, y: buly + Math.sin(degSpray * Math.PI / 180) * 25, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
-              console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
         }
