@@ -270,6 +270,8 @@ room.onJoin.add(function() {
             //sBullets[sessionId] = dom;
             sBullets[sessionId] = {dom: dom, xdir: player.xdir, ydir: player.ydir};
             console.log(sBullets[sessionId]);
+            var gunShot = new Audio('SoundEffects/Shot1.mp3');
+            gunShot.play();
           }
 
 
@@ -688,6 +690,7 @@ function movement() {
              //console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
              for (i = 0; i < collisions2.length; i++) {
                  if (sBulletCol(collisions2[i], sessionId, false) === true) {
+                     console.log('sCol');
                      //sBullets[sessionId].dom.style.opacity = '0.0';
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
@@ -813,6 +816,7 @@ function movement() {
               newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
               newBullet.id = ("bullet" + shot.toString());
+              newBullet.style.opacity = 0.0;
 
               document.body.appendChild(newBullet);
 
@@ -878,8 +882,8 @@ function sBulletCol(rect, sessionId, static){
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
-        x1 = rect.x.animVal.value + posX;
-        y1 = rect.y.animVal.value + posY;
+        x1 = rect.x.animVal.value;
+        y1 = rect.y.animVal.value;
     }
 
     var width1 = rect.width.animVal.value;
