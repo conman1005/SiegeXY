@@ -37,6 +37,10 @@ class RoomState {
   removePlayer (client) {
     delete this.players[ client.sessionId ];
   }
+    
+  removeBullet (id) {
+    delete this.bullets[id];
+  }
 
   movePlayer (client, dir) {
       console.log(client.sessionId, dir);
@@ -108,6 +112,8 @@ exports.MyRoom = class extends colyseus.Room {
         this.state.newBullet(client, data.x, data.y, data.rot, data.xdir, data.ydir);
     } else if (data.type && data.type=='src') {
         this.state.chImg(client, data.src);
+    } else if (data.type && data.type=='remove') {
+        this.state.removeBullet(data.id);
     }
   }
 }
