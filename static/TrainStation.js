@@ -149,12 +149,12 @@ var Ammoch = counter.canvas.height;  // Starting Point
 function fillCounter(){
     diff = ((no/100) * Math.PI*2*10);
     counter.clearRect(0,0,cw,ch);   // Clear canvas every time when function is call
-    counter.lineWidth = 6;     // size of stroke
+    counter.lineWidth = 4;     // size of stroke
     counter.fillStyle = '#fff';     // color that you want to fill in counter/circle
     counter.strokeStyle = '#90EE90';    // Stroke Color
     counter.textAlign = 'center';
     counter.font = "15px monospace";    //set font size and face
-    counter.fillText(no+'%',46,50);       //fillText(text,x,y);
+    counter.fillText(no,46,50);       //fillText(text,x,y);
     counter.beginPath();
     counter.arc(45,45,35,pointToFill,diff/10+pointToFill);    //arc(x,y,radius,start,stop)
     counter.stroke();   // to fill stroke
@@ -164,7 +164,7 @@ var fill = setInterval(fillCounter,50);
 function FillAmmo(){
     Ammodiff = ((AmmoClip/30) * Math.PI*2*10);
     AmmoProgress.clearRect(0,0,Ammocw,Ammoch);   // Clear canvas every time when function is call
-    AmmoProgress.lineWidth = 6;     // size of stroke
+    AmmoProgress.lineWidth = 4;     // size of stroke
     AmmoProgress.fillStyle = '#fff';     // color that you want to fill in counter/circle
     AmmoProgress.strokeStyle = '#ffffff';    // Stroke Color
     AmmoProgress.textAlign = 'center';
@@ -283,8 +283,8 @@ room.onJoin.add(function() {
           }
             //players[myId].style.opacity = "0.0";
         });
-    
-    }); 
+
+    });
 
 /*var walls2 = [1, 2, 3, 4]
 var myOb = {"attr":"prop", "height":5, "name":"bob"}
