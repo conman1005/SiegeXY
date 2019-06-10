@@ -303,6 +303,7 @@ window.addEventListener("load", function () {
         collisions2.push({"x": collisions[i].x, "y": collisions[i].y, "width": collisions[i].width, "height": collisions[i].height});
         collisions[i].pop;
     }
+    delete collisions;
     imgPlayer.src = "GameTextures/" + op + "-" + weapon + ".png";
     room.send({ type:'src', src: imgPlayer.src});
 });
@@ -695,6 +696,7 @@ function movement() {
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
+                     console.log(sBullets);
                  }
                  if ((sBulletCol(playerBox, sessionId, false))) {
                      gameArea.removeChild(sBullets[sessionId].dom);
