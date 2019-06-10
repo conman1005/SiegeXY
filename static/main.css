@@ -6,14 +6,38 @@ body{
 #counter{
     position: absolute;
     top:89%;
-    left: 7%;
+    left: 50%;
     transform: translate(-90%,-20%);
     z-index: 9;
 }
 #AmmoCounter{
     position: absolute;
     top:89%;
-    left: 13%;
+    left: 56%;
     transform: translate(-90%,-20%);
     z-index: 9;
+}
+#circle1{
+    height: 68px;
+    width: 68px;
+    background-color:#696878;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.6;
+    top:92.75%;
+    left: 52.75%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+#circle2{
+    height: 68px;
+    width: 68px;
+    background-color:#696878;
+    opacity: 0.6;
+    border-radius: 50%;
+    position: absolute;
+    top:92.75%;
+    left: 46.75%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
 }
