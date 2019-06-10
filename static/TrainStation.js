@@ -684,6 +684,7 @@ function movement() {
               }
           }
         }
+        }
         for (var sessionId in sBullets) {
              sBullets[sessionId].dom.style.left =  (parseFloat(sBullets[sessionId].dom.style.left) + sBullets[sessionId].xdir) + 'px';
              sBullets[sessionId].dom.style.top =  (parseFloat(sBullets[sessionId].dom.style.top) + sBullets[sessionId].ydir) + 'px';
@@ -696,7 +697,7 @@ function movement() {
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
                  }
-                 if ((sBulletCol(playerBox, sessionId, true))) {
+                 if ((sBulletCol(playerBox, sessionId, false))) {
                      console.log('oof');
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
@@ -711,7 +712,6 @@ function movement() {
                  }
              }
         }
-    }
     if (reloadTimer >= 1) {
         reloadTimer++;
         if (reloadTimer === 200) {
@@ -843,7 +843,7 @@ function movement() {
               bulletX[shot] = window.innerWidth / 2 + bulletDirectionX[shot] * 10;
               bulletY[shot] = window.innerHeight / 2 + bulletDirectionY[shot] * 10;
               spray = true;
-              room.send({ type:'bullet', x: bulx + Math.cos(degSpray * Math.PI / 180) * 15, y: buly + Math.sin(degSpray * Math.PI / 180) * 15, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
+              room.send({ type:'bullet', x: bulx + Math.cos(degSpray * Math.PI / 180) * 25, y: buly + Math.sin(degSpray * Math.PI / 180) * 25, rot: degSpray, xdir: Math.cos(degSpray * Math.PI / 180) * 10, ydir: Math.sin(degSpray * Math.PI / 180) * 10});
               console.log('sent bullet');
         } else if (shootTimer === fireRate) {
             shootTimer = 0;
@@ -895,16 +895,13 @@ function sBulletCol(rect, sessionId, static){
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
     } else {
-        x1 = rect.x.animVal.value + posX;
-        y1 = rect.y.animVal.value + posY;
+        x1 = rect.x.animVal.value - posX;
+        y1 = rect.y.animVal.value - posY;
     }
 
     var width1 = rect.width.animVal.value;
     var height1 = rect.height.animVal.value;
 
-    if (hasShot === false) {
-        return false;
-    }
     try {
         if(((x1 + width1) > parseFloat(sBullets[sessionId].dom.style.left) && x1 < (parseFloat(sBullets[sessionId].dom.style.left) + 16)) && ((y1 + height1) > parseFloat(sBullets[sessionId].dom.style.top) && y1 < (parseFloat(sBullets[sessionId].dom.style.top) + 16))) {
             //sBullets.dom.remove();
