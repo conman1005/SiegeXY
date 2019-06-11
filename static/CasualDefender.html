@@ -229,8 +229,7 @@ window.addEventListener("load", function(){
       <img style=" position: absolute; top: 10; left: 10; width: 90px; height: 90px;" srcset="OperatorImages/Glaze.png"></img>
     </div>
     <div class="square"></div>
-    <img style=" position: absolute; top: 60%; left: 8%; width: 210px; height: 67px;" srcset="GameTextures/Vityaz-SN.png"></img>
-    <img style=" position: absolute; top: 60%; left: 65%; width: 88px; height: 57px;" srcset="GameTextures/Tokarev.png"></img>
+    <img id="PrimaryWeaponGlaze" style=" position: absolute; top: 60%; left: 8%; width: 210px; height: 67px;" src="GameTextures/WeaponSlotPrimary.png"></img>
     <p style=" position: absolute; top: 30%; left: 39%; font-size: 20px; color: #000000; text-align: center; font-weight: bold; ">WEAPONS</p>
     <p style=" position: absolute; top: 44%; left: 10%; font-size: 15px; color: #000000; text-align: left; font-weight: bold; ">PRIMARY: </p>
     <p style=" position: absolute; top: 44%; left: 64%; font-size: 15px; color: #000000; text-align: left; font-weight: bold; ">SIDE: </p>
@@ -384,6 +383,27 @@ window.addEventListener("load", function(){
     </div>
   </form>
 </div>
+
+<script>
+var PrimaryGlazeImage = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
+document.getElementById('PrimaryWeaponGlaze').src="GameTextures/"+ PrimaryGlazeImage +".png";
+// var PrimaryTortueImage = localStorage.getItem("TortuePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("TortuePrimary");
+// document.getElementById('PrimaryWeaponTortue').src="GameTextures/"+ PrimaryTortueImage +".png";
+// var PrimaryPewdiepieImage = localStorage.getItem("PewdiepiePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("PewdiepiePrimary");
+// document.getElementById('PrimaryWeaponPewdiepie').src="GameTextures/"+ PrimaryPewdiepieImage +".png";
+// var PrimaryRicochetImage = localStorage.getItem("RicochetPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("RicochetPrimary");
+// document.getElementById('PrimaryWeaponRicochet').src="GameTextures/"+ PrimaryRicochetImage +".png";
+// var PrimaryVisionImage = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
+// document.getElementById('PrimaryWeaponVision').src="GameTextures/"+ PrimaryVisionImage +".png";
+// var PrimaryBulletPointImage = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
+// document.getElementById('PrimaryWeaponBulletPoint').src="GameTextures/"+ PrimaryBulletPointImage +".png";
+// var PrimaryJavelinImage = localStorage.getItem("JavelinPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("JavelinPrimary");
+// document.getElementById('PrimaryWeaponJavelin').src="GameTextures/"+ PrimaryJavelinImage +".png";
+// var PrimaryWolfGangImage = localStorage.getItem("WolfGangPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("WolfGangPrimary");
+// document.getElementById('PrimaryWeaponWolfGang').src="GameTextures/"+ PrimaryWolfGangImage +".png";
+// var PrimaryInfernoImage = localStorage.getItem("InfernoPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("InfernoPrimary");
+// document.getElementById('PrimaryWeaponInferno').src="GameTextures/"+ PrimaryInfernoImage +".png";
+</script>
 
  </body>
 </html>
