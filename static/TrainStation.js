@@ -277,8 +277,8 @@ room.onJoin.add(function() {
 
           else if(change.operation=='remove'){
             try {
-                gameArea.removeChild(players[sessionId]);
-                delete players[sessionId];
+                gameArea.removeChild(sBullets[sessionId]);
+                delete sBullets[sessionId];
             } catch (err) {}
           }
             //players[myId].style.opacity = "0.0";
@@ -612,7 +612,6 @@ function movement() {
                   hasShot = true;
 
                   var gunShot = new Audio('SoundEffects/Shot1.mp3');
-                  gunShot.play();
 
                   bulletX[shot] = terroristX[i] + posX;
                   bulletY[shot] = terroristY[i] + posY;
@@ -641,9 +640,13 @@ function movement() {
                   bulletDirectionX[shot] = Math.cos(degt * Math.PI / 180) * 10;
                   bulletDirectionY[shot] = Math.sin(degt * Math.PI / 180) * 10;
             }
-            for (ii = 0; ii < bullets.length; ii++) {
-              if ((bulletCol(tBox[i], ii, false) === true)) {
+            //for (ii = 0; ii < bullets.length; ii++) {
+            for (sessionId in sBullets) {
+              if ((sBulletCol(tBox[i], sessionId, true) === true)) {
                   eHP[i] = eHP[i] - 10;
+                  gameArea.removeChild(sBullets[sessionId].dom);
+                  room.send({ type:'remove', id: sessionId});
+                  delete sBullets[sessionId];
                   if (eHP[i] <= 0) {
                       terrorist[i].style.visibility = "hidden";
                       dT++;

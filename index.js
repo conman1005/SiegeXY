@@ -23,4 +23,4 @@ app.use('/', express.static(path.join(__dirname, "static")));
 
 
 gameServer.listen(port);
-console.log(`Listening on ws://siege-xy.tk:${ port }`)
+console.log(`Listening on ws://siegexy.net:${ port }`);
