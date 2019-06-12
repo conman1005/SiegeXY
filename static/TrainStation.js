@@ -652,7 +652,7 @@ function movement() {
                       dT++;
                       if (dT === terrorist.length) {
                           alert("You Win!");
-                          window.location.href = "/";
+                          window.location.href = "/TrainStation.html";
                       }
                   }
               }
