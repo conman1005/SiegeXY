@@ -708,7 +708,11 @@ function movement() {
                      no = no - 10;
                      if (HP <= 0) {
                         //alert("You Lose!");
-                        window.location.href = "/TrainStation.html";
+                        if (Math.round(Math.random()) === 1) {
+                            window.location.href = "/CasualAttacker.html";
+                        } else {
+                            window.location.href = "/CasualDefender.html";
+                        }
                     }
                  }
              }
