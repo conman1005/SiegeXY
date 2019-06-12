@@ -651,8 +651,7 @@ function movement() {
                       terrorist[i].style.visibility = "hidden";
                       dT++;
                       if (dT === terrorist.length) {
-                          alert("You Win!");
-                          window.location.href = "/TrainStation.html";
+                          //alert("You Win!");
                       }
                   }
               }
@@ -708,8 +707,8 @@ function movement() {
                      HP = HP - 10;
                      no = no - 10;
                      if (HP <= 0) {
-                        alert("You Lose!");
-                        window.location.href = "/";
+                        //alert("You Lose!");
+                        window.location.href = "/TrainStation.html";
                     }
                  }
              }
