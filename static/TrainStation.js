@@ -695,7 +695,6 @@ function movement() {
              //console.log(sBullets[sessionId].dom.style.left, sBullets[sessionId].dom.style.top);
              for (i = 0; i < collisions2.length; i++) {
                  if (sBulletCol(collisions2[i], sessionId, true) === true) {
-                     //sBullets[sessionId].dom.style.opacity = '0.0';
                      gameArea.removeChild(sBullets[sessionId].dom);
                      room.send({ type:'remove', id: sessionId});
                      delete sBullets[sessionId];
@@ -714,6 +713,14 @@ function movement() {
                     }
                  }
              }
+            for (var sessionId2 in players) {
+                if (sBulletCol(players[sessionId2], sessionId, 'img') === true) {
+                     gameArea.removeChild(sBullets[sessionId].dom);
+                     room.send({ type:'remove', id: sessionId});
+                     delete sBullets[sessionId];
+                     console.log('pCol');
+                 }
+            }
         }
     if (reloadTimer >= 1) {
         reloadTimer++;
@@ -891,6 +898,7 @@ function bulletCol(rect, i, static){
     }
 
 }
+
 function sBulletCol(rect, sessionId, static){
     var x1;
     var y1;
@@ -898,13 +906,21 @@ function sBulletCol(rect, sessionId, static){
     if (static === true) {
         x1 = rect.x.animVal.value;
         y1 = rect.y.animVal.value;
-    } else {
+        var width1 = rect.width.animVal.value;
+        var height1 = rect.height.animVal.value;
+    } else if (static === false) {
         x1 = rect.x.animVal.value - posX;
         y1 = rect.y.animVal.value - posY;
+        var width1 = rect.width.animVal.value;
+        var height1 = rect.height.animVal.value;
     }
-
-    var width1 = rect.width.animVal.value;
-    var height1 = rect.height.animVal.value;
+    
+    if (static === 'img') {
+        x1 = parseFloat(rect.style.left) - 10;
+        y1 = parseFloat(rect.style.top) - 10;
+        width1 = 35;
+        height1 = 35;
+    }
 
     try {
         if(((x1 + width1) > parseFloat(sBullets[sessionId].dom.style.left) && x1 < (parseFloat(sBullets[sessionId].dom.style.left) + 16)) && ((y1 + height1) > parseFloat(sBullets[sessionId].dom.style.top) && y1 < (parseFloat(sBullets[sessionId].dom.style.top) + 16))) {

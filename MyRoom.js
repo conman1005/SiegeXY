@@ -66,14 +66,6 @@ class RoomState {
   rotate (client, dir) {
       this.players[client.sessionId].rot = dir;
   }
-  moveBullets () {
-    if (bullets[0]) {
-      for (i = 0; i < bullets.length; i++) {
-          bullets[i].y += bullets[i].ydir;
-          bullets[i].x += bullets[i].xdir;
-      }
-    }
-  }
   chImg (client, src) {
     this.players[client.sessionId].src = src;
   }
