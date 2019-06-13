@@ -1,3 +1,8 @@
+//import {Howl, Howler} from 'howler';
+//const {Howl, Howler} = require('howler');
+
+
+
 var cnvGame;
 var ctx;
 
@@ -271,7 +276,22 @@ room.onJoin.add(function() {
             sBullets[sessionId] = {dom: dom, xdir: player.xdir, ydir: player.ydir};
             //console.log(sBullets[sessionId]);
             var gunShot = new Audio('SoundEffects/Shot1.mp3');
-            gunShot.play();
+            //gunShot.play();
+            
+            var gunShot2 = new Howl({
+              src: ['SoundEffects/Shot1.mp3']
+            });
+            //gunShot2.orientation[(window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 1];
+            //gunShot2.pos((window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 0);
+            if ((window.innerWidth / 2) > parseFloat(dom.style.left)) {
+                gunShot2.stereo((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 4000);
+                console.log((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 4000);
+            } else {
+                gunShot2.stereo(0 - ((window.innerWidth / 2 + posX - parseFloat(dom.style.left) + posX) / 4000))
+                console.log((0 - (4000 / (window.innerWidth / 2 + posX - parseFloat(dom.style.left) + posX) / 4000)));
+            }
+            console.log(gunShot2.stereo);
+            gunShot2.play();
           }
 
 
@@ -800,7 +820,7 @@ function movement() {
               //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
 
               var gunShot = new Audio('SoundEffects/Shot1.mp3');
-              gunShot.play();
+              //gunShot.play();
 
               // if(clip_AK47 >= 0){
               // var clip_AK47 = 30;
