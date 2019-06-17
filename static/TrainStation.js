@@ -283,6 +283,10 @@ room.onJoin.add(function() {
             //console.log(sBullets[sessionId]);
             var gunShot = new Audio('SoundEffects/Shot1.mp3');
             //gunShot.play();
+              
+            var a = parseFloat(dom.style.left) - (window.innerWidth / 2 - posX);
+            var b = parseFloat(dom.style.top) - (window.innerHeight / 2 - posY);              
+            var c = Math.sqrt(Math.abs(Math.pow(a, 2) + Math.pow(b, 2)));
             
             var gunShot2 = new Howl({
               src: ['SoundEffects/Shot1.mp3']
@@ -290,18 +294,17 @@ room.onJoin.add(function() {
             //gunShot2.orientation[(window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 1];
             //gunShot2.pos((window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 0);
             if ((window.innerWidth / 2) > parseFloat(dom.style.left)) {
-                gunShot2.stereo((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 4000);
-                console.log((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 4000);
+                gunShot2.stereo((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 6000);
+                console.log((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 6000);
             } else {
-                gunShot2.stereo(0 - ((window.innerWidth / 2 + posX - parseFloat(dom.style.left) + posX) / 4000))
-                console.log((0 - (4000 / (window.innerWidth / 2 + posX - parseFloat(dom.style.left) + posX) / 4000)));
+                gunShot2.stereo(0 - ((window.innerWidth / 2 + posX - parseFloat(dom.style.left)) / 6000))
+                console.log((0 - (4000 / (window.innerWidth / 2 + posX - parseFloat(dom.style.left)) / 6000)));
             }
-            var a = posX + parseFloat(dom.style.left) - (window.innerWidth / 2 + posX);
-            var b = posY + parseFloat(dom.style.top) - (window.innerHeight / 2 + posY);              
-            var c = Math.sqrt(Math.abs(Math.pow(a, 2) + Math.pow(b, 2)));
+            
                           
-            console.log(Math.abs(1 - c / 4000));
-            gunShot2.volume(Math.abs(1 - c / 4000));
+            console.log(Math.abs(1 - c / 4000), a, b, c, dom.style.left, window.innerWidth / 2, 0 - posX);
+            gunShot2.volume(parseFloat(Math.abs(1 - c / 4000)));
+              
             
             console.log(gunShot2.stereo);
             gunShot2.play();
