@@ -294,11 +294,11 @@ room.onJoin.add(function() {
             //gunShot2.orientation[(window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 1];
             //gunShot2.pos((window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 0);
             if ((window.innerWidth / 2) > parseFloat(dom.style.left)) {
-                gunShot2.stereo((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 6000);
-                console.log((parseFloat(dom.style.left) - window.innerWidth / 2 + posX) / 6000);
+                gunShot2.stereo((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 6000);
+                console.log((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 6000);
             } else {
-                gunShot2.stereo(0 - ((window.innerWidth / 2 + posX - parseFloat(dom.style.left)) / 6000))
-                console.log((0 - (4000 / (window.innerWidth / 2 + posX - parseFloat(dom.style.left)) / 6000)));
+                gunShot2.stereo(0 - ((window.innerWidth / 2 - posX - parseFloat(dom.style.left)) / 6000))
+                console.log((0 - ((window.innerWidth / 2 - posX - parseFloat(dom.style.left)) / 6000)));
             }
             
                           
