@@ -12,6 +12,8 @@ var imgLayer1 = document.getElementById("layer1");
 var gameArea = document.getElementById("divGame");
 // var imgTerrorist1 = document.getElementById("terrorist1")
 
+var miniPlayer = document.getElementById("miniplayer");
+
 var imgBlackout;
 var imgTortue;
 var imgPlayer = document.getElementById("PewDiePie");
@@ -903,6 +905,10 @@ function movement() {
     players[myId].style.left = window.innerWidth / 2 - posX + 'px';
     players[myId].style.top = window.innerHeight / 2 - posY + 'px';
     players[myId].style.transform = 'rotate('+deg+'deg)';
+    
+    miniPlayer.style.left = (window.innerWidth * 0.8955) - (posX * 0.03475) + "px";
+    miniPlayer.style.top = (window.innerHeight * 0.755) - (posY * 0.03475) + "px";
+    console.log(miniPlayer.style.left, miniPlayer.style.top);
 }
 var collided = 0;
 function bulletCol(rect, i, static){
