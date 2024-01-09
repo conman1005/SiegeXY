@@ -8,7 +8,7 @@ const monitor = require("@colyseus/monitor").monitor;
 const MyRoom = require('./MyRoom').MyRoom;
 colyseus.serialize(colyseus.FossilDeltaSerializer)(MyRoom);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 88;
 const app = express();
 
 const server = http.createServer(app);
