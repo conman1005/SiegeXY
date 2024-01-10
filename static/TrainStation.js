@@ -431,44 +431,44 @@ function movement() {
             if ((left === true) || (right === true)) {
                 posY = posY + (playerSpeed / 2);
                 terro1Y = terro1Y + (playerSpeed / 2);
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] + (playerSpeed / 2);
                     }
-                }
+                }*/
             }
             else {
                 posY = posY + playerSpeed;
                 terro1Y = terro1Y + playerSpeed;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] + playerSpeed;
                     }
-                }
+                }*/
             }
         }
         else {
             if ((left === true) || (right === true)) {
                 posY = posY + 0.5;
                 terro1Y = terro1Y + 0.5;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] + 0.5;
                     }
-                }
+                }*/
             }
             else {
                 posY = posY + 1;
                 terro1Y = terro1Y + 1;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] + 1;
                     }
-                }
+                }*/
             }
         }
         gameArea.style.top = posY + "px";
@@ -483,44 +483,44 @@ function movement() {
             if ((up === true) || (down === true)) {
                 posX = posX + (playerSpeed / 2);
                 terro1X = terro1X + (playerSpeed / 2);
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] + (playerSpeed / 2);
                     }
-                }
+                }*/
             }
             else {
                 posX = posX + playerSpeed;
                 terro1X = terro1X + playerSpeed;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] + playerSpeed;
                     }
-                }
+                }*/
             }
         }
         else {
             if ((up === true) || (down === true)) {
                 posX = posX + 0.5;
                 terro1X = terro1X + 0.5;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] + 0.5;
                     }
-                }
+                }*/
             }
             else {
                 posX = posX + 1;
                 terro1X = terro1X + 1;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] + 1;
                     }
-                }
+                }*/
             }
         }
         gameArea.style.left = posX + "px";
@@ -535,44 +535,44 @@ function movement() {
             if ((left === true) || (right === true)) {
                 posY = posY - (playerSpeed / 2);
                 terro1Y = terro1Y - (playerSpeed / 2);
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] - (playerSpeed / 2);
                     }
-                }
+                }*/
             }
             else {
                 posY = posY - playerSpeed;
                 terro1Y = terro1Y - playerSpeed;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] - playerSpeed;
                     }
-                }
+                }*/
             }
         }
         else {
             if ((left === true) || (right === true)) {
                 posY = posY - 0.5;
                 terro1Y = terro1Y - 0.5;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] - 0.5;
                     }
-                }
+                }*/
             }
             else {
                 posY = posY - 1;
                 terro1Y = terro1Y - 1;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletY[i] = bulletY[i] - 1;
                     }
-                }
+                }*/
             }
         }
         gameArea.style.top = posY + "px";
@@ -586,44 +586,44 @@ function movement() {
             if ((up === true) || (down === true)) {
                 posX = posX - (playerSpeed / 2);
                 terro1X = terro1X - (playerSpeed / 2);
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] - (playerSpeed / 2);
                     }
-                }
+                }*/
             }
             else {
                 posX = posX - playerSpeed;
                 terro1X = terro1X - playerSpeed;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] - playerSpeed;
                     }
-                }
+                }*/
             }
         }
         else {
             if ((up === true) || (down === true)) {
                 posX = posX - 0.5;
                 terro1X = terro1X - 0.5;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] - 0.5;
                     }
-                }
+                }*/
             }
             else {
                 posX = posX - 1;
                 terro1X = terro1X - 1;
-                if (hasShot === true) {
+                /*if (hasShot === true) {
                     var i;
                     for (i in bullets) {
                       bulletX[i] = bulletX[i] - 1;
                     }
-                }
+                }*/
             }
         }
         gameArea.style.left = posX + "px";
