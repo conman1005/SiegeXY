@@ -264,8 +264,22 @@ room.onJoin.add(function() {
             var dom = document.createElement("IMG");
             dom.className = "bullet";
             dom.setAttribute("style", "position: absolute");
-            dom.style.left = player.x + "px";
-            dom.style.top = player.y + "px";
+
+            // Make sure the bullet spawns OUTSIDE the player collision box (otherwise the bullet can shoot at yourself)
+            if (Math.abs(player.rot) < 90) {
+                dom.style.left = player.x + 15 + "px";
+            } else {
+                dom.style.left = player.x - 15 + "px";
+            }
+            if (player.rot < 0) {
+                dom.style.top = player.y - 15 + "px";
+            } else {
+                dom.style.top = player.y + 15 + "px";
+            }
+
+
+            //dom.style.left = player.x  + "px";
+            //dom.style.top = player.y  + "px";
             dom.style.width = "10";
             dom.style.height = "4.1";
             dom.style.transform = 'rotate(' + player.rot + 'deg)';
@@ -277,6 +291,8 @@ room.onJoin.add(function() {
             //console.log(player.x, player.y, player.rot);
 
             dom.src = 'GameTextures/Bullet.png';
+
+            console.log("Player Rotation: " + player.rot);
 
             gameArea.appendChild(dom);
 
@@ -295,9 +311,11 @@ room.onJoin.add(function() {
             });
             //gunShot2.orientation[(window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 1];
             //gunShot2.pos((window.innerWidth / 2) / parseFloat(dom.style.left), (window.innerHeight / 2) / parseFloat(dom.style.top), 0);
+
+            // Stereo Sound
             if ((window.innerWidth / 2) > parseFloat(dom.style.left)) {
-                gunShot2.stereo((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 6000);
-                console.log((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 6000);
+                gunShot2.stereo((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 3000);
+                console.log("Stereo Bullet Volume" + ((parseFloat(dom.style.left) - (window.innerWidth / 2 - posX)) / 3000));
             } else {
                 gunShot2.stereo(0 - ((window.innerWidth / 2 - posX - parseFloat(dom.style.left)) / 6000))
                 console.log((0 - ((window.innerWidth / 2 - posX - parseFloat(dom.style.left)) / 6000)));
@@ -837,7 +855,7 @@ function movement() {
         shootTimer++;
         if (shootTimer === 1) {
               var shot = bullets.length;
-              var e = window.event;
+              //var e = window.event;
               //console.log("mouseX: ", (e.clientX - posX), "   mouseY: ", (e.clientY - posY), x1, y1, x2, y2);
 
               var gunShot = new Audio('SoundEffects/Shot1.mp3');
@@ -867,18 +885,18 @@ function movement() {
 
               newBullet.setAttribute("data-x", window.innerWidth / 2);
               newBullet.setAttribute("data-y", window.innerHeight / 2);
-              newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 5);
-              newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 5);
+              newBullet.setAttribute("data-directionX", Math.cos(deg * Math.PI / 180) * 1);
+              newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 1);
 
               var degSpray;
-              if (spray === false) {
+              if (spray === false || 1 == 1) {
                   degSpray = deg;
               } else {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);
               }
 
-              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 10 - posX;
-              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 10 - posY;
+              var bulx = window.innerWidth / 2 + Math.cos(degSpray * Math.PI / 180) * 1 - posX;
+              var buly = window.innerHeight / 2 + Math.sin(degSpray * Math.PI / 180) * 1 - posY;
 
               newBullet.style.transform = 'rotate(' + degSpray + 'deg)';
 
