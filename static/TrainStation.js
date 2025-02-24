@@ -1,36 +1,43 @@
-//import {Howl, Howler} from 'howler';
-//const {Howl, Howler} = require('howler');
+/*
+    SIEGE-XY TRAINSTATION SCRIPT
+    REVISED: 2025-02-24
+
+    CONNER CULLITY & NATHAN STURGEON
+*/
 
 
-
+// Canvas Variables
 var cnvGame;
 var ctx;
 
-
+// Image Layers and Collission Layer
 var imgLayer2 = document.getElementById("layer2");
 var imgLayer1 = document.getElementById("layer1");
 var gameArea = document.getElementById("divGame");
-// var imgTerrorist1 = document.getElementById("terrorist1")
 
+// Player on Minimap
 var miniPlayer = document.getElementById("miniplayer");
 
+// Default Operators (Maybe not needed)
 var imgBlackout;
 var imgTortue;
 var imgPlayer = document.getElementById("PewDiePie");
 
-var gameArea = document.getElementById("divGame");
-
+// Get operator from URL Variable
 var url = window.location.href.search("op=") + 3;
 var op = window.location.href.substr(url);
 
+// Initialize Primary Weaoppn Images for Operators
 var PrimaryVisionImage = localStorage.getItem("VisionPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("VisionPrimary");
 var PrimaryBlackoutImage = localStorage.getItem("BlackoutPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BlackoutPrimary");
 var PrimaryBulletPointImage = localStorage.getItem("BulletPointPrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("BulletPointPrimary");
 var PrimaryGlazeImage = localStorage.getItem("GlazePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("GlazePrimary");
 var PrimaryPewdiepieImage = localStorage.getItem("PewdiepiePrimary")==null ? 'WeaponSlotPrimary' : localStorage.getItem("PewdiepiePrimary");
 
+// Initialize weapon
 var weapon = "";
 
+// Set operator images to player on screen
 if(op === 'BulletPoint'){
 document.getElementById('PewDiePie').src="GameTextures/" + op + "-" + PrimaryBulletPointImage +".png";
 weapon = localStorage.getItem("BulletPointPrimary");
@@ -57,9 +64,11 @@ weapon = localStorage.getItem("PewdiepiePrimary");
 console.log("Pewdiepie");
 }
 
+// Player Variables
 var playerSpeed = 1.3;
 var run = false;
 
+// Player Position
 var terro1X = 900;
 var terro1Y = 300;
 var posX = 0;
@@ -81,13 +90,7 @@ var vision = document.getElementsByClassName("collisionVision");
 var bulletHell = false;
 var god = false;
 
-//paper.setup(document.getElementById("paperCanvas"));
 
-//var walls = paper.project.importSVG(document.getElementById('walls'));
-//var svgP = paper.project.importSVG(document.getElementById('svgP'));
-
-//var collisions = walls.children.wall;
-//var playerBox = svgP.chilren.player;
 
 var bullets = [];
 var bulletDirectionX = [];
@@ -121,7 +124,7 @@ var shooting = false;
 var shootTime = 0;
 var fireRate = 27;
 var shootTimer = 0;
-var spray = false;
+var spray = true;
 
 var mouse = [0, 0];
 var point = getOffset(imgPlayer);
@@ -135,9 +138,10 @@ var bullet = new Image;
 var load = false;
 
 var host = window.document.location.host.replace(/:.*/, '');
+var port = 8088;
 
 //var client = new Colyseus.Client(location.protocol.replace("http", "ws") + host + (location.port ? ':' + location.port : ''));
-var client = new Colyseus.Client("ws:" + host + ":80");
+var client = new Colyseus.Client(`ws:${host}:${port}`);
 var room = client.join("my_room");
 
 var players = {};
@@ -889,7 +893,7 @@ function movement() {
               newBullet.setAttribute("data-directionY", Math.sin(deg * Math.PI / 180) * 1);
 
               var degSpray;
-              if (spray === false || 1 == 1) {
+              if (spray === false) {
                   degSpray = deg;
               } else {
                   degSpray = Math.random() * ((deg + 3) - (deg - 3)) + (deg - 3);

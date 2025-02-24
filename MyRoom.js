@@ -6,6 +6,7 @@ class Player {
     this.y = y;
     this.rot = rot;
     this.src = src;
+    console.log("new player");
   }
 }
 
